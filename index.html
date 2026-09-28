@@ -17,6 +17,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
@@ -47,11 +48,11 @@
 }
 </script>
 
-<!-- Enable motion only in browsers that can run it; everything is visible without it (IE, no-JS, reduced motion). -->
+<!-- Motion is opt-in: only browsers that can run it get .anim. Content is visible without it (IE11, no-JS, reduced motion). -->
 <script>
   (function () {
     var d = document.documentElement;
-    d.className = d.className.replace('no-js', '') + ' js';
+    d.className += ' js';
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if ('IntersectionObserver' in window && 'classList' in d && !reduce) d.className += ' anim';
   })();
@@ -59,132 +60,129 @@
 
 <style>
 /* ==========================================================================
-   Palette (literal values so older browsers render colours correctly)
-   porcelain #F4F5F1 · white #FFFFFF · petrol ink #0D1F22 · slate #4E5F63
-   brand teal #2FA59C (accents) · teal text #1E7C75 · logo green #7DBE4E
-   deep petrol #0D1F22 / on-dark #E8EFEE / on-dark muted #9DB0B1
+   Colour system (literal values so older browsers render correctly)
+   Surfaces   porcelain #F4F5F1 · white #FFFFFF · mist #E9EEEC
+   Ink        petrol #0D1F22 · slate #4E5F63 · stone #8A999C
+   Brand      teal #2FA59C · teal text #1E7C75 · luminous teal (on dark) #6FD0C7 · logo green #7DBE4E
+   Deep       petrol #0D1F22 · raised #13292D · on-dark #E8EFEE · on-dark muted #9DB0B1
    ========================================================================== */
 @property --ang { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
 
 *, *:before, *:after { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-body {
-  margin: 0; background: #F4F5F1; color: #0D1F22;
-  font-family: "IBM Plex Sans", "Segoe UI", Arial, sans-serif; font-size: 17px; line-height: 1.65;
-  -webkit-font-smoothing: antialiased; overflow-x: hidden;
-}
+body { margin: 0; background: #F4F5F1; color: #0D1F22; font-family: "IBM Plex Sans", "Segoe UI", Arial, sans-serif; font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 main, header, footer, section, nav, article, figure, figcaption, aside { display: block; }
 img { max-width: 100%; border: 0; }
 a { color: inherit; }
 a:focus, button:focus, input:focus, select:focus, textarea:focus { outline: 2px solid #2FA59C; outline-offset: 3px; }
 a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
-section[id] { scroll-margin-top: 90px; }
+section[id] { scroll-margin-top: 84px; }
 .wrap { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
 .skip { position: absolute; left: -999px; top: 8px; z-index: 100; padding: 10px 16px; background: #0D1F22; color: #FFFFFF; border-radius: 8px; }
 .skip:focus { left: 16px; }
-.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-/* type */
-.serif { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-weight: 500; letter-spacing: -.015em; }
-.kicker { display: block; margin: 0 0 18px; font-size: 12.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #1E7C75; }
+/* ---------- Type scale ---------- */
+.kicker { display: inline-block; margin: 0 0 20px; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: #1E7C75; }
+.kicker:before { content: ""; display: inline-block; width: 18px; height: 1.5px; margin-right: 10px; vertical-align: 3px; background: currentColor; }
 .dark .kicker { color: #6FD0C7; }
-.h2 { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; letter-spacing: -.02em; line-height: 1.08; font-size: 46px; font-size: clamp(2.1rem, 4.2vw, 3.5rem); }
-.lead { margin: 22px 0 0; max-width: 640px; font-size: 19px; line-height: 1.6; color: #4E5F63; }
+.h2 { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; letter-spacing: -.022em; line-height: 1.06; font-size: 46px; font-size: clamp(2.2rem, 4.3vw, 3.6rem); }
+.lead { margin: 24px 0 0; max-width: 60ch; font-size: 19px; line-height: 1.62; color: #4E5F63; }
 .dark .lead { color: #9DB0B1; }
-.section { position: relative; padding: 130px 0; padding: clamp(88px, 11vw, 150px) 0; }
+.section { position: relative; padding: 130px 0; padding: clamp(96px, 11vw, 160px) 0; }
 .section-white { background: #FFFFFF; }
 .dark { background: #0D1F22; color: #E8EFEE; }
-.head { max-width: 760px; margin-bottom: 64px; }
+.head { max-width: 780px; margin-bottom: 64px; }
 .head-center { margin-left: auto; margin-right: auto; text-align: center; }
 .head-center .lead { margin-left: auto; margin-right: auto; }
 
-/* buttons */
-.btn {
-  display: inline-block; min-height: 50px; padding: 14px 24px; border-radius: 999px; border: 1px solid transparent;
-  font: 500 15px/20px "IBM Plex Sans", "Segoe UI", Arial, sans-serif; text-decoration: none; cursor: pointer;
-  transition: background-color .25s, color .25s, border-color .25s, box-shadow .3s, transform .3s;
-}
-.btn .arr { display: inline-block; margin-left: 8px; transition: transform .3s; }
-.btn:hover .arr { transform: translateX(4px); }
+/* ---------- Buttons & links ---------- */
+.btn { position: relative; display: inline-block; min-height: 50px; padding: 14px 24px; border-radius: 999px; border: 1px solid transparent; font: 500 15px/20px "IBM Plex Sans", "Segoe UI", Arial, sans-serif; text-decoration: none; cursor: pointer; transition: background-color .3s, color .3s, border-color .3s, box-shadow .35s, transform .35s cubic-bezier(.2, .7, .1, 1); }
+.btn .arr { display: inline-block; margin-left: 8px; transition: transform .35s cubic-bezier(.2, .7, .1, 1); }
+.btn:hover .arr { transform: translateX(5px); }
+.btn:active { transform: scale(.98); }
 .btn-primary { background: #0D1F22; color: #FFFFFF; }
-.btn-primary:hover { background: #1E7C75; box-shadow: 0 14px 30px -14px rgba(30, 124, 117, .7); transform: translateY(-1px); }
+.btn-primary:hover { background: #17363A; box-shadow: 0 0 0 5px rgba(47, 165, 156, .14), 0 16px 32px -16px rgba(13, 31, 34, .7); transform: translateY(-2px); }
 .btn-ghost { background: transparent; color: #0D1F22; border-color: rgba(13, 31, 34, .22); }
-.btn-ghost:hover { border-color: #0D1F22; }
+.btn-ghost:hover { border-color: #0D1F22; background: #FFFFFF; transform: translateY(-2px); }
 .dark .btn-primary { background: #6FD0C7; color: #0D1F22; }
-.dark .btn-primary:hover { background: #FFFFFF; }
-.link-arrow { display: inline-block; margin-top: 26px; font-weight: 600; color: #1E7C75; text-decoration: none; border-bottom: 1px solid rgba(30, 124, 117, .35); padding-bottom: 2px; }
-.link-arrow:hover { border-color: #1E7C75; }
+.dark .btn-primary:hover { background: #FFFFFF; box-shadow: 0 0 0 5px rgba(111, 208, 199, .18); }
+.link-arrow { position: relative; display: inline-block; margin-top: 26px; font-weight: 600; color: #1E7C75; text-decoration: none; padding-bottom: 3px; }
+.link-arrow:after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1.5px; background: #2FA59C; transform: scaleX(.3); transform-origin: left; transition: transform .45s cubic-bezier(.2, .7, .1, 1); }
+.link-arrow:hover:after { transform: scaleX(1); }
 
-/* ================= Header ================= */
-.header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #F4F5F1; background: rgba(244, 245, 241, .88); border-bottom: 1px solid transparent; transition: border-color .3s, box-shadow .3s; }
-@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) { .header { -webkit-backdrop-filter: saturate(1.4) blur(14px); backdrop-filter: saturate(1.4) blur(14px); } }
-.header.scrolled { border-color: rgba(13, 31, 34, .08); box-shadow: 0 10px 30px -24px rgba(13, 31, 34, .6); }
-.header-in { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+/* ---------- Header ---------- */
+.header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #F4F5F1; background: rgba(244, 245, 241, .72); border-bottom: 1px solid transparent; transition: background-color .35s, border-color .35s, box-shadow .35s; }
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) { .header { -webkit-backdrop-filter: saturate(1.5) blur(16px); backdrop-filter: saturate(1.5) blur(16px); } }
+.header.scrolled { background: rgba(244, 245, 241, .9); border-color: rgba(13, 31, 34, .08); box-shadow: 0 12px 30px -26px rgba(13, 31, 34, .7); }
+.progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: #2FA59C; transform: scaleX(0); transform-origin: left; }
+.header-in { display: flex; align-items: center; justify-content: space-between; height: 74px; }
 .brand { display: flex; align-items: center; text-decoration: none; }
-.brand img { display: block; height: 46px; width: auto; }
+.brand img { display: block; height: 44px; width: auto; }
 .nav { display: flex; align-items: center; }
-.nav-list { display: flex; align-items: center; list-style: none; margin: 0 18px 0 0; padding: 0; }
-.nav-list > li { position: relative; }
-.nav-link { display: inline-block; padding: 12px 16px; border: 0; background: none; cursor: pointer; font: 500 15px/20px "IBM Plex Sans", "Segoe UI", Arial, sans-serif; color: #0D1F22; text-decoration: none; position: relative; }
-.nav-link:after { content: ""; position: absolute; left: 16px; right: 16px; bottom: 6px; height: 1.5px; background: #2FA59C; transform: scaleX(0); transform-origin: left; transition: transform .3s; }
-.nav-link:hover:after, .nav-link.active:after { transform: scaleX(1); }
-.nav-link .chev { display: inline-block; margin-left: 6px; width: 7px; height: 7px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg) translateY(-3px); transition: transform .3s; }
-.nav-link[aria-expanded="true"] .chev { transform: rotate(-135deg) translateY(-1px); }
-.mega {
-  position: absolute; top: 100%; left: 50%; width: 760px; margin-left: -300px; margin-top: 10px; padding: 18px;
-  background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .08); border-radius: 18px; box-shadow: 0 30px 60px -30px rgba(13, 31, 34, .45);
-  display: none;
-}
-.mega.open { display: block; }
-.mega-grid { display: flex; flex-wrap: wrap; }
-.mega a { display: block; width: 33.333%; padding: 14px 16px; border-radius: 12px; text-decoration: none; transition: background-color .2s; }
-.mega a:hover { background: #F4F5F1; }
-.mega strong { display: block; font-weight: 600; font-size: 15px; }
-.mega span { display: block; margin-top: 4px; font-size: 13.5px; line-height: 1.45; color: #4E5F63; }
-.mega .core strong:before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: #2FA59C; vertical-align: 2px; }
+.nav-list { display: flex; align-items: center; list-style: none; margin: 0 20px 0 0; padding: 0; }
+.nav-link { position: relative; display: inline-block; padding: 12px 17px; font-size: 15px; font-weight: 500; color: #0D1F22; text-decoration: none; transition: color .25s; }
+.nav-link:after { content: ""; position: absolute; left: 17px; right: 17px; bottom: 7px; height: 1.5px; background: #2FA59C; transform: scaleX(0); transform-origin: right; transition: transform .4s cubic-bezier(.2, .7, .1, 1); }
+.nav-link:hover:after { transform: scaleX(1); transform-origin: left; }
+.nav-link.active { color: #1E7C75; }
+.nav-link.active:after { transform: scaleX(1); }
 .menu-btn { display: none; width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(13, 31, 34, .18); background: #FFFFFF; cursor: pointer; }
-.menu-btn span, .menu-btn span:before, .menu-btn span:after { display: block; width: 18px; height: 1.5px; margin: 0 auto; background: #0D1F22; position: relative; transition: transform .3s; content: ""; }
+.menu-btn span, .menu-btn span:before, .menu-btn span:after { display: block; width: 18px; height: 1.5px; margin: 0 auto; background: #0D1F22; position: relative; content: ""; transition: transform .3s, opacity .3s; }
 .menu-btn span:before { position: absolute; top: -6px; }
 .menu-btn span:after { position: absolute; top: 6px; }
+.menu-btn[aria-expanded="true"] span { background: transparent; }
+.menu-btn[aria-expanded="true"] span:before { transform: translateY(6px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] span:after { transform: translateY(-6px) rotate(-45deg); }
 .mobile-panel { display: none; }
 
-/* ================= Hero ================= */
-.hero { position: relative; overflow: hidden; padding: 150px 0 90px; min-height: 760px; background: #F4F5F1; }
+/* ---------- 3D scene containers (shared) ---------- */
+.scene { position: relative; }
+.scene canvas { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; z-index: 1; }
+.scene .fallback { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+.scene.has-webgl .fallback { display: none; }
+.scene-label { position: absolute; z-index: 2; left: 0; top: 0; white-space: nowrap; pointer-events: none; font-size: 11px; font-weight: 600; letter-spacing: .14em; color: #0D1F22; transition: opacity .5s; will-change: transform; }
+.scene-label b { display: inline-block; padding: 4px 9px; border-radius: 999px; font-weight: 600; background: rgba(255, 255, 255, .9); border: 1px solid rgba(13, 31, 34, .08); box-shadow: 0 6px 16px -10px rgba(13, 31, 34, .5); }
+.scene-label.key b { background: #0D1F22; color: #FFFFFF; border-color: #0D1F22; }
+.scene-label.plain b { background: none; border: 0; box-shadow: none; padding: 0; color: #4E5F63; }
+.dark .scene-label { color: #E8EFEE; }
+.dark .scene-label b { background: rgba(19, 41, 45, .9); border-color: rgba(232, 239, 238, .12); box-shadow: none; }
+.dark .scene-label.key b { background: #6FD0C7; color: #0D1F22; border-color: #6FD0C7; }
+/* animated SVG fallbacks (also the mobile visuals) */
+.fallback text { font-family: "IBM Plex Sans", "Segoe UI", Arial, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 1.4px; fill: #0D1F22; }
+.dark .fallback text { fill: #E8EFEE; }
+.anim .flowline { stroke-dasharray: 4 7; animation: dash 1.8s linear infinite; }
+.anim .pulse-dot { animation: pulse 2.4s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+.anim .slow-spin { animation: spin 60s linear infinite; transform-origin: center; transform-box: fill-box; }
+@keyframes dash { to { stroke-dashoffset: -22; } }
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.18); opacity: .75; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; overflow: hidden; padding: 140px 0 96px; min-height: 780px; background: #F4F5F1; }
 .hero-bg { position: absolute; left: 0; top: 0; right: 0; bottom: 0; pointer-events: none; }
-.hero-bg .grid {
-  position: absolute; left: 0; top: 0; right: 0; bottom: 0; opacity: .6;
-  background-image: linear-gradient(rgba(13, 31, 34, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(13, 31, 34, .05) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 70% 45%, #000 20%, transparent 75%); mask-image: radial-gradient(ellipse 70% 60% at 70% 45%, #000 20%, transparent 75%);
-}
-.hero-bg .glow { position: absolute; right: -10%; top: 5%; width: 60%; height: 90%; background: radial-gradient(closest-side, rgba(47, 165, 156, .14), rgba(47, 165, 156, 0)); }
-.hero-in { position: relative; display: flex; align-items: center; }
-.hero-copy { position: relative; z-index: 2; width: 48%; }
-.hero h1 { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; letter-spacing: -.025em; line-height: 1.02; font-size: 64px; font-size: clamp(2.7rem, 5.5vw, 5.1rem); }
+.hero-bg .grid { position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-image: linear-gradient(rgba(13, 31, 34, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(13, 31, 34, .045) 1px, transparent 1px); background-size: 64px 64px; -webkit-mask-image: radial-gradient(ellipse 60% 70% at 72% 48%, #000 15%, transparent 72%); mask-image: radial-gradient(ellipse 60% 70% at 72% 48%, #000 15%, transparent 72%); }
+.hero-bg .glow { position: absolute; right: -8%; top: 0; width: 64%; height: 100%; background: radial-gradient(closest-side, rgba(47, 165, 156, .16), rgba(47, 165, 156, 0)); }
+.hero-in { position: relative; display: flex; align-items: center; min-height: 560px; }
+.hero-copy { position: relative; z-index: 3; width: 47%; }
+.hero h1 { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; letter-spacing: -.028em; line-height: 1; font-size: 66px; font-size: clamp(2.8rem, 5.6vw, 5.4rem); }
 .hero h1 em { font-style: italic; color: #1E7C75; }
-.hero .lead { font-size: 19.5px; max-width: 560px; }
+.hero .lead { font-size: 19.5px; max-width: 540px; }
 .hero-cta { margin-top: 36px; }
 .hero-cta .btn { margin: 0 10px 10px 0; }
-.focus { margin-top: 38px; padding-top: 26px; border-top: 1px solid rgba(13, 31, 34, .1); }
-.focus .focus-title { margin: 0 0 12px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #4E5F63; font-weight: 600; }
-.chips a { display: inline-block; margin: 0 8px 8px 0; padding: 8px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .1); font-size: 14.5px; font-weight: 500; text-decoration: none; transition: border-color .25s, color .25s; }
-.chips a:hover { border-color: #2FA59C; color: #1E7C75; }
-.who { margin: 18px 0 0; font-size: 15px; color: #4E5F63; }
-.hero-visual { position: absolute; right: -40px; top: -60px; bottom: -40px; width: 58%; z-index: 1; }
-.hero-visual canvas { display: none; position: relative; z-index: 1; width: 100%; height: 100%; }
-.hero-visual.has-webgl canvas { display: block; }
-.hero-visual.has-webgl .flow-fallback { display: none; }
-.flow-fallback { position: absolute; left: 6%; top: 12%; width: 90%; height: 78%; }
-.flow-label { position: absolute; z-index: 2; left: 0; top: 0; white-space: nowrap; pointer-events: none; font-size: 11.5px; font-weight: 600; letter-spacing: .14em; color: #0D1F22; opacity: 0; transition: opacity .6s; }
-.flow-label span { display: inline-block; padding: 5px 10px; border-radius: 999px; background: rgba(255, 255, 255, .85); border: 1px solid rgba(13, 31, 34, .08); }
-.flow-label.on { opacity: 1; }
-.flow-label.ai span { background: #0D1F22; color: #FFFFFF; border-color: #0D1F22; }
+.focus { margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(13, 31, 34, .1); max-width: 540px; }
+.focus-title { margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #4E5F63; }
+.chips a { display: inline-block; margin: 0 8px 8px 0; padding: 8px 15px; border-radius: 999px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .1); font-size: 14.5px; font-weight: 500; text-decoration: none; transition: border-color .25s, color .25s, transform .3s, box-shadow .3s; }
+.chips a:hover { border-color: #2FA59C; color: #1E7C75; transform: translateY(-2px); box-shadow: 0 10px 20px -14px rgba(30, 124, 117, .8); }
+.who { margin: 16px 0 0; font-size: 15px; color: #4E5F63; }
+.hero-visual { position: absolute; right: -60px; top: -90px; bottom: -70px; width: 60%; z-index: 1; }
+.hero-visual .fallback { left: 6%; width: 84%; }
 
-/* ================= Challenges ================= */
+/* ---------- Challenges ---------- */
 .challenges { display: flex; flex-wrap: wrap; margin: 0 -10px; }
 .challenge { width: 25%; padding: 10px; }
-.challenge-in { height: 100%; padding: 26px 24px 24px; border-radius: 18px; background: #F4F5F1; border: 1px solid rgba(13, 31, 34, .06); transition: background-color .3s, border-color .3s, transform .3s, box-shadow .3s; }
-.challenge-in:hover { background: #FFFFFF; border-color: rgba(47, 165, 156, .45); transform: translateY(-3px); box-shadow: 0 24px 40px -30px rgba(13, 31, 34, .5); }
+.challenge-in { position: relative; height: 100%; padding: 28px 24px 24px; border-radius: 20px; background: #F4F5F1; border: 1px solid rgba(13, 31, 34, .06); transition: background-color .35s, border-color .35s, transform .45s cubic-bezier(.2, .7, .1, 1), box-shadow .45s; overflow: hidden; }
+.challenge-in:before { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: #2FA59C; transform: scaleX(0); transform-origin: left; transition: transform .5s cubic-bezier(.2, .7, .1, 1); }
+.challenge-in:hover { background: #FFFFFF; border-color: rgba(47, 165, 156, .35); transform: translateY(-4px); box-shadow: 0 26px 44px -32px rgba(13, 31, 34, .55); }
+.challenge-in:hover:before { transform: scaleX(1); }
 .challenge h3 { margin: 0 0 10px; font-size: 18px; line-height: 1.3; font-weight: 600; }
 .challenge p { margin: 0; font-size: 15px; line-height: 1.55; color: #4E5F63; }
 .tags { margin-top: 18px; }
@@ -194,156 +192,205 @@ section[id] { scroll-margin-top: 90px; }
 .legend { margin-top: 30px; font-size: 14px; color: #4E5F63; }
 .legend .tag { margin-left: 14px; }
 
-/* ================= Pillars connection ================= */
-.pillars { position: relative; display: flex; margin: 0 -12px; }
-.pillar { position: relative; z-index: 1; width: 33.333%; padding: 0 12px; }
-.pillar-card { position: relative; height: 100%; padding: 34px 30px; border-radius: 22px; background: #13292D; border: 1px solid rgba(232, 239, 238, .08); transition: border-color .35s, transform .35s, background-color .35s; }
-.pillar-card:hover, .pillar.is-on .pillar-card { border-color: rgba(111, 208, 199, .55); background: #16302F; transform: translateY(-4px); }
-.pillar-step { font-size: 12.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #6FD0C7; }
-.pillar-card h3 { margin: 16px 0 12px; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 30px; line-height: 1.1; }
-.pillar-card p { margin: 0; color: #B7C6C6; }
-.pillar-icon { width: 64px; height: 64px; margin-bottom: 24px; }
-.pillar-link { position: absolute; left: 12%; right: 12%; top: 62px; height: 2px; z-index: 0; }
-.pillar-link svg { display: block; width: 100%; height: 12px; margin-top: -5px; overflow: visible; }
+/* ---------- One joined-up discipline ---------- */
+.pillars-stage { height: 560px; margin: 0 -40px 8px; }
+.pillars-caption { position: absolute; z-index: 3; left: 50%; bottom: 18px; transform: translateX(-50%); padding: 10px 18px; border-radius: 999px; background: rgba(19, 41, 45, .92); border: 1px solid rgba(111, 208, 199, .25); font-size: 14px; color: #C9D6D5; white-space: nowrap; pointer-events: none; display: none; }
+.pillars-stage.has-webgl .pillars-caption { display: block; }
+.pillars-caption b { color: #6FD0C7; font-weight: 600; }
+.pillars { display: flex; margin: 0 -12px; }
+.pillar { position: relative; width: 33.333%; padding: 0 12px; }
+.pillar-card { position: relative; display: block; width: 100%; height: 100%; padding: 30px 28px; border-radius: 22px; background: #13292D; border: 1px solid rgba(232, 239, 238, .08); text-align: left; color: #E8EFEE; font: inherit; transition: border-color .4s, transform .5s cubic-bezier(.2, .7, .1, 1), background-color .4s, box-shadow .5s; }
+.pillar.is-on .pillar-card, .pillar-card:hover { border-color: rgba(111, 208, 199, .6); background: #163134; transform: translateY(-6px); box-shadow: 0 30px 50px -30px rgba(0, 0, 0, .8), 0 0 0 1px rgba(111, 208, 199, .15); }
+.pillar-step { font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #6FD0C7; }
+.pillar-card h3 { margin: 14px 0 10px; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 29px; line-height: 1.1; }
+.pillar-card p { margin: 0; color: #9DB0B1; transition: color .4s; }
+.pillar.is-on .pillar-card p, .pillar-card:hover p { color: #DCE6E5; }
+.pillar-icon { width: 56px; height: 56px; margin-bottom: 20px; transition: transform .5s cubic-bezier(.2, .7, .1, 1); }
+.pillar.is-on .pillar-icon, .pillar-card:hover .pillar-icon { transform: translateY(-3px) scale(1.06); }
 .result { margin-top: 26px; display: flex; align-items: center; padding: 28px 32px; border-radius: 22px; background: linear-gradient(110deg, rgba(47, 165, 156, .22), rgba(125, 190, 78, .12)); border: 1px solid rgba(111, 208, 199, .35); }
 .result-mark { flex: none; width: 52px; height: 52px; margin-right: 22px; border-radius: 50%; background: #6FD0C7; position: relative; }
-.result-mark:after { content: ""; position: absolute; left: 18px; top: 14px; width: 12px; height: 20px; border-right: 3px solid #0D1F22; border-bottom: 3px solid #0D1F22; transform: rotate(45deg); }
+.result-mark:after { content: ""; position: absolute; left: 18px; top: 13px; width: 12px; height: 21px; border-right: 3px solid #0D1F22; border-bottom: 3px solid #0D1F22; transform: rotate(45deg); }
 .result p { margin: 0; font-size: 20px; line-height: 1.45; }
 .result strong { font-weight: 600; color: #FFFFFF; }
 .pov { margin: 48px auto 0; max-width: 820px; text-align: center; font-family: "Source Serif 4", Georgia, serif; font-size: 24px; line-height: 1.45; font-style: italic; color: #C9D6D5; }
 
-/* ================= Services ================= */
-.service { display: flex; align-items: flex-start; padding: 64px 0; border-top: 1px solid rgba(13, 31, 34, .1); }
+/* ---------- Services ---------- */
+.service { display: flex; align-items: flex-start; padding: 80px 0; border-top: 1px solid rgba(13, 31, 34, .1); }
 .service:first-of-type { border-top: 0; padding-top: 0; }
-.service-intro { width: 42%; padding-right: 56px; }
-.service-detail { width: 58%; }
-.service-label { display: inline-block; margin-bottom: 18px; padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; background: #E4EEEC; color: #1E7C75; }
-.service h3 { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 40px; font-size: clamp(2rem, 3.4vw, 2.8rem); letter-spacing: -.02em; line-height: 1.08; }
-.service-intro p { margin: 18px 0 0; font-size: 18px; color: #4E5F63; }
-.detail-card { padding: 34px 36px; border-radius: 22px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .07); box-shadow: 0 30px 60px -48px rgba(13, 31, 34, .5); }
-.detail-card h4 { margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #4E5F63; }
+.service-intro { width: 46%; padding-right: 56px; }
+.service-detail { width: 54%; }
+.service-label { display: inline-block; margin-bottom: 18px; padding: 5px 12px; border-radius: 999px; font-size: 11.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; background: #E4EEEC; color: #1E7C75; }
+.service h3 { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 42px; font-size: clamp(2.1rem, 3.5vw, 2.9rem); letter-spacing: -.022em; line-height: 1.06; }
+.service-intro p { margin: 18px 0 0; max-width: 46ch; font-size: 18px; color: #4E5F63; }
+.service-visual { height: 380px; margin-top: 30px; border-radius: 24px; background: radial-gradient(80% 80% at 50% 40%, #FFFFFF 0%, #EEF2F0 100%); border: 1px solid rgba(13, 31, 34, .06); overflow: hidden; }
+.detail-card { position: relative; padding: 36px 38px; border-radius: 24px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .07); box-shadow: 0 40px 70px -56px rgba(13, 31, 34, .6); transition: box-shadow .5s, transform .5s cubic-bezier(.2, .7, .1, 1); }
+.detail-card:hover { box-shadow: 0 50px 80px -50px rgba(13, 31, 34, .55); transform: translateY(-3px); }
+.detail-card h4 { margin: 0 0 16px; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #4E5F63; }
 .ticks { display: flex; flex-wrap: wrap; list-style: none; margin: 0 -10px; padding: 0; }
-.ticks li { position: relative; width: 50%; padding: 9px 10px 9px 38px; font-size: 16px; line-height: 1.45; }
-.ticks li:before { content: ""; position: absolute; left: 12px; top: 13px; width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid #2FA59C; }
+.ticks li { position: relative; width: 50%; padding: 9px 10px 9px 38px; font-size: 16px; line-height: 1.45; transition: color .25s; }
+.ticks li:before { content: ""; position: absolute; left: 12px; top: 13px; width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid #2FA59C; transition: background-color .25s; }
 .ticks li:after { content: ""; position: absolute; left: 17px; top: 16px; width: 3px; height: 6px; border-right: 1.5px solid #1E7C75; border-bottom: 1.5px solid #1E7C75; transform: rotate(45deg); }
+.ticks li:hover { color: #1E7C75; }
+.ticks li:hover:before { background: #E4EEEC; }
 .questions { margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(13, 31, 34, .08); }
 .questions ul { list-style: none; margin: 0; padding: 0; }
-.questions li { margin: 0 0 10px; padding-left: 22px; position: relative; font-family: "Source Serif 4", Georgia, serif; font-size: 19px; font-style: italic; color: #0D1F22; }
-.questions li:before { content: "\201C"; position: absolute; left: 0; top: -2px; color: #2FA59C; font-size: 26px; font-style: normal; }
-.supporting-head { margin: 90px 0 30px; }
-.supporting-head h3 { margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #4E5F63; }
+.questions li { margin: 0 0 10px; padding-left: 24px; position: relative; font-family: "Source Serif 4", Georgia, serif; font-size: 19px; font-style: italic; color: #0D1F22; }
+.questions li:before { content: "\201C"; position: absolute; left: 0; top: -3px; color: #2FA59C; font-size: 28px; font-style: normal; }
+.supporting-head { margin: 96px 0 28px; }
+.supporting-head h3 { margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #4E5F63; }
 .supporting { display: flex; flex-wrap: wrap; margin: 0 -10px; }
 .support { width: 33.333%; padding: 10px; }
-.support-in { height: 100%; padding: 32px 30px; border-radius: 22px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .07); transition: border-color .3s, transform .3s, box-shadow .3s; }
-.support-in:hover { border-color: rgba(47, 165, 156, .5); transform: translateY(-3px); box-shadow: 0 26px 50px -36px rgba(13, 31, 34, .5); }
+.support-in { position: relative; height: 100%; padding: 30px 30px 32px; border-radius: 24px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .07); transition: border-color .4s, transform .5s cubic-bezier(.2, .7, .1, 1), box-shadow .5s; }
+.support-in:after { content: ""; position: absolute; left: -1px; top: -1px; right: -1px; bottom: -1px; border-radius: inherit; padding: 1px; pointer-events: none; opacity: 0; background: conic-gradient(from var(--ang), transparent 0 65%, #2FA59C 82%, #7DBE4E 90%, transparent 100%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); transition: opacity .4s; }
+.support-in:hover { transform: translateY(-5px); box-shadow: 0 34px 60px -40px rgba(13, 31, 34, .55); border-color: transparent; }
+.anim .support-in:hover:after { opacity: 1; animation: ang 3.5s linear infinite; }
+@keyframes ang { to { --ang: 360deg; } }
+.support-icon { display: block; width: 100%; height: 110px; margin-bottom: 22px; border-radius: 16px; background: #F4F5F1; }
 .support h4 { margin: 0 0 12px; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 26px; line-height: 1.15; }
 .support p { margin: 0 0 18px; color: #4E5F63; }
 .support ul { list-style: none; margin: 0; padding: 18px 0 0; border-top: 1px solid rgba(13, 31, 34, .08); }
 .support li { padding: 5px 0 5px 18px; position: relative; font-size: 15px; }
 .support li:before { content: ""; position: absolute; left: 0; top: 14px; width: 8px; height: 1.5px; background: #2FA59C; }
+/* support icon micro-animations */
+.si-road { stroke-dasharray: 260; stroke-dashoffset: 0; transition: stroke-dashoffset 1.2s cubic-bezier(.2, .7, .1, 1); }
+.anim .support-in:hover .si-road { animation: draw 1.4s cubic-bezier(.2, .7, .1, 1); }
+@keyframes draw { from { stroke-dashoffset: 260; } to { stroke-dashoffset: 0; } }
+.si-mile { transition: transform .5s cubic-bezier(.2, .7, .1, 1); transform-box: fill-box; transform-origin: center; }
+.support-in:hover .si-mile { transform: translateY(-4px); }
+.si-node { transition: transform .6s cubic-bezier(.2, .7, .1, 1); transform-box: fill-box; transform-origin: center; }
+.support-in:hover .si-node.a { transform: translate(8px, -6px); }
+.support-in:hover .si-node.b { transform: translate(-6px, 8px); }
+.support-in:hover .si-node.c { transform: translate(6px, 6px); }
+.si-layer { transition: transform .55s cubic-bezier(.2, .7, .1, 1); }
+.support-in:hover .si-layer.l1 { transform: translateY(-6px); }
+.support-in:hover .si-layer.l2 { transform: translateY(-12px); }
 
-/* ================= Approach ================= */
-.steps { position: relative; display: flex; margin: 0 -10px; }
-.steps-line { position: absolute; left: 10px; right: 10px; top: 21px; height: 2px; background: rgba(232, 239, 238, .12); }
-.steps-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; background: #6FD0C7; transform-origin: left; }
-.anim .steps-fill { transform: scaleX(var(--p, 0)); }
-.step { position: relative; width: 16.666%; padding: 0 10px; }
-.step-dot { position: relative; z-index: 1; display: block; width: 44px; height: 44px; border-radius: 50%; background: #0D1F22; border: 2px solid #6FD0C7; text-align: center; line-height: 40px; font-size: 13px; font-weight: 600; color: #6FD0C7; transition: background-color .4s, color .4s; }
-.step.on .step-dot { background: #6FD0C7; color: #0D1F22; }
-.anim .step .step-dot { border-color: rgba(111, 208, 199, .35); color: #9DB0B1; }
-.anim .step.on .step-dot { border-color: #6FD0C7; color: #0D1F22; }
-.step h3 { margin: 26px 0 10px; font-size: 20px; font-weight: 600; letter-spacing: .02em; }
-.step p { margin: 0; font-size: 15px; line-height: 1.55; color: #B7C6C6; }
-.approach-note { margin-top: 56px; font-size: 15px; color: #9DB0B1; }
+/* ---------- Approach journey ---------- */
+.journey { position: relative; margin: 10px 0 40px; }
+.journey svg { display: block; width: 100%; height: auto; overflow: visible; }
+.jp-base { fill: none; stroke: rgba(232, 239, 238, .12); stroke-width: 3; }
+.jp-fill { fill: none; stroke: #6FD0C7; stroke-width: 3; stroke-linecap: round; }
+.jm circle.o { fill: #0D1F22; stroke: rgba(111, 208, 199, .35); stroke-width: 2; transition: fill .4s, stroke .4s; }
+.jm text { font-family: "IBM Plex Sans", "Segoe UI", Arial, sans-serif; font-size: 15px; font-weight: 600; fill: #9DB0B1; text-anchor: middle; transition: fill .4s; }
+.jm text.n { font-size: 11px; fill: #6FD0C7; }
+.jm.on circle.o { fill: #6FD0C7; stroke: #6FD0C7; }
+.jm.on text { fill: #FFFFFF; }
+.jm.on text.n { fill: #0D1F22; }
+.jparticle { fill: #CFF3EF; }
+.steps { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; }
+.step { width: 33.333%; padding: 0 24px 28px 0; }
+.step-num { font-size: 12px; font-weight: 600; letter-spacing: .16em; color: #6FD0C7; }
+.step h3 { margin: 8px 0 8px; font-size: 21px; font-weight: 600; }
+.step p { margin: 0; max-width: 38ch; font-size: 15.5px; line-height: 1.6; color: #B7C6C6; }
+/* desktop scroll journey (enhanced) */
+.anim .approach-track { height: 290vh; }
+.anim .approach-sticky { position: -webkit-sticky; position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 70px; }
+.anim .approach-sticky .head { margin-bottom: 18px; }
+.anim .approach-sticky .journey svg { transform: perspective(1400px) rotateX(20deg); transform-origin: 50% 70%; }
+.anim .steps { position: relative; display: block; min-height: 150px; max-width: 640px; }
+.anim .step { position: absolute; left: 0; top: 0; width: 100%; padding: 0; opacity: 0; transform: translateY(14px); transition: opacity .5s, transform .5s cubic-bezier(.2, .7, .1, 1); }
+.anim .step.on { opacity: 1; transform: none; }
+.anim .step h3 { font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 34px; margin: 10px 0 12px; }
+.anim .step p { font-size: 18px; max-width: 52ch; }
+.approach-note { margin: 18px 0 0; font-size: 14px; color: #7F9496; }
 
-/* ================= Case studies ================= */
+/* ---------- Case studies ---------- */
 .placeholder-note { display: flex; align-items: center; margin-bottom: 30px; padding: 14px 18px; border-radius: 14px; border: 1px dashed rgba(13, 31, 34, .3); font-size: 14.5px; color: #4E5F63; }
 .placeholder-note b { flex: none; margin-right: 12px; padding: 3px 9px; border-radius: 6px; background: #FFF3D6; color: #7A5200; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
-.cases { display: flex; flex-wrap: wrap; margin: 0 -10px; }
-.case { width: 33.333%; padding: 10px; }
-.case-in { height: 100%; padding: 30px; border-radius: 22px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .07); transition: transform .35s, box-shadow .35s; }
-.case-in:hover { transform: translateY(-4px); box-shadow: 0 30px 60px -40px rgba(13, 31, 34, .55); }
-.case-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
-.case-title { margin: 0 0 22px; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 24px; line-height: 1.2; color: #4E5F63; }
+.cases { display: flex; flex-wrap: wrap; margin: 0 -12px; }
+.case { width: 33.333%; padding: 12px; }
+.case-in { --rx: 0deg; --ry: 0deg; position: relative; height: 100%; border-radius: 26px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .07); overflow: hidden; transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)); transition: transform .6s cubic-bezier(.2, .7, .1, 1), box-shadow .5s; }
+.case-in.tilting { transition: transform .12s linear, box-shadow .5s; }
+.case-in:hover { box-shadow: 0 40px 70px -44px rgba(13, 31, 34, .6); }
+.case-visual { position: relative; height: 150px; background: #0D1F22; overflow: hidden; }
+.case-visual svg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; transition: transform 1.2s cubic-bezier(.2, .7, .1, 1); }
+.case-in:hover .case-visual svg { transform: scale(1.06); }
+.case-visual .tag { position: absolute; left: 22px; top: 20px; z-index: 1; }
+.case-body { padding: 26px 28px 30px; }
+.case-title { margin: 0 0 18px; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 25px; line-height: 1.2; color: #4E5F63; }
 .case dl { margin: 0; }
-.case dt { margin-top: 14px; font-size: 11.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #1E7C75; }
+.case dt { margin-top: 14px; font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: #1E7C75; }
 .case dd { margin: 4px 0 0; padding-bottom: 12px; border-bottom: 1px dashed rgba(13, 31, 34, .14); font-size: 15px; font-style: italic; color: #8A999C; }
 .case dd:last-child { border-bottom: 0; }
 
-/* ================= About ================= */
+/* ---------- About ---------- */
 .about { display: flex; align-items: flex-start; }
 .about-main { width: 58%; padding-right: 70px; }
-.about-main p { margin: 22px 0 0; font-size: 18.5px; line-height: 1.7; color: #2F4145; }
+.about-main p { margin: 22px 0 0; max-width: 60ch; font-size: 18.5px; line-height: 1.72; color: #2F4145; }
 .about-side { width: 42%; }
-.facts { margin: 0; padding: 8px 30px; border-radius: 22px; background: #F4F5F1; }
+.facts { margin: 0; padding: 8px 30px; border-radius: 24px; background: #F4F5F1; border: 1px solid rgba(13, 31, 34, .05); }
 .facts div { padding: 18px 0; border-bottom: 1px solid rgba(13, 31, 34, .08); }
 .facts div:last-child { border-bottom: 0; }
-.facts dt { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #4E5F63; }
+.facts dt { font-size: 11.5px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: #4E5F63; }
 .facts dd { margin: 4px 0 0; font-size: 17px; font-weight: 500; }
-.principles { display: flex; flex-wrap: wrap; margin: 70px -10px 0; }
+.principles { display: flex; flex-wrap: wrap; margin: 72px -10px 0; }
 .principle { width: 25%; padding: 10px; }
-.principle-in { height: 100%; padding-top: 22px; border-top: 2px solid #0D1F22; }
+.principle-in { position: relative; height: 100%; padding-top: 22px; }
+.principle-in:before { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 2px; background: rgba(13, 31, 34, .15); }
+.principle-in:after { content: ""; position: absolute; left: 0; top: 0; width: 36px; height: 2px; background: #2FA59C; transition: width .6s cubic-bezier(.2, .7, .1, 1); }
+.principle-in:hover:after { width: 100%; }
 .principle h3 { margin: 0 0 8px; font-size: 18px; font-weight: 600; }
 .principle p { margin: 0; font-size: 15px; color: #4E5F63; }
 
-/* ================= People ================= */
-.person { display: flex; align-items: center; }
-.person-photo-col { width: 42%; }
-.person-info { width: 58%; padding-left: 80px; }
-/* Photo: padding-box crop + background image works in every browser (incl. IE11);
-   modern browsers layer the <img> on top with object-fit. */
-.photo {
-  position: relative; height: 0; padding-bottom: 118%; overflow: hidden; border-radius: 26px;
-  background-color: #DCE3E1; background-image: url("https://www.in4rtech.com/i4rimages/RK1.jpg");
-  background-repeat: no-repeat; background-position: 50% 28%; background-size: auto 132%;
-}
+/* ---------- People ---------- */
+.people { overflow: hidden; }
+.people-pattern { position: absolute; right: 0; top: 0; bottom: 0; width: 55%; pointer-events: none; background-image: radial-gradient(circle, rgba(13, 31, 34, .13) 1.2px, transparent 1.6px); background-size: 26px 26px; -webkit-mask-image: radial-gradient(ellipse 70% 70% at 70% 50%, #000 10%, transparent 70%); mask-image: radial-gradient(ellipse 70% 70% at 70% 50%, #000 10%, transparent 70%); }
+.person { position: relative; display: flex; align-items: center; }
+.person-photo-col { width: 44%; }
+.person-info { width: 56%; padding-left: 84px; }
+/* Photo: padding-ratio box + background image renders in every browser incl. IE11;
+   modern browsers layer the <img> above it with object-fit. */
+.photo { position: relative; height: 0; padding-bottom: 120%; overflow: hidden; border-radius: 28px; background-color: #DCE3E1; background-image: url("https://www.in4rtech.com/i4rimages/RK1.jpg"); background-repeat: no-repeat; background-position: 50% 28%; background-size: auto 132%; }
 .photo img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; }
 @supports (object-fit: cover) {
   .photo img { object-fit: cover; object-position: 50% 28%; opacity: 1; transform: scale(1.32); transform-origin: 50% 28%; }
 }
-.photo-frame { position: relative; }
-.photo-frame:before { content: ""; position: absolute; left: -16px; top: -16px; width: 70px; height: 70px; border-left: 2px solid #2FA59C; border-top: 2px solid #2FA59C; border-top-left-radius: 14px; }
-.photo-frame:after { content: ""; position: absolute; right: -16px; bottom: -16px; width: 70px; height: 70px; border-right: 2px solid #2FA59C; border-bottom: 2px solid #2FA59C; border-bottom-right-radius: 14px; }
-.person-name { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 56px; font-size: clamp(2.4rem, 5vw, 4.2rem); letter-spacing: -.025em; line-height: 1; }
-.person-role { margin: 14px 0 0; font-size: 19px; color: #1E7C75; font-weight: 500; }
-.bio-placeholder { margin: 30px 0 0; padding: 20px 22px; border-radius: 16px; border: 1px dashed rgba(13, 31, 34, .28); font-size: 15.5px; color: #6B7B7E; font-style: italic; }
+.photo-frame { --rx: 0deg; --ry: 0deg; position: relative; transform: perspective(1100px) rotateX(var(--rx)) rotateY(var(--ry)); transition: transform .7s cubic-bezier(.2, .7, .1, 1); }
+.photo-frame.tilting { transition: transform .12s linear; }
+.photo-frame:before { content: ""; position: absolute; z-index: 1; left: -18px; top: -18px; width: 76px; height: 76px; border-left: 2px solid #2FA59C; border-top: 2px solid #2FA59C; border-top-left-radius: 16px; }
+.photo-frame:after { content: ""; position: absolute; z-index: 1; right: -18px; bottom: -18px; width: 76px; height: 76px; border-right: 2px solid #2FA59C; border-bottom: 2px solid #2FA59C; border-bottom-right-radius: 16px; }
+.photo-shadow { position: absolute; left: 8%; right: 8%; bottom: -22px; height: 40px; border-radius: 50%; background: rgba(13, 31, 34, .22); filter: blur(18px); }
+.person-name { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 58px; font-size: clamp(2.5rem, 5.2vw, 4.4rem); letter-spacing: -.028em; line-height: 1; }
+.person-role { margin: 16px 0 0; font-size: 19px; color: #1E7C75; font-weight: 500; }
+.bio-placeholder { margin: 30px 0 0; max-width: 56ch; padding: 20px 22px; border-radius: 16px; border: 1px dashed rgba(13, 31, 34, .28); background: rgba(255, 255, 255, .6); font-size: 15.5px; color: #6B7B7E; font-style: italic; }
 .person-actions { margin-top: 32px; }
 .person-actions .btn { margin: 0 10px 10px 0; }
+.anim .photo { clip-path: inset(100% 0 0 0 round 28px); transition: clip-path 1.4s cubic-bezier(.2, .7, .1, 1); }
+.anim .person.in .photo { clip-path: inset(0 0 0 0 round 28px); }
+.anim .photo img { transform: scale(1.46); transition: transform 1.8s cubic-bezier(.2, .7, .1, 1); }
+.anim .person.in .photo img { transform: scale(1.32); }
 
-/* ================= Contact ================= */
+/* ---------- Contact ---------- */
 .contact { overflow: hidden; }
-#contact-net { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: .7; pointer-events: none; }
+#contact-net { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: .75; pointer-events: none; }
 .contact-in { position: relative; display: flex; align-items: flex-start; }
 .contact-info { width: 44%; padding-right: 56px; }
-.contact .h2 { font-size: 40px; font-size: clamp(2rem, 3.3vw, 2.9rem); }
+.contact .h2 { font-size: 40px; font-size: clamp(2.1rem, 3.4vw, 3rem); }
 .contact-form { width: 56%; }
 .details { list-style: none; margin: 40px 0 0; padding: 0; }
 .details li { padding: 20px 0; border-top: 1px solid rgba(232, 239, 238, .1); }
 .details li:last-child { border-bottom: 1px solid rgba(232, 239, 238, .1); }
-.details small { display: block; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #9DB0B1; }
+.details small { display: block; font-size: 11.5px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: #9DB0B1; }
 .details a, .details span { font-size: 18px; font-weight: 500; text-decoration: none; }
 .details a:hover { color: #6FD0C7; }
-.form { padding: 36px; border-radius: 24px; background: #13292D; border: 1px solid rgba(232, 239, 238, .1); }
+.form { padding: 36px; border-radius: 26px; background: #13292D; border: 1px solid rgba(232, 239, 238, .1); box-shadow: 0 40px 80px -50px rgba(0, 0, 0, .8); }
 .row { display: flex; margin: 0 -8px; }
 .field { width: 100%; padding: 0 8px; margin-bottom: 18px; }
 .row .field { width: 50%; }
-.field label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 600; letter-spacing: .06em; color: #B7C6C6; }
+.field label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 600; letter-spacing: .05em; color: #B7C6C6; }
 .field label i { font-style: normal; font-weight: 400; color: #7F9496; }
-.field input, .field select, .field textarea {
-  display: block; width: 100%; min-height: 50px; padding: 12px 14px; border-radius: 12px;
-  font: 400 16px/1.4 "IBM Plex Sans", "Segoe UI", Arial, sans-serif; color: #E8EFEE;
-  background: #0D1F22; border: 1px solid rgba(232, 239, 238, .16); transition: border-color .25s, box-shadow .25s;
-}
+.field input, .field select, .field textarea { display: block; width: 100%; min-height: 50px; padding: 12px 14px; border-radius: 12px; font: 400 16px/1.4 "IBM Plex Sans", "Segoe UI", Arial, sans-serif; color: #E8EFEE; background: #0D1F22; border: 1px solid rgba(232, 239, 238, .16); transition: border-color .25s, box-shadow .25s; }
 .field select { -webkit-appearance: none; -moz-appearance: none; appearance: none; background-image: linear-gradient(45deg, transparent 50%, #9DB0B1 50%), linear-gradient(135deg, #9DB0B1 50%, transparent 50%); background-position: calc(100% - 20px) 22px, calc(100% - 15px) 22px; background-size: 5px 5px; background-repeat: no-repeat; }
 .field select::-ms-expand { display: none; }
 .field textarea { min-height: 140px; resize: vertical; }
+.field input:hover, .field select:hover, .field textarea:hover { border-color: rgba(232, 239, 238, .3); }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: #6FD0C7; box-shadow: 0 0 0 4px rgba(111, 208, 199, .18); }
 .form-foot { display: flex; align-items: center; flex-wrap: wrap; }
 .form-foot .btn { margin-right: 18px; }
 .form-note { margin: 10px 0; font-size: 14px; color: #9DB0B1; }
 .form-status { margin: 12px 0 0; font-size: 14.5px; color: #F4B7A5; min-height: 1.4em; }
 
-/* ================= Footer ================= */
+/* ---------- Footer ---------- */
 .footer { background: #081416; color: #C9D6D5; padding: 70px 0 34px; }
 .footer-top { display: flex; flex-wrap: wrap; padding-bottom: 50px; border-bottom: 1px solid rgba(232, 239, 238, .08); }
 .footer-brand { width: 34%; padding-right: 40px; }
@@ -351,59 +398,62 @@ section[id] { scroll-margin-top: 90px; }
 .footer-logo { display: inline-block; padding: 6px 10px; border-radius: 12px; background: #FFFFFF; }
 .footer-logo img { display: block; height: 44px; width: auto; }
 .footer-brand p { margin: 20px 0 0; max-width: 320px; font-size: 15px; color: #9DB0B1; }
-.footer h2 { margin: 0 0 16px; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #7F9496; }
+.footer-h { margin: 0 0 16px; font-size: 12px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: #7F9496; }
 .footer ul { list-style: none; margin: 0; padding: 0; }
 .footer li { margin-bottom: 9px; font-size: 15px; }
-.footer a { text-decoration: none; }
+.footer a { text-decoration: none; transition: color .25s; }
 .footer a:hover { color: #6FD0C7; }
 .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; padding-top: 26px; font-size: 14px; color: #7F9496; }
 
-/* ================= Motion (only when .anim is set) ================= */
-.anim [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.2, .7, .1, 1), transform .8s cubic-bezier(.2, .7, .1, 1); transition-delay: calc(var(--d, 0) * 80ms); }
+/* ---------- Reveal hierarchy (only with .anim) ---------- */
+.anim [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .8s cubic-bezier(.2, .7, .1, 1), transform .8s cubic-bezier(.2, .7, .1, 1); transition-delay: calc(var(--d, 0) * 80ms); }
+.anim [data-reveal="major"] { transform: translateY(40px) scale(.985); transition-duration: 1.1s; }
+.anim [data-reveal="depth"] { transform: perspective(1200px) translateY(50px) rotateX(8deg); transition-duration: 1.2s; }
 .anim [data-reveal].in { opacity: 1; transform: none; }
-.anim .pillar-link path.flow { stroke-dasharray: 6 10; animation: dash 1.6s linear infinite; }
-@keyframes dash { to { stroke-dashoffset: -32; } }
-.anim .photo img { transform: scale(1.44); transition: transform 1.6s cubic-bezier(.2, .7, .1, 1); }
-.anim .person.in .photo img { transform: scale(1.32); }
 
-/* ================= Responsive ================= */
+/* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
-  .challenge { width: 50%; }
-  .principle { width: 50%; }
+  .challenge, .principle { width: 50%; }
   .hero-copy { width: 52%; }
-  .hero-visual { width: 50%; right: -16px; }
+  .hero-visual { width: 54%; right: -30px; }
+  .service-intro { padding-right: 36px; }
+  .step { width: 50%; }
 }
 @media (max-width: 900px) {
   .wrap { padding: 0 24px; }
   .nav-list, .nav .btn { display: none; }
   .menu-btn { display: block; }
-  .mobile-panel { position: fixed; left: 0; right: 0; top: 76px; bottom: 0; z-index: 49; overflow-y: auto; padding: 18px 24px 40px; background: #F4F5F1; }
+  .mobile-panel { position: fixed; left: 0; right: 0; top: 74px; bottom: 0; z-index: 49; overflow-y: auto; padding: 18px 24px 40px; background: #F4F5F1; }
   .mobile-panel.open { display: block; }
-  .mobile-panel a { display: block; padding: 14px 0; border-bottom: 1px solid rgba(13, 31, 34, .08); font-size: 22px; font-weight: 500; text-decoration: none; }
-  .mobile-panel .sub a { padding: 10px 0 10px 16px; font-size: 16px; color: #4E5F63; }
-  .mobile-panel .btn { margin-top: 24px; border-bottom: 0; font-size: 16px; text-align: center; display: block; }
-  .hero { padding: 104px 0 70px; min-height: 0; }
-  .hero-in { display: block; }
-  .hero-visual { position: relative; right: auto; top: auto; bottom: auto; width: auto; height: 360px; margin: 0 -24px 10px; }
+  .mobile-panel a { display: block; padding: 16px 0; border-bottom: 1px solid rgba(13, 31, 34, .08); font-size: 24px; font-weight: 500; text-decoration: none; }
+  .mobile-panel .btn { margin-top: 26px; border-bottom: 0; font-size: 16px; text-align: center; }
+  .hero { padding: 100px 0 64px; min-height: 0; }
+  .hero-in { display: block; min-height: 0; }
   .hero-copy { width: auto; }
+  .hero-visual { position: relative; right: auto; top: auto; bottom: auto; width: auto; height: 340px; margin: 28px -8px 0; }
+  .pillars-stage { height: 320px; margin: 0 0 24px; }
   .pillars { display: block; }
-  .pillar { width: auto; margin-bottom: 16px; }
-  .pillar-link { display: none; }
-  .service { display: block; padding: 48px 0; }
+  .pillar { width: auto; margin-bottom: 14px; }
+  .service { display: block; padding: 56px 0; }
   .service-intro, .service-detail { width: auto; padding-right: 0; }
+  .service-visual { height: 300px; }
   .service-detail { margin-top: 26px; }
   .support, .case { width: 100%; }
-  .steps { display: block; margin: 0; padding-left: 64px; }
-  .steps-line { left: 21px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; }
-  .steps-fill { transform-origin: top; }
-  .anim .steps-fill { transform: scaleY(var(--p, 0)); }
-  .step { width: auto; padding: 0 0 34px; }
-  .step-dot { position: absolute; left: -64px; top: 0; }
-  .step h3 { margin-top: 8px; }
+  .anim .approach-track { height: auto; }
+  .anim .approach-sticky { position: static; height: auto; display: block; padding-top: 0; }
+  .anim .approach-sticky .journey svg { transform: none; }
+  .journey { display: none; }
+  .steps, .anim .steps { display: block; position: relative; min-height: 0; max-width: none; padding-left: 58px; }
+  .steps:before { content: ""; position: absolute; left: 19px; top: 4px; bottom: 30px; width: 2px; background: rgba(111, 208, 199, .3); }
+  .step, .anim .step { position: relative; width: auto; padding: 0 0 30px; opacity: 1; transform: none; }
+  .step-num { position: absolute; left: -58px; top: 0; width: 40px; height: 40px; border-radius: 50%; background: #0D1F22; border: 2px solid #6FD0C7; text-align: center; line-height: 36px; letter-spacing: 0; }
+  .anim .step h3 { font-family: "IBM Plex Sans", "Segoe UI", Arial, sans-serif; font-weight: 600; font-size: 20px; margin: 6px 0 8px; }
+  .anim .step p { font-size: 15.5px; }
   .about, .person, .contact-in { display: block; }
   .about-main, .about-side, .person-photo-col, .person-info, .contact-info, .contact-form { width: auto; padding: 0; }
   .about-side { margin-top: 40px; }
-  .person-photo-col { max-width: 420px; margin: 0 auto 50px; }
+  .person-photo-col { max-width: 420px; margin: 0 auto 56px; }
+  .people-pattern { width: 100%; }
   .contact-form { margin-top: 44px; }
   .footer-brand { width: 100%; padding: 0 0 36px; }
   .footer-col { width: 50%; margin-bottom: 26px; }
@@ -418,13 +468,15 @@ section[id] { scroll-margin-top: 90px; }
   .form { padding: 24px 20px; }
   .detail-card { padding: 26px 22px; }
   .hero-visual { height: 300px; }
-  .flow-label { font-size: 10px; letter-spacing: .1em; }
-  .flow-label span { padding: 3px 7px; }
+  .service-visual { height: 260px; }
   .result { display: block; }
   .result-mark { margin-bottom: 16px; }
   .footer-col { width: 100%; }
   .placeholder-note { display: block; }
   .placeholder-note b { display: inline-block; margin-bottom: 8px; }
+  .photo-frame:before, .photo-frame:after { width: 48px; height: 48px; }
+  .photo-frame:before { left: -10px; top: -10px; }
+  .photo-frame:after { right: -10px; bottom: -10px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -452,40 +504,20 @@ section[id] { scroll-margin-top: 90px; }
     <nav class="nav" aria-label="Main">
       <ul class="nav-list">
         <li><a class="nav-link" href="#about" data-nav>About</a></li>
-        <li>
-          <button class="nav-link" type="button" id="services-btn" aria-expanded="false" aria-controls="mega">Services<span class="chev" aria-hidden="true"></span></button>
-          <div class="mega" id="mega">
-            <div class="mega-grid">
-              <a class="core" href="#enterprise-architecture"><strong>Enterprise Architecture</strong><span>A clear landscape and a target architecture to build towards.</span></a>
-              <a class="core" href="#ai-consulting"><strong>AI Consulting</strong><span>AI as a governed enterprise capability, not a side project.</span></a>
-              <a class="core" href="#intelligent-automation"><strong>Intelligent Automation</strong><span>Connected systems and repeatable, reliable workflows.</span></a>
-              <a href="#technology-strategy"><strong>Technology Strategy</strong><span>Technology investment tied to business priorities.</span></a>
-              <a href="#digital-transformation"><strong>Digital Transformation</strong><span>Change programmes that deliver what they were funded for.</span></a>
-              <a href="#cloud-modernisation"><strong>Cloud &amp; Platform Modernisation</strong><span>Platforms that are easier to run, change and scale.</span></a>
-            </div>
-          </div>
-        </li>
+        <li><a class="nav-link" href="#services" data-nav>Services</a></li>
         <li><a class="nav-link" href="#work" data-nav>Work</a></li>
         <li><a class="nav-link" href="#people" data-nav>People</a></li>
       </ul>
-      <a class="btn btn-primary" href="#contact">Contact us<span class="arr" aria-hidden="true">→</span></a>
+      <a class="btn btn-primary" href="#contact">Contact<span class="arr" aria-hidden="true">→</span></a>
       <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="mobile-panel" aria-label="Open menu"><span></span></button>
     </nav>
   </div>
+  <span class="progress" id="progress" aria-hidden="true"></span>
 </header>
 
 <div class="mobile-panel" id="mobile-panel">
   <a href="#about">About</a>
   <a href="#services">Services</a>
-  <div class="sub">
-    <a href="#enterprise-architecture">Enterprise Architecture</a>
-    <a href="#ai-consulting">AI Consulting</a>
-    <a href="#intelligent-automation">Intelligent Automation</a>
-    <a href="#technology-strategy">Technology Strategy</a>
-    <a href="#digital-transformation">Digital Transformation</a>
-    <a href="#cloud-modernisation">Cloud &amp; Platform Modernisation</a>
-  </div>
-  <a href="#approach">Approach</a>
   <a href="#work">Work</a>
   <a href="#people">People</a>
   <a class="btn btn-primary" href="#contact">Discuss your technology landscape</a>
@@ -502,37 +534,34 @@ section[id] { scroll-margin-top: 90px; }
         <h1 id="hero-title">Architect the enterprise. <em>Then make it intelligent.</em></h1>
         <p class="lead">In4Rtech helps organisations make sense of complex technology landscapes: designing the architecture they need, then applying AI and automation where they deliver real business value.</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#contact">Discuss your technology landscape<span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-primary" href="#contact" data-magnetic>Discuss your technology landscape<span class="arr" aria-hidden="true">→</span></a>
           <a class="btn btn-ghost" href="#services">Explore our services</a>
         </div>
         <div class="focus">
           <p class="focus-title">Our focus</p>
-          <div class="chips">
-            <a href="#enterprise-architecture">Enterprise Architecture</a><a href="#ai-consulting">AI</a><a href="#intelligent-automation">Automation</a>
-          </div>
+          <div class="chips"><a href="#enterprise-architecture">Enterprise Architecture</a><a href="#ai-consulting">AI</a><a href="#intelligent-automation">Automation</a></div>
           <p class="who">For CIOs, CTOs and transformation leaders responsible for complex, multi-platform technology estates.</p>
         </div>
       </div>
 
-      <div class="hero-visual" aria-hidden="true">
-        <canvas id="flow-3d"></canvas>
-        <span class="flow-label" data-i="0"><span>BUSINESS</span></span>
-        <span class="flow-label" data-i="1"><span>ARCHITECTURE</span></span>
-        <span class="flow-label" data-i="2"><span>DATA</span></span>
-        <span class="flow-label ai" data-i="3"><span>AI</span></span>
-        <span class="flow-label" data-i="4"><span>AUTOMATION</span></span>
-        <span class="flow-label" data-i="5"><span>OUTCOMES</span></span>
-        <!-- Static diagram for browsers without WebGL (and older browsers such as IE11) -->
-        <svg class="flow-fallback" viewBox="0 0 600 460" role="presentation" focusable="false">
-          <path d="M60 390 C 140 360, 150 300, 190 290 S 270 260, 300 230 S 380 180, 410 160 S 500 110, 540 70" fill="none" stroke="#2FA59C" stroke-width="2.5"/>
-          <g font-family="IBM Plex Sans, Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" letter-spacing="1.6" fill="#0D1F22" text-anchor="middle">
-            <circle cx="60" cy="390" r="26" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".3"/><text x="60" y="438">BUSINESS</text>
-            <circle cx="190" cy="290" r="26" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".3"/><text x="190" y="338">ARCHITECTURE</text>
-            <circle cx="300" cy="230" r="26" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".3"/><text x="300" y="278">DATA</text>
-            <circle cx="410" cy="160" r="30" fill="#0D1F22"/><text x="410" y="212">AI</text>
-            <circle cx="480" cy="112" r="24" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".3"/><text x="480" y="158">AUTOMATION</text>
-            <circle cx="540" cy="70" r="26" fill="#2FA59C"/><text x="540" y="30">OUTCOMES</text>
+      <!-- Enterprise ecosystem: 3D on desktop; animated SVG on mobile / without WebGL -->
+      <div class="hero-visual scene" data-scene="hero" aria-hidden="true">
+        <svg class="fallback" viewBox="0 0 400 340" preserveAspectRatio="xMidYMid meet" focusable="false">
+          <ellipse class="slow-spin" cx="200" cy="170" rx="150" ry="110" fill="none" stroke="#0D1F22" stroke-opacity=".14" stroke-dasharray="2 6"/>
+          <g stroke="#2FA59C" stroke-width="1.6" fill="none">
+            <path class="flowline" d="M200 170 L200 60"/><path class="flowline" d="M200 170 L306 92"/><path class="flowline" d="M200 170 L350 170"/><path class="flowline" d="M200 170 L306 248"/>
+            <path class="flowline" d="M200 170 L200 280"/><path class="flowline" d="M200 170 L94 248"/><path class="flowline" d="M200 170 L50 170"/><path class="flowline" d="M200 170 L94 92"/>
           </g>
+          <circle cx="200" cy="170" r="46" fill="#2FA59C" fill-opacity=".12"/>
+          <circle class="pulse-dot" cx="200" cy="170" r="30" fill="#0D1F22"/>
+          <circle cx="200" cy="170" r="36" fill="none" stroke="#2FA59C" stroke-width="1.5"/>
+          <g fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".3">
+            <circle cx="200" cy="60" r="13"/><circle cx="306" cy="92" r="13"/><circle cx="350" cy="170" r="13"/><circle cx="306" cy="248" r="13"/>
+            <circle cx="94" cy="248" r="13"/><circle cx="50" cy="170" r="13"/><circle cx="94" cy="92" r="13"/>
+          </g>
+          <circle class="pulse-dot" cx="200" cy="280" r="14" fill="#2FA59C"/>
+          <text x="200" y="36" text-anchor="middle">BUSINESS</text><text x="306" y="70" text-anchor="middle">APPLICATIONS</text><text x="350" y="200" text-anchor="middle">DATA</text><text x="306" y="278" text-anchor="middle">CLOUD</text>
+          <text x="200" y="312" text-anchor="middle">AI</text><text x="94" y="278" text-anchor="middle">AUTOMATION</text><text x="50" y="200" text-anchor="middle">SECURITY</text><text x="94" y="70" text-anchor="middle">INTEGRATION</text>
         </svg>
       </div>
     </div>
@@ -543,7 +572,7 @@ section[id] { scroll-margin-top: 90px; }
     <div class="wrap">
       <div class="head">
         <span class="kicker" data-reveal>The challenge</span>
-        <h2 class="h2" id="challenges-title" data-reveal style="--d:1">Most technology problems are really landscape problems.</h2>
+        <h2 class="h2" id="challenges-title" data-reveal="major" style="--d:1">Most technology problems are really landscape problems.</h2>
         <p class="lead" data-reveal style="--d:2">When systems, data and processes grow without a shared architecture, every new initiative gets harder, including AI. These are the situations we help organisations work through.</p>
       </div>
       <div class="challenges">
@@ -560,36 +589,46 @@ section[id] { scroll-margin-top: 90px; }
     </div>
   </section>
 
-  <!-- ================= How the pillars connect ================= -->
+  <!-- ================= One joined-up discipline ================= -->
   <section class="section dark" id="pillars" aria-labelledby="pillars-title">
     <div class="wrap">
       <div class="head head-center">
         <span class="kicker" data-reveal>One joined-up discipline</span>
-        <h2 class="h2" id="pillars-title" data-reveal style="--d:1">Architecture, AI and automation work best when they’re designed together.</h2>
+        <h2 class="h2" id="pillars-title" data-reveal="major" style="--d:1">Architecture, AI and automation work best when they’re designed together.</h2>
       </div>
 
-      <div class="pillars" id="pillar-row">
-        <div class="pillar-link" aria-hidden="true">
-          <svg viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M0 6 H100" stroke="rgba(111,208,199,.25)" stroke-width="2" vector-effect="non-scaling-stroke"/><path class="flow" d="M0 6 H100" stroke="#6FD0C7" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>
-        </div>
-        <div class="pillar" data-reveal style="--d:0">
-          <div class="pillar-card">
+      <div class="pillars-stage scene" data-scene="pillars" aria-hidden="true">
+        <svg class="fallback" viewBox="0 0 600 320" preserveAspectRatio="xMidYMid meet" focusable="false">
+          <g stroke="#6FD0C7" stroke-width="1.6" fill="none">
+            <path class="flowline" d="M120 230 L300 150"/><path class="flowline" d="M300 70 L300 150"/><path class="flowline" d="M480 230 L300 150"/>
+            <path d="M120 230 L300 70 L480 230" stroke-opacity=".3"/>
+          </g>
+          <circle cx="300" cy="150" r="44" fill="#6FD0C7" fill-opacity=".14"/><circle class="pulse-dot" cx="300" cy="150" r="26" fill="#6FD0C7"/>
+          <circle cx="120" cy="230" r="22" fill="#13292D" stroke="#6FD0C7"/><circle cx="300" cy="70" r="22" fill="#13292D" stroke="#6FD0C7"/><circle cx="480" cy="230" r="22" fill="#13292D" stroke="#6FD0C7"/>
+          <text x="300" y="214" text-anchor="middle">BUSINESS OUTCOMES</text><text x="120" y="276" text-anchor="middle">ENTERPRISE ARCHITECTURE</text><text x="300" y="34" text-anchor="middle">AI</text><text x="480" y="276" text-anchor="middle">AUTOMATION</text>
+        </svg>
+        <div class="pillars-caption" id="pillars-caption">Hover a discipline to see how it connects</div>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar" data-pillar="0" data-reveal style="--d:0">
+          <div class="pillar-card" tabindex="0">
             <svg class="pillar-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M32 10 L56 22 L32 34 L8 22 Z" stroke="#6FD0C7" stroke-width="1.6" fill="rgba(111,208,199,.12)"/><path d="M8 32 L32 44 L56 32" stroke="#6FD0C7" stroke-width="1.6"/><path d="M8 42 L32 54 L56 42" stroke="#6FD0C7" stroke-width="1.6" stroke-opacity=".5"/></svg>
             <div class="pillar-step">Defines</div>
             <h3>Enterprise Architecture</h3>
             <p>Sets out how your technology ecosystem should work, what to keep, change or retire, and the order in which to do it.</p>
           </div>
         </div>
-        <div class="pillar" data-reveal style="--d:1">
-          <div class="pillar-card">
+        <div class="pillar" data-pillar="1" data-reveal style="--d:1">
+          <div class="pillar-card" tabindex="0">
             <svg class="pillar-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="7" fill="#6FD0C7"/><g stroke="#6FD0C7" stroke-width="1.6"><circle cx="12" cy="18" r="4"/><circle cx="52" cy="18" r="4"/><circle cx="12" cy="46" r="4"/><circle cx="52" cy="46" r="4"/><circle cx="32" cy="8" r="3"/><circle cx="32" cy="56" r="3"/><path d="M16 20 L26 28 M48 20 L38 28 M16 44 L26 36 M48 44 L38 36 M32 11 V25 M32 39 V53" stroke-opacity=".7"/></g></svg>
             <div class="pillar-step">Adds intelligence</div>
             <h3>AI</h3>
             <p>Brings intelligence into processes and decisions, built on data the architecture has made reliable and governed.</p>
           </div>
         </div>
-        <div class="pillar" data-reveal style="--d:2">
-          <div class="pillar-card">
+        <div class="pillar" data-pillar="2" data-reveal style="--d:2">
+          <div class="pillar-card" tabindex="0">
             <svg class="pillar-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M50 26 A20 20 0 0 0 14 22" stroke="#6FD0C7" stroke-width="1.8"/><path d="M14 38 A20 20 0 0 0 50 42" stroke="#6FD0C7" stroke-width="1.8"/><path d="M14 12 V22 H24" stroke="#6FD0C7" stroke-width="1.8"/><path d="M50 52 V42 H40" stroke="#6FD0C7" stroke-width="1.8"/><rect x="26" y="26" width="12" height="12" rx="3" fill="#6FD0C7"/></svg>
             <div class="pillar-step">Makes it repeatable</div>
             <h3>Automation</h3>
@@ -611,16 +650,27 @@ section[id] { scroll-margin-top: 90px; }
     <div class="wrap">
       <div class="head">
         <span class="kicker" data-reveal>Services</span>
-        <h2 class="h2" id="services-title" data-reveal style="--d:1">Where we help</h2>
+        <h2 class="h2" id="services-title" data-reveal="major" style="--d:1">Where we help</h2>
         <p class="lead" data-reveal style="--d:2">Three core services, supported by the strategy, transformation and modernisation work that makes them stick.</p>
       </div>
 
       <article class="service" id="enterprise-architecture" aria-labelledby="ea-title">
-        <div class="service-intro" data-reveal>
-          <span class="service-label">Core service</span>
-          <h3 id="ea-title">Enterprise Architecture</h3>
-          <p>Get a clear, shared picture of your technology landscape and a target architecture everyone can build towards, so technology decisions support the business strategy instead of working against it.</p>
-          <a class="link-arrow" href="#contact" data-interest="Enterprise Architecture">Discuss enterprise architecture →</a>
+        <div class="service-intro">
+          <div data-reveal>
+            <span class="service-label">Core service</span>
+            <h3 id="ea-title">Enterprise Architecture</h3>
+            <p>Get a clear, shared picture of your technology landscape and a target architecture everyone can build towards, so technology decisions support the business strategy instead of working against it.</p>
+            <a class="link-arrow" href="#contact" data-interest="Enterprise Architecture">Discuss enterprise architecture →</a>
+          </div>
+          <div class="service-visual scene" data-scene="ea" data-reveal="depth" style="--d:1" aria-hidden="true">
+            <svg class="fallback" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" focusable="false">
+              <g stroke="#0D1F22" stroke-opacity=".25" fill="#FFFFFF">
+                <path d="M200 250 L330 215 L200 180 L70 215 Z" fill="#E4EEEC"/><path d="M200 208 L330 173 L200 138 L70 173 Z"/><path d="M200 166 L330 131 L200 96 L70 131 Z" fill="#EAF6F4"/><path d="M200 124 L330 89 L200 54 L70 89 Z"/><path d="M200 82 L330 47 L200 12 L70 47 Z" fill="#E4EEEC"/>
+              </g>
+              <g stroke="#2FA59C" stroke-width="1.5"><path class="flowline" d="M160 205 V163 M240 205 V163 M200 160 V118 M160 120 V78 M240 120 V78 M200 76 V40"/></g>
+              <g text-anchor="start"><text x="338" y="219">CLOUD / INFRA</text><text x="338" y="177">TECHNOLOGY</text><text x="338" y="135">DATA</text><text x="338" y="93">APPLICATION</text><text x="338" y="51">BUSINESS</text></g>
+            </svg>
+          </div>
         </div>
         <div class="service-detail" data-reveal style="--d:1">
           <div class="detail-card">
@@ -648,11 +698,25 @@ section[id] { scroll-margin-top: 90px; }
       </article>
 
       <article class="service" id="ai-consulting" aria-labelledby="ai-title">
-        <div class="service-intro" data-reveal>
-          <span class="service-label">Core service</span>
-          <h3 id="ai-title">AI Consulting</h3>
-          <p>Treat AI as an enterprise capability, with a clear purpose, the right data, sensible governance and a realistic route from idea to everyday use.</p>
-          <a class="link-arrow" href="#contact" data-interest="AI Consulting">Explore your AI opportunities →</a>
+        <div class="service-intro">
+          <div data-reveal>
+            <span class="service-label">Core service</span>
+            <h3 id="ai-title">AI Consulting</h3>
+            <p>Treat AI as an enterprise capability, with a clear purpose, the right data, sensible governance and a realistic route from idea to everyday use.</p>
+            <a class="link-arrow" href="#contact" data-interest="AI Consulting">Explore your AI opportunities →</a>
+          </div>
+          <div class="service-visual scene" data-scene="ai" data-reveal="depth" style="--d:1" aria-hidden="true">
+            <svg class="fallback" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" focusable="false">
+              <g stroke="#2FA59C" stroke-opacity=".35" stroke-width="1">
+                <path d="M50 70 L125 100 M50 110 L125 100 M50 150 L125 150 M50 190 L125 200 M50 230 L125 200 M125 100 L200 150 M125 150 L200 150 M125 200 L200 150 M200 150 L275 120 M200 150 L275 180 M275 120 L350 150 M275 180 L350 150"/>
+              </g>
+              <g stroke="#2FA59C" stroke-width="1.6" fill="none"><path class="flowline" d="M50 150 L125 150 L200 150 L275 120 L350 150"/></g>
+              <g fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".3"><circle cx="50" cy="70" r="7"/><circle cx="50" cy="110" r="7"/><circle cx="50" cy="150" r="7"/><circle cx="50" cy="190" r="7"/><circle cx="50" cy="230" r="7"/><circle cx="125" cy="100" r="8"/><circle cx="125" cy="150" r="8"/><circle cx="125" cy="200" r="8"/></g>
+              <circle class="pulse-dot" cx="200" cy="150" r="20" fill="#0D1F22"/>
+              <g fill="#2FA59C"><circle cx="275" cy="120" r="8"/><circle cx="275" cy="180" r="8"/></g><circle cx="350" cy="150" r="10" fill="#7DBE4E"/>
+              <g text-anchor="middle"><text x="50" y="270">DATA</text><text x="125" y="270">KNOWLEDGE</text><text x="200" y="270">AI</text><text x="275" y="270">DECISION</text><text x="350" y="270">ACTION</text></g>
+            </svg>
+          </div>
         </div>
         <div class="service-detail" data-reveal style="--d:1">
           <div class="detail-card">
@@ -680,11 +744,22 @@ section[id] { scroll-margin-top: 90px; }
       </article>
 
       <article class="service" id="intelligent-automation" aria-labelledby="auto-title">
-        <div class="service-intro" data-reveal>
-          <span class="service-label">Core service</span>
-          <h3 id="auto-title">Intelligent Automation</h3>
-          <p>Remove repetitive work and connect the systems your processes depend on, so operations run consistently and people can focus on work that needs judgement.</p>
-          <a class="link-arrow" href="#contact" data-interest="Intelligent Automation">Discuss automation →</a>
+        <div class="service-intro">
+          <div data-reveal>
+            <span class="service-label">Core service</span>
+            <h3 id="auto-title">Intelligent Automation</h3>
+            <p>Remove repetitive work and connect the systems your processes depend on, so operations run consistently and people can focus on work that needs judgement.</p>
+            <a class="link-arrow" href="#contact" data-interest="Intelligent Automation">Discuss automation →</a>
+          </div>
+          <div class="service-visual scene" data-scene="auto" data-reveal="depth" style="--d:1" aria-hidden="true">
+            <svg class="fallback" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" focusable="false">
+              <rect x="50" y="80" width="300" height="140" rx="60" fill="none" stroke="#0D1F22" stroke-opacity=".18" stroke-width="8"/>
+              <rect class="flowline" x="50" y="80" width="300" height="140" rx="60" fill="none" stroke="#2FA59C" stroke-width="2"/>
+              <g fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".3"><circle cx="110" cy="220" r="12"/><circle cx="200" cy="220" r="12"/><circle cx="290" cy="220" r="12"/><circle cx="290" cy="80" r="12"/><circle cx="200" cy="80" r="12"/></g>
+              <circle class="pulse-dot" cx="110" cy="80" r="12" fill="#7DBE4E"/>
+              <g text-anchor="middle"><text x="110" y="256">INPUT</text><text x="200" y="256">ANALYSE</text><text x="290" y="256">DECIDE</text><text x="290" y="54">AUTOMATE</text><text x="200" y="54">EXECUTE</text><text x="110" y="54">OUTCOME</text></g>
+            </svg>
+          </div>
         </div>
         <div class="service-detail" data-reveal style="--d:1">
           <div class="detail-card">
@@ -714,6 +789,12 @@ section[id] { scroll-margin-top: 90px; }
       <div class="supporting">
         <article class="support" id="technology-strategy" data-reveal style="--d:0">
           <div class="support-in">
+            <svg class="support-icon" viewBox="0 0 300 110" fill="none" aria-hidden="true">
+              <path class="si-road" d="M24 84 C 80 84, 90 30, 150 36 S 230 86, 276 30" stroke="#2FA59C" stroke-width="2.5" stroke-linecap="round"/>
+              <g class="si-mile"><circle cx="24" cy="84" r="7" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".35"/></g>
+              <g class="si-mile"><circle cx="150" cy="36" r="7" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".35"/></g>
+              <g class="si-mile"><path d="M276 14 V32" stroke="#0D1F22"/><path d="M276 14 L292 19 L276 24 Z" fill="#7DBE4E"/><circle cx="276" cy="32" r="5" fill="#0D1F22"/></g>
+            </svg>
             <h4>Technology Strategy</h4>
             <p>Connect technology investment to business priorities, with a strategy leaders can act on.</p>
             <ul><li>Technology vision and principles</li><li>Investment prioritisation</li><li>Capability and operating-model review</li></ul>
@@ -721,6 +802,12 @@ section[id] { scroll-margin-top: 90px; }
         </article>
         <article class="support" id="digital-transformation" data-reveal style="--d:1">
           <div class="support-in">
+            <svg class="support-icon" viewBox="0 0 300 110" fill="none" aria-hidden="true">
+              <g stroke="#0D1F22" stroke-opacity=".3"><rect x="40" y="30" width="22" height="22" rx="4" fill="#FFFFFF"/><rect x="70" y="58" width="22" height="22" rx="4" fill="#FFFFFF"/><rect x="36" y="64" width="18" height="18" rx="4" fill="#FFFFFF"/></g>
+              <path d="M112 55 H150" stroke="#2FA59C" stroke-width="2" stroke-dasharray="3 5"/><path d="M146 49 L156 55 L146 61" stroke="#2FA59C" stroke-width="2"/>
+              <g stroke="#2FA59C" stroke-width="1.5"><path d="M200 55 L240 30 M200 55 L250 76 M240 30 L250 76 M200 55 L180 84"/></g>
+              <circle class="si-node a" cx="240" cy="30" r="8" fill="#2FA59C"/><circle class="si-node b" cx="250" cy="76" r="8" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".35"/><circle class="si-node c" cx="180" cy="84" r="6" fill="#7DBE4E"/><circle cx="200" cy="55" r="11" fill="#0D1F22"/>
+            </svg>
             <h4>Digital Transformation</h4>
             <p>Plan and steer change programmes so they deliver the outcomes they were funded for.</p>
             <ul><li>Transformation roadmaps</li><li>Programme architecture assurance</li><li>Adoption and change planning</li></ul>
@@ -728,6 +815,13 @@ section[id] { scroll-margin-top: 90px; }
         </article>
         <article class="support" id="cloud-modernisation" data-reveal style="--d:2">
           <div class="support-in">
+            <svg class="support-icon" viewBox="0 0 300 110" fill="none" aria-hidden="true">
+              <path d="M112 50 C 112 34, 132 26, 144 34 C 150 18, 178 16, 186 34 C 204 30, 214 44, 206 54 Z" fill="#E4EEEC" stroke="#2FA59C" stroke-width="1.5"/>
+              <g class="si-layer l2"><path d="M120 76 L160 64 L200 76 L160 88 Z" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".3"/></g>
+              <g class="si-layer l1"><path d="M120 86 L160 74 L200 86 L160 98 Z" fill="#EAF6F4" stroke="#0D1F22" stroke-opacity=".3"/></g>
+              <path d="M120 96 L160 84 L200 96 L160 108 Z" fill="#0D1F22" fill-opacity=".85"/>
+              <path d="M160 56 V66" stroke="#2FA59C" stroke-width="1.5" stroke-dasharray="2 3"/>
+            </svg>
             <h4>Cloud &amp; Platform Modernisation</h4>
             <p>Move from ageing infrastructure and applications to platforms that are easier to run, change and scale.</p>
             <ul><li>Cloud readiness and migration planning</li><li>Platform and application modernisation</li><li>Integration and API strategy</li></ul>
@@ -738,22 +832,33 @@ section[id] { scroll-margin-top: 90px; }
   </section>
 
   <!-- ================= Approach ================= -->
-  <section class="section dark" id="approach" aria-labelledby="approach-title">
-    <div class="wrap">
-      <div class="head">
-        <span class="kicker" data-reveal>How we work</span>
-        <h2 class="h2" id="approach-title" data-reveal style="--d:1">A practical path from today’s landscape to tomorrow’s.</h2>
-        <p class="lead" data-reveal style="--d:2">Every engagement is shaped around the organisation and where it is starting from. Most follow this arc, in full or in part.</p>
+  <section class="dark" id="approach" aria-labelledby="approach-title">
+    <div class="approach-track section" id="approach-track">
+      <div class="approach-sticky">
+        <div class="wrap">
+          <div class="head">
+            <span class="kicker">How we work</span>
+            <h2 class="h2" id="approach-title">A practical path from today’s landscape to tomorrow’s.</h2>
+            <p class="lead">Every engagement is shaped around the organisation and where it is starting from. Most follow this arc, in full or in part.</p>
+          </div>
+          <div class="journey" aria-hidden="true">
+            <svg viewBox="0 0 1200 230" id="journey-svg" focusable="false">
+              <path id="jpath" class="jp-base" d="M40 180 C 200 180, 230 70, 400 80 S 620 190, 780 140 S 1020 40, 1160 60"/>
+              <path class="jp-fill" id="jfill" d="M40 180 C 200 180, 230 70, 400 80 S 620 190, 780 140 S 1020 40, 1160 60"/>
+              <g id="jparticles"></g>
+              <g id="jmarks"></g>
+            </svg>
+          </div>
+          <ol class="steps" id="steps">
+            <li class="step"><span class="step-num">01</span><h3>Discover</h3><p>Understand business goals, the current technology landscape and the challenges behind them.</p></li>
+            <li class="step"><span class="step-num">02</span><h3>Assess</h3><p>Analyse architecture, applications, data, processes and capabilities to find what matters most.</p></li>
+            <li class="step"><span class="step-num">03</span><h3>Architect</h3><p>Define the target-state architecture and a sequenced, realistic roadmap to reach it.</p></li>
+            <li class="step"><span class="step-num">04</span><h3>Enable</h3><p>Identify and prioritise where AI and automation will add genuine value.</p></li>
+            <li class="step"><span class="step-num">05</span><h3>Transform</h3><p>Support implementation and adoption, keeping delivery aligned to the architecture.</p></li>
+            <li class="step"><span class="step-num">06</span><h3>Evolve</h3><p>Review and refine the landscape as the business and technology move on.</p></li>
+          </ol>
+        </div>
       </div>
-      <ol class="steps" id="steps" style="list-style:none">
-        <li class="steps-line" aria-hidden="true"><span class="steps-fill"></span></li>
-        <li class="step"><span class="step-dot">01</span><h3>Discover</h3><p>Understand business goals, the current technology landscape and the challenges behind them.</p></li>
-        <li class="step"><span class="step-dot">02</span><h3>Assess</h3><p>Analyse architecture, applications, data, processes and capabilities to find what matters most.</p></li>
-        <li class="step"><span class="step-dot">03</span><h3>Architect</h3><p>Define the target-state architecture and a sequenced, realistic roadmap to reach it.</p></li>
-        <li class="step"><span class="step-dot">04</span><h3>Enable</h3><p>Identify and prioritise where AI and automation will add genuine value.</p></li>
-        <li class="step"><span class="step-dot">05</span><h3>Transform</h3><p>Support implementation and adoption, keeping delivery aligned to the architecture.</p></li>
-        <li class="step"><span class="step-dot">06</span><h3>Evolve</h3><p>Review and refine the landscape as the business and technology move on.</p></li>
-      </ol>
     </div>
   </section>
 
@@ -762,51 +867,66 @@ section[id] { scroll-margin-top: 90px; }
     <div class="wrap">
       <div class="head">
         <span class="kicker" data-reveal>Work</span>
-        <h2 class="h2" id="work-title" data-reveal style="--d:1">Case studies</h2>
+        <h2 class="h2" id="work-title" data-reveal="major" style="--d:1">Case studies</h2>
         <p class="lead" data-reveal style="--d:2">Each engagement is presented the same way, from the business challenge through to the outcome, so it’s clear how the thinking turned into results.</p>
       </div>
       <p class="placeholder-note" data-reveal><b>Content placeholder</b>Case-study details are to be supplied by In4Rtech. The cards below show the structure each case study will follow.</p>
       <div class="cases">
-        <article class="case" data-reveal style="--d:0">
-          <div class="case-in">
-            <div class="case-top"><span class="tag">ENTERPRISE ARCHITECTURE</span></div>
-            <h3 class="case-title">[Engagement title]</h3>
-            <dl>
-              <dt>Client / industry</dt><dd>[Client name or sector]</dd>
-              <dt>Business challenge</dt><dd>[What the organisation needed to achieve]</dd>
-              <dt>Technology challenge</dt><dd>[Landscape, systems or constraints involved]</dd>
-              <dt>Approach</dt><dd>[How the engagement was run]</dd>
-              <dt>Architecture work</dt><dd>[Target architecture, roadmap, decisions]</dd>
-              <dt>Outcome</dt><dd>[Verified result, agreed with the client]</dd>
-            </dl>
+        <article class="case" data-reveal="depth" style="--d:0">
+          <div class="case-in" data-tilt>
+            <div class="case-visual" aria-hidden="true">
+              <span class="tag">ENTERPRISE ARCHITECTURE</span>
+              <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" fill="none"><g stroke="#6FD0C7" stroke-opacity=".5"><path d="M200 128 L320 100 L200 72 L80 100 Z" fill="rgba(111,208,199,.06)"/><path d="M200 102 L320 74 L200 46 L80 74 Z" fill="rgba(111,208,199,.1)"/><path d="M200 76 L320 48 L200 20 L80 48 Z" fill="rgba(111,208,199,.16)"/></g><g stroke="#6FD0C7" stroke-dasharray="3 4"><path d="M160 96 V70 M240 96 V70 M200 72 V44"/></g></svg>
+            </div>
+            <div class="case-body">
+              <h3 class="case-title">[Engagement title]</h3>
+              <dl>
+                <dt>Client / industry</dt><dd>[Client name or sector]</dd>
+                <dt>Business challenge</dt><dd>[What the organisation needed to achieve]</dd>
+                <dt>Technology challenge</dt><dd>[Landscape, systems or constraints involved]</dd>
+                <dt>Approach</dt><dd>[How the engagement was run]</dd>
+                <dt>Architecture work</dt><dd>[Target architecture, roadmap, decisions]</dd>
+                <dt>Outcome</dt><dd>[Verified result, agreed with the client]</dd>
+              </dl>
+            </div>
           </div>
         </article>
-        <article class="case" data-reveal style="--d:1">
-          <div class="case-in">
-            <div class="case-top"><span class="tag ai">AI</span></div>
-            <h3 class="case-title">[Engagement title]</h3>
-            <dl>
-              <dt>Client / industry</dt><dd>[Client name or sector]</dd>
-              <dt>Business challenge</dt><dd>[What the organisation needed to achieve]</dd>
-              <dt>Technology challenge</dt><dd>[Data, systems or governance constraints]</dd>
-              <dt>Approach</dt><dd>[How the engagement was run]</dd>
-              <dt>AI work</dt><dd>[Use cases, solution and integration]</dd>
-              <dt>Outcome</dt><dd>[Verified result, agreed with the client]</dd>
-            </dl>
+        <article class="case" data-reveal="depth" style="--d:1">
+          <div class="case-in" data-tilt>
+            <div class="case-visual" aria-hidden="true">
+              <span class="tag ai" style="background:#6FD0C7;color:#0D1F22">AI</span>
+              <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" fill="none"><g stroke="#6FD0C7" stroke-opacity=".35"><path d="M60 40 L150 75 M60 75 L150 75 M60 110 L150 75 M150 75 L240 50 M150 75 L240 100 M240 50 L330 75 M240 100 L330 75"/></g><g fill="#6FD0C7"><circle cx="60" cy="40" r="4"/><circle cx="60" cy="75" r="4"/><circle cx="60" cy="110" r="4"/><circle cx="240" cy="50" r="5"/><circle cx="240" cy="100" r="5"/></g><circle cx="150" cy="75" r="14" fill="#E8EFEE"/><circle cx="330" cy="75" r="7" fill="#7DBE4E"/></svg>
+            </div>
+            <div class="case-body">
+              <h3 class="case-title">[Engagement title]</h3>
+              <dl>
+                <dt>Client / industry</dt><dd>[Client name or sector]</dd>
+                <dt>Business challenge</dt><dd>[What the organisation needed to achieve]</dd>
+                <dt>Technology challenge</dt><dd>[Data, systems or governance constraints]</dd>
+                <dt>Approach</dt><dd>[How the engagement was run]</dd>
+                <dt>AI work</dt><dd>[Use cases, solution and integration]</dd>
+                <dt>Outcome</dt><dd>[Verified result, agreed with the client]</dd>
+              </dl>
+            </div>
           </div>
         </article>
-        <article class="case" data-reveal style="--d:2">
-          <div class="case-in">
-            <div class="case-top"><span class="tag auto">AUTOMATION</span></div>
-            <h3 class="case-title">[Engagement title]</h3>
-            <dl>
-              <dt>Client / industry</dt><dd>[Client name or sector]</dd>
-              <dt>Business challenge</dt><dd>[What the organisation needed to achieve]</dd>
-              <dt>Technology challenge</dt><dd>[Processes, systems or integrations involved]</dd>
-              <dt>Approach</dt><dd>[How the engagement was run]</dd>
-              <dt>Automation work</dt><dd>[Workflows, integrations and governance]</dd>
-              <dt>Outcome</dt><dd>[Verified result, agreed with the client]</dd>
-            </dl>
+        <article class="case" data-reveal="depth" style="--d:2">
+          <div class="case-in" data-tilt>
+            <div class="case-visual" aria-hidden="true">
+              <span class="tag auto">AUTOMATION</span>
+              <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" fill="none"><rect x="80" y="40" width="240" height="80" rx="40" stroke="#6FD0C7" stroke-opacity=".5" stroke-width="2"/><g fill="#6FD0C7"><circle cx="140" cy="120" r="6"/><circle cx="200" cy="120" r="6"/><circle cx="260" cy="120" r="6"/><circle cx="260" cy="40" r="6"/><circle cx="200" cy="40" r="6"/></g><circle cx="140" cy="40" r="8" fill="#7DBE4E"/></svg>
+            </div>
+            <div class="case-body">
+              <h3 class="case-title">[Engagement title]</h3>
+              <dl>
+                <dt>Client / industry</dt><dd>[Client name or sector]</dd>
+                <dt>Business challenge</dt><dd>[What the organisation needed to achieve]</dd>
+                <dt>Technology challenge</dt><dd>[Processes, systems or integrations involved]</dd>
+                <dt>Approach</dt><dd>[How the engagement was run]</dd>
+                <dt>Automation work</dt><dd>[Workflows, integrations and governance]</dd>
+                <dt>Outcome</dt><dd>[Verified result, agreed with the client]</dd>
+              </dl>
+            </div>
           </div>
         </article>
       </div>
@@ -819,7 +939,7 @@ section[id] { scroll-margin-top: 90px; }
       <div class="about">
         <div class="about-main">
           <span class="kicker" data-reveal>About</span>
-          <h2 class="h2" id="about-title" data-reveal style="--d:1">An IT consultancy built around how enterprises actually change.</h2>
+          <h2 class="h2" id="about-title" data-reveal="major" style="--d:1">An IT consultancy built around how enterprises actually change.</h2>
           <p data-reveal style="--d:2">In4Rtech Solutions Ltd is an IT consultancy based in Manchester, UK. We help organisations understand their technology landscape, define the architecture they need, and put AI and automation to work in ways that are practical, governed and aligned to business goals.</p>
           <p data-reveal style="--d:3">We work with technology and business leaders who need a structured, objective view of their estate, whether that’s a focused architecture review or support across a longer transformation.</p>
         </div>
@@ -842,18 +962,20 @@ section[id] { scroll-margin-top: 90px; }
   </section>
 
   <!-- ================= People ================= -->
-  <section class="section" id="people" aria-labelledby="people-title">
+  <section class="section people" id="people" aria-labelledby="people-title">
+    <div class="people-pattern" aria-hidden="true"></div>
     <div class="wrap">
       <div class="head">
         <span class="kicker" data-reveal>People</span>
-        <h2 class="h2" id="people-title" data-reveal style="--d:1">Who you’ll work with</h2>
+        <h2 class="h2" id="people-title" data-reveal="major" style="--d:1">Who you’ll work with</h2>
       </div>
       <div class="person" id="person">
         <div class="person-photo-col">
-          <figure class="photo-frame" style="margin:0">
+          <figure class="photo-frame" id="photo-frame" style="margin:0">
             <div class="photo">
               <img src="https://www.in4rtech.com/i4rimages/RK1.jpg" alt="Rajneesh Kumar, Founder and Managing Director of In4Rtech" width="687" height="554" decoding="async">
             </div>
+            <span class="photo-shadow" aria-hidden="true"></span>
           </figure>
         </div>
         <div class="person-info">
@@ -861,7 +983,7 @@ section[id] { scroll-margin-top: 90px; }
           <p class="person-role" data-reveal style="--d:1">Founder &amp; Managing Director</p>
           <p class="bio-placeholder" data-reveal style="--d:2">[Professional biography to be provided by In4Rtech: background, areas of expertise and the kinds of organisations Rajneesh works with.]</p>
           <div class="person-actions" data-reveal style="--d:3">
-            <a class="btn btn-primary" href="#contact">Start a conversation<span class="arr" aria-hidden="true">→</span></a>
+            <a class="btn btn-primary" href="#contact" data-magnetic>Start a conversation<span class="arr" aria-hidden="true">→</span></a>
             <a class="btn btn-ghost" href="mailto:rajneesh@in4rtech.com">rajneesh@in4rtech.com</a>
           </div>
         </div>
@@ -875,7 +997,7 @@ section[id] { scroll-margin-top: 90px; }
     <div class="wrap contact-in">
       <div class="contact-info">
         <span class="kicker" data-reveal>Contact</span>
-        <h2 class="h2" id="contact-title" data-reveal style="--d:1">Start a conversation about your technology landscape.</h2>
+        <h2 class="h2" id="contact-title" data-reveal="major" style="--d:1">Start a conversation about your technology landscape.</h2>
         <p class="lead" data-reveal style="--d:2">Tell us what you’re working on, whether that’s a landscape review, an AI opportunity or a process you’d like to automate, and we’ll be in touch to discuss it.</p>
         <ul class="details" data-reveal style="--d:3">
           <li><small>Email</small><a href="mailto:rajneesh@in4rtech.com">rajneesh@in4rtech.com</a></li>
@@ -883,7 +1005,7 @@ section[id] { scroll-margin-top: 90px; }
           <li><small>Location</small><span>Manchester, UK</span></li>
         </ul>
       </div>
-      <div class="contact-form" data-reveal style="--d:2">
+      <div class="contact-form" data-reveal="depth" style="--d:2">
         <form class="form" id="enquiry" novalidate>
           <div class="row">
             <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
@@ -906,7 +1028,7 @@ section[id] { scroll-margin-top: 90px; }
           </div>
           <div class="field"><label for="f-msg">What’s the challenge?</label><textarea id="f-msg" name="message" required placeholder="A short description of your landscape, goals or the problem you’re trying to solve."></textarea></div>
           <div class="form-foot">
-            <button class="btn btn-primary" type="submit">Send enquiry<span class="arr" aria-hidden="true">→</span></button>
+            <button class="btn btn-primary" type="submit" data-magnetic>Send enquiry<span class="arr" aria-hidden="true">→</span></button>
             <p class="form-note">Opens your email app with the enquiry addressed to rajneesh@in4rtech.com.</p>
           </div>
           <p class="form-status" id="form-status" role="alert"></p>
@@ -924,8 +1046,8 @@ section[id] { scroll-margin-top: 90px; }
         <a href="#home" class="footer-logo" aria-label="In4Rtech Solutions Ltd, back to top"><img src="https://www.in4rtech.com/i4rimages/Logo.png" alt="In4rtech" width="107" height="85" loading="lazy"></a>
         <p>Enterprise architecture, AI and automation consultancy. Manchester, UK.</p>
       </div>
-      <div class="footer-col">
-        <h2>Services</h2>
+      <nav class="footer-col" aria-label="Services">
+        <p class="footer-h">Services</p>
         <ul>
           <li><a href="#enterprise-architecture">Enterprise Architecture</a></li>
           <li><a href="#ai-consulting">AI Consulting</a></li>
@@ -934,9 +1056,9 @@ section[id] { scroll-margin-top: 90px; }
           <li><a href="#digital-transformation">Digital Transformation</a></li>
           <li><a href="#cloud-modernisation">Cloud &amp; Platform Modernisation</a></li>
         </ul>
-      </div>
-      <div class="footer-col">
-        <h2>Company</h2>
+      </nav>
+      <nav class="footer-col" aria-label="Company">
+        <p class="footer-h">Company</p>
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#approach">Approach</a></li>
@@ -944,9 +1066,9 @@ section[id] { scroll-margin-top: 90px; }
           <li><a href="#people">People</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-      </div>
+      </nav>
       <div class="footer-col">
-        <h2>Contact</h2>
+        <p class="footer-h">Contact</p>
         <ul>
           <li><a href="mailto:rajneesh@in4rtech.com">rajneesh@in4rtech.com</a></li>
           <li><a href="tel:+447574519460">+44 7574519460</a></li>
@@ -961,31 +1083,35 @@ section[id] { scroll-margin-top: 90px; }
   </div>
 </footer>
 
-<!-- Core behaviour: written in ES5 so it also runs in older browsers (IE11). -->
+<!-- Core behaviour — ES5 so it also runs in older browsers (IE11). -->
 <script>
 (function () {
   var doc = document, root = doc.documentElement, win = window;
   var anim = root.className.indexOf('anim') > -1;
+  var fine = win.matchMedia && win.matchMedia('(hover: hover) and (pointer: fine)').matches;
   function $(s, c) { return (c || doc).querySelector(s); }
   function $$(s, c) { return Array.prototype.slice.call((c || doc).querySelectorAll(s)); }
-  function has(el, c) { return (' ' + el.className + ' ').indexOf(' ' + c + ' ') > -1; }
   function setClass(el, c, on) {
-    if (on && !has(el, c)) el.className += ' ' + c;
-    if (!on && has(el, c)) el.className = (' ' + el.className + ' ').replace(' ' + c + ' ', ' ').replace(/^\s+|\s+$/g, '');
+    var cur = ' ' + (el.getAttribute('class') || '') + ' ', present = cur.indexOf(' ' + c + ' ') > -1;
+    if (on && !present) el.setAttribute('class', (cur + c).replace(/^\s+|\s+$/g, ''));
+    if (!on && present) el.setAttribute('class', cur.replace(' ' + c + ' ', ' ').replace(/^\s+|\s+$/g, ''));
   }
+  function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
   function scrollTop() { return win.pageYOffset || root.scrollTop || 0; }
   var y = $('#year'); if (y) y.innerHTML = new Date().getFullYear();
 
-  /* Header shadow + active section */
-  var header = $('#header');
+  /* Header state, progress line, active nav */
+  var header = $('#header'), bar = $('#progress');
   var navLinks = $$('[data-nav]');
-  var tracked = ['about', 'work', 'people'];
+  var tracked = ['about', 'services', 'work', 'people'];
   function onScrollNav() {
-    setClass(header, 'scrolled', scrollTop() > 10);
+    var st = scrollTop(), max = (root.scrollHeight - win.innerHeight) || 1;
+    setClass(header, 'scrolled', st > 10);
+    if (bar && bar.style) { var s = 'scaleX(' + (st / max).toFixed(4) + ')'; bar.style.transform = s; bar.style.msTransform = s; }
     var mid = (win.innerHeight || root.clientHeight) * 0.35, current = '';
     for (var i = 0; i < tracked.length; i++) {
-      var s = doc.getElementById(tracked[i]); if (!s) continue;
-      var r = s.getBoundingClientRect();
+      var sec = doc.getElementById(tracked[i]); if (!sec) continue;
+      var r = sec.getBoundingClientRect();
       if (r.top <= mid && r.bottom > mid) current = tracked[i];
     }
     for (var j = 0; j < navLinks.length; j++) setClass(navLinks[j], 'active', navLinks[j].getAttribute('href') === '#' + current);
@@ -993,238 +1119,550 @@ section[id] { scroll-margin-top: 90px; }
   win.addEventListener('scroll', onScrollNav);
   onScrollNav();
 
-  /* Services mega menu */
-  var sBtn = $('#services-btn'), mega = $('#mega');
-  function setMega(open) { setClass(mega, 'open', open); sBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); }
-  sBtn.addEventListener('click', function (e) { e.stopPropagation(); setMega(!has(mega, 'open')); });
-  doc.addEventListener('click', function (e) { if (!mega.contains(e.target)) setMega(false); });
-  doc.addEventListener('keydown', function (e) { if (e.key === 'Escape' || e.keyCode === 27) { if (has(mega, 'open')) { setMega(false); sBtn.focus(); } setMenu(false); } });
-  $$('a', mega).forEach(function (a) { a.addEventListener('click', function () { setMega(false); }); });
-
   /* Mobile menu */
   var mBtn = $('#menu-btn'), panel = $('#mobile-panel');
   function setMenu(open) { setClass(panel, 'open', open); mBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); mBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); }
-  mBtn.addEventListener('click', function () { setMenu(!has(panel, 'open')); });
+  mBtn.addEventListener('click', function () { setMenu(panel.getAttribute('class').indexOf('open') < 0); });
   $$('a', panel).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  doc.addEventListener('keydown', function (e) { if (e.key === 'Escape' || e.keyCode === 27) setMenu(false); });
 
-  /* Service CTAs pre-select the area of interest */
-  $$('[data-interest]').forEach(function (a) {
-    a.addEventListener('click', function () { var sel = $('#f-area'); if (sel) sel.value = a.getAttribute('data-interest'); });
-  });
+  /* Service CTAs pre-select the enquiry area */
+  $$('[data-interest]').forEach(function (a) { a.addEventListener('click', function () { var sel = $('#f-area'); if (sel) sel.value = a.getAttribute('data-interest'); }); });
 
-  /* Reveals (only when motion is enabled) */
+  /* Reveal hierarchy */
   if (anim) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { if (en.isIntersecting) { setClass(en.target, 'in', true); io.unobserve(en.target); } });
-    }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+    }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
     $$('[data-reveal], #person').forEach(function (el) { io.observe(el); });
   }
 
-  /* Approach: progress line fills with scroll */
-  var steps = $('#steps'), stepEls = $$('.step', steps), fill = $('.steps-fill', steps);
-  function onScrollSteps() {
-    if (!anim) { stepEls.forEach(function (s) { setClass(s, 'on', true); }); return; }
-    var r = steps.getBoundingClientRect(), vh = win.innerHeight;
-    var vertical = win.innerWidth <= 900;
-    var p = Math.max(0, Math.min(1, (vh * 0.75 - r.top) / (r.height + vh * 0.2)));
-    fill.style.setProperty('--p', p.toFixed(3));
-    stepEls.forEach(function (s, i) { setClass(s, 'on', p >= (vertical ? i / stepEls.length : i / (stepEls.length - 1)) - 0.001); });
+  /* Tilt (case studies, portrait) + magnetic buttons — fine pointers only */
+  if (anim && fine) {
+    function tilt(el, max) {
+      el.addEventListener('mousemove', function (e) {
+        var r = el.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
+        setClass(el, 'tilting', true);
+        el.style.setProperty('--ry', (px * max).toFixed(2) + 'deg');
+        el.style.setProperty('--rx', (-py * max).toFixed(2) + 'deg');
+      });
+      el.addEventListener('mouseleave', function () { setClass(el, 'tilting', false); el.style.setProperty('--rx', '0deg'); el.style.setProperty('--ry', '0deg'); });
+    }
+    $$('[data-tilt]').forEach(function (el) { tilt(el, 7); });
+    var pf = $('#photo-frame'); if (pf) tilt(pf, 6);
+    $$('[data-magnetic]').forEach(function (b) {
+      b.addEventListener('mousemove', function (e) { var r = b.getBoundingClientRect(); b.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * 0.16).toFixed(1) + 'px,' + ((e.clientY - r.top - r.height / 2) * 0.25).toFixed(1) + 'px)'; });
+      b.addEventListener('mouseleave', function () { b.style.transform = ''; });
+    });
   }
-  win.addEventListener('scroll', onScrollSteps);
-  win.addEventListener('resize', onScrollSteps);
-  onScrollSteps();
+
+  /* Approach: curved journey (milestones placed along the path) */
+  var svg = $('#journey-svg'), path = $('#jpath');
+  var steps = $$('.step', $('#steps'));
+  var marks = [], total = 0;
+  if (svg && path && path.getTotalLength) {
+    total = path.getTotalLength();
+    var NS = 'http://www.w3.org/2000/svg', g = $('#jmarks');
+    var names = ['Discover', 'Assess', 'Architect', 'Enable', 'Transform', 'Evolve'];
+    for (var k = 0; k < 6; k++) {
+      var pt = path.getPointAtLength(total * k / 5);
+      var mg = doc.createElementNS(NS, 'g'); mg.setAttribute('class', 'jm');
+      var c1 = doc.createElementNS(NS, 'circle'); c1.setAttribute('class', 'o'); c1.setAttribute('cx', pt.x); c1.setAttribute('cy', pt.y); c1.setAttribute('r', 17);
+      var t1 = doc.createElementNS(NS, 'text'); t1.setAttribute('class', 'n'); t1.setAttribute('x', pt.x); t1.setAttribute('y', pt.y + 4); t1.textContent = '0' + (k + 1);
+      var t2 = doc.createElementNS(NS, 'text'); t2.setAttribute('x', pt.x); t2.setAttribute('y', pt.y + (k % 2 ? 46 : -30)); t2.textContent = names[k];
+      mg.appendChild(c1); mg.appendChild(t1); mg.appendChild(t2); g.appendChild(mg); marks.push(mg);
+    }
+  }
+  var jfill = $('#jfill'), track = $('#approach-track'), jp = $('#jparticles'), particles = [];
+  if (jfill && total) { jfill.style.strokeDasharray = total; jfill.style.strokeDashoffset = total; }
+  if (jp && total) for (var q = 0; q < 4; q++) { var dot = doc.createElementNS('http://www.w3.org/2000/svg', 'circle'); dot.setAttribute('r', 3.5); dot.setAttribute('class', 'jparticle'); jp.appendChild(dot); particles.push(dot); }
+  var jProgress = 1;
+  function setStage(idx) {
+    steps.forEach(function (s, i) { setClass(s, 'on', i === idx); });
+    marks.forEach(function (m, i) { setClass(m, 'on', i <= idx); });
+  }
+  function onScrollJourney() {
+    var desktop = win.innerWidth > 900;
+    if (!anim || !desktop) { jProgress = 1; if (jfill && total) jfill.style.strokeDashoffset = 0; marks.forEach(function (m) { setClass(m, 'on', true); }); steps.forEach(function (s) { setClass(s, 'on', true); }); return; }
+    var r = track.getBoundingClientRect(), span = r.height - win.innerHeight;
+    jProgress = clamp(-r.top / (span || 1));
+    if (jfill && total) jfill.style.strokeDashoffset = (total * (1 - jProgress)).toFixed(1);
+    setStage(Math.min(5, Math.floor(jProgress * 5.999)));
+  }
+  win.addEventListener('scroll', onScrollJourney);
+  win.addEventListener('resize', onScrollJourney);
+  onScrollJourney();
+  if (anim && particles.length && win.requestAnimationFrame) {
+    var jVisible = false;
+    new IntersectionObserver(function (en) { jVisible = en[0].isIntersecting; if (jVisible) win.requestAnimationFrame(tickJ); }).observe(track);
+    var tickJ = function (t) {
+      var head = total * jProgress;
+      particles.forEach(function (d, i) {
+        var len = head - ((t * 0.08 + i * 60) % 240);
+        if (len < 0 || head < 4) { d.setAttribute('opacity', 0); return; }
+        var p = path.getPointAtLength(len); d.setAttribute('cx', p.x); d.setAttribute('cy', p.y); d.setAttribute('opacity', 0.9 - i * 0.18);
+      });
+      if (jVisible) win.requestAnimationFrame(tickJ);
+    };
+  }
 
   /* Enquiry form → email */
   var form = $('#enquiry'), F = form.elements;
+  function trim(s) { return s.replace(/^\s+|\s+$/g, ''); }
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var status = $('#form-status');
-    var name = F['name'].value.replace(/^\s+|\s+$/g, ''), email = F['email'].value.replace(/^\s+|\s+$/g, ''), msg = F['message'].value.replace(/^\s+|\s+$/g, '');
+    var name = trim(F['name'].value), email = trim(F['email'].value), msg = trim(F['message'].value);
     if (!name || !email || !msg) { status.innerHTML = 'Please add your name, work email and a short description of the challenge.'; (!name ? F['name'] : !email ? F['email'] : F['message']).focus(); return; }
     if (!/^\S+@\S+\.\S+$/.test(email)) { status.innerHTML = 'Please enter a valid email address.'; F['email'].focus(); return; }
     status.innerHTML = '';
-    var org = F['organisation'].value.replace(/^\s+|\s+$/g, ''), area = F['area'].value;
+    var org = trim(F['organisation'].value), area = F['area'].value;
     var subject = 'Enquiry: ' + area + (org ? ' (' + org + ')' : '');
     var body = msg + '\n\n' + name + (org ? '\n' + org : '') + '\n' + email + '\nArea of interest: ' + area;
     win.location.href = 'mailto:rajneesh@in4rtech.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   });
 
-  /* Contact background: quiet node network (skipped without motion) */
+  /* Contact background network (2D, motion only) */
   var c = $('#contact-net');
   if (anim && c && c.getContext && win.requestAnimationFrame) {
     var ctx = c.getContext('2d'), small = win.innerWidth < 900;
-    var N = small ? 26 : 54, LINK = small ? 130 : 180, W = 0, H = 0, pts = [], visible = false, raf = 0;
-    var size = function () {
-      var dpr = Math.min(win.devicePixelRatio || 1, 2);
-      W = c.clientWidth; H = c.clientHeight; c.width = W * dpr; c.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      if (!pts.length) for (var i = 0; i < N; i++) pts.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .22, vy: (Math.random() - .5) * .22 });
-    };
+    var N = small ? 24 : 52, LINK = small ? 130 : 180, W = 0, H = 0, pts = [], visible = false, raf = 0;
+    var size = function () { var dpr = Math.min(win.devicePixelRatio || 1, 2); W = c.clientWidth; H = c.clientHeight; c.width = W * dpr; c.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); if (!pts.length) for (var i = 0; i < N; i++) pts.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .2, vy: (Math.random() - .5) * .2 }); };
     var draw = function () {
       ctx.clearRect(0, 0, W, H);
       for (var i = 0; i < N; i++) {
-        var a = pts[i]; a.x += a.vx; a.y += a.vy;
-        if (a.x < 0 || a.x > W) a.vx *= -1; if (a.y < 0 || a.y > H) a.vy *= -1;
-        for (var j = i + 1; j < N; j++) {
-          var b = pts[j], d = Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
-          if (d < LINK) { ctx.strokeStyle = 'rgba(111,208,199,' + (0.14 * (1 - d / LINK)).toFixed(3) + ')'; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
-        }
+        var a = pts[i]; a.x += a.vx; a.y += a.vy; if (a.x < 0 || a.x > W) a.vx *= -1; if (a.y < 0 || a.y > H) a.vy *= -1;
+        for (var j = i + 1; j < N; j++) { var b = pts[j], d = Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y)); if (d < LINK) { ctx.strokeStyle = 'rgba(111,208,199,' + (0.13 * (1 - d / LINK)).toFixed(3) + ')'; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); } }
         ctx.fillStyle = 'rgba(111,208,199,.45)'; ctx.beginPath(); ctx.arc(a.x, a.y, 1.5, 0, 6.283); ctx.fill();
       }
       raf = visible ? win.requestAnimationFrame(draw) : 0;
     };
     new IntersectionObserver(function (en) { visible = en[0].isIntersecting; if (visible && !raf) raf = win.requestAnimationFrame(draw); }).observe(c);
-    win.addEventListener('resize', size);
-    size();
+    win.addEventListener('resize', size); size();
   }
 })();
 </script>
 
-<!-- Hero 3D (modern browsers only; the static diagram stays in place otherwise) -->
+<!-- 3D scenes: desktop/tablet with WebGL only; Three.js is loaded on demand when a scene approaches the viewport. -->
 <script type="module">
-import * as THREE from 'three';
-import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
-
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const small = matchMedia('(max-width: 900px)').matches;
-const wrap = document.querySelector('.hero-visual');
-const canvas = document.getElementById('flow-3d');
-const hero = document.getElementById('home');
+const desktop = matchMedia('(min-width: 901px)').matches;
+function webglOK() { try { const c = document.createElement('canvas'); return !!(window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl'))); } catch (e) { return false; } }
 
-function init() {
-  let renderer;
-  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' }); }
-  catch (e) { return; }
-  wrap.classList.add('has-webgl');
-  renderer.setPixelRatio(Math.min(devicePixelRatio, small ? 1.5 : 2));
+let lib;
+const loadThree = () => lib || (lib = Promise.all([import('three'), import('three/addons/geometries/RoundedBoxGeometry.js')]).then(([T, R]) => ({ T, RB: R.RoundedBoxGeometry })));
 
-  const INK = 0x0D1F22, TEAL = 0x2FA59C, GREEN = 0x7DBE4E;
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
-  const look = new THREE.Vector3(0.1, 0.35, 0);
-  scene.add(new THREE.HemisphereLight(0xffffff, 0xc9d3d1, 1.7));
-  const sun = new THREE.DirectionalLight(0xffffff, 1.5); sun.position.set(4, 8, 6); scene.add(sun);
-
-  const root = new THREE.Group(); scene.add(root);
-
-  // Journey: Business → Architecture → Data → AI → Automation → Outcomes
-  const P = [[-3.0, -1.35, 0.7], [-1.8, -0.75, -0.45], [-0.6, -0.15, 0.55], [0.6, 0.45, -0.35], [1.8, 1.05, 0.55], [3.0, 1.65, -0.3]]
-    .map(([x, y, z]) => new THREE.Vector3(x, y, z));
-  const curve = new THREE.CatmullRomCurve3(P, false, 'catmullrom', 0.5);
-  const tubeGeo = new THREE.TubeGeometry(curve, 240, 0.016, 8, false);
-  const tube = new THREE.Mesh(tubeGeo, new THREE.MeshBasicMaterial({ color: TEAL, transparent: true, opacity: 0.9 }));
-  root.add(tube);
-  const tubeCount = tubeGeo.index.count;
-
-  const glass = (color, opacity) => new THREE.MeshPhysicalMaterial({ color, roughness: 0.22, metalness: 0, clearcoat: 0.9, clearcoatRoughness: 0.2, transparent: true, opacity });
-  const solid = (color) => new THREE.MeshStandardMaterial({ color, roughness: 0.45, metalness: 0.05 });
-  const edges = (geo, color = INK, opacity = 0.32) => new THREE.LineSegments(new THREE.EdgesGeometry(geo, 25), new THREE.LineBasicMaterial({ color, transparent: true, opacity }));
-  const mesh = (geo, mat, withEdges = true, ec, eo) => { const m = new THREE.Mesh(geo, mat); if (withEdges) m.add(edges(geo, ec, eo)); return m; };
-
-  function base() {
-    const g = new THREE.Group();
-    const dg = new THREE.CylinderGeometry(0.62, 0.62, 0.05, 56);
-    g.add(mesh(dg, glass(0xffffff, 0.8), true, INK, 0.18));
-    const ring = new THREE.Mesh(new THREE.TorusGeometry(0.64, 0.007, 8, 96), new THREE.MeshBasicMaterial({ color: TEAL }));
-    ring.rotation.x = Math.PI / 2; ring.position.y = 0.03; g.add(ring);
-    return g;
-  }
-  const makers = [
-    // Business: the organisation, as stacked layers
-    () => { const g = new THREE.Group(); for (let i = 0; i < 3; i++) { const bg = new RoundedBoxGeometry(0.8, 0.08, 0.8, 2, 0.03); const m = mesh(bg, glass(i === 2 ? 0xe4f3f1 : 0xffffff, 0.9)); m.position.y = 0.12 + i * 0.13; g.add(m); } return g; },
-    // Architecture: a structured frame with a defined core
-    () => { const g = new THREE.Group(); const og = new THREE.BoxGeometry(0.7, 0.7, 0.7); const o = new THREE.LineSegments(new THREE.EdgesGeometry(og), new THREE.LineBasicMaterial({ color: INK, transparent: true, opacity: 0.55 })); o.position.y = 0.42; g.add(o); const ig = new RoundedBoxGeometry(0.36, 0.36, 0.36, 2, 0.04); const i = mesh(ig, glass(0xbfe5e0, 0.8), true, TEAL, 0.8); i.position.y = 0.42; g.add(i); return g; },
-    // Data: stacked stores
-    () => { const g = new THREE.Group(); for (let i = 0; i < 3; i++) { const cg = new THREE.CylinderGeometry(0.3, 0.3, 0.13, 48); const m = mesh(cg, glass(i === 2 ? 0xcdeae6 : 0xffffff, 0.9)); m.position.y = 0.12 + i * 0.17; g.add(m); } return g; },
-    // AI: a faceted, connected core
-    () => { const g = new THREE.Group(); const ig = new THREE.IcosahedronGeometry(0.42, 1); const shell = new THREE.Mesh(ig, glass(0xd9f1ee, 0.55)); const wire = new THREE.LineSegments(new THREE.EdgesGeometry(ig, 1), new THREE.LineBasicMaterial({ color: TEAL, transparent: true, opacity: 0.9 })); shell.add(wire); shell.position.y = 0.55; g.add(shell); const core = new THREE.Mesh(new THREE.SphereGeometry(0.13, 24, 24), new THREE.MeshStandardMaterial({ color: INK, roughness: 0.3 })); core.position.y = 0.55; g.add(core); g.userData.spin = shell; return g; },
-    // Automation: a continuous loop with items moving through it
-    () => { const g = new THREE.Group(); const tg = new THREE.TorusGeometry(0.34, 0.045, 16, 80); const t = new THREE.Mesh(tg, glass(0xffffff, 0.95)); t.rotation.x = Math.PI / 2.6; t.position.y = 0.5; g.add(t); const sats = []; for (let i = 0; i < 3; i++) { const s = new THREE.Mesh(new THREE.SphereGeometry(0.055, 16, 16), solid(i === 0 ? GREEN : TEAL)); g.add(s); sats.push(s); } g.userData.sats = sats; g.userData.ring = t; return g; },
-    // Outcomes: rising results
-    () => { const g = new THREE.Group(); [0.3, 0.52, 0.78].forEach((h, i) => { const bg = new RoundedBoxGeometry(0.17, h, 0.17, 2, 0.03); const m = new THREE.Mesh(bg, solid(i === 2 ? GREEN : TEAL)); m.position.set(-0.24 + i * 0.24, 0.05 + h / 2, 0); g.add(m); }); return g; },
-  ];
-  const nodes = P.map((p, i) => {
-    const holder = new THREE.Group(); holder.position.copy(p);
-    holder.add(base());
-    const obj = makers[i](); holder.add(obj);
-    root.add(holder);
-    return { holder, obj };
-  });
-
-  // Flow pulses along the journey
-  const PN = small ? 8 : 14;
-  const pulseMesh = new THREE.InstancedMesh(new THREE.SphereGeometry(0.045, 12, 12), new THREE.MeshBasicMaterial({ color: TEAL }), PN);
-  root.add(pulseMesh);
-  const pulses = Array.from({ length: PN }, (_, i) => ({ t: i / PN, v: 0.05 + Math.random() * 0.03 }));
-  const m4 = new THREE.Matrix4(), v3 = new THREE.Vector3();
-
-  const labels = Array.prototype.slice.call(document.querySelectorAll('.flow-label'));
-
-  function resize() {
-    const w = canvas.clientWidth, h = canvas.clientHeight;
-    if (!w || !h) return;
-    renderer.setSize(w, h, false);
-    camera.aspect = w / h;
-    // fit the whole journey (~8.4 units wide) inside the canvas width
-    const d = Math.max(12.5, (small ? 4.9 : 4.2) / (Math.tan(THREE.MathUtils.degToRad(15)) * camera.aspect));
-    camera.position.set(0.4, 2.6, d);
-    camera.lookAt(look);
-    camera.updateProjectionMatrix();
-    if (reduce) frame(0);
-  }
-  addEventListener('resize', resize);
-
-  let mx = 0, my = 0, sx = 0, sy = 0;
-  if (!reduce) addEventListener('pointermove', (e) => { mx = e.clientX / innerWidth * 2 - 1; my = e.clientY / innerHeight * 2 - 1; }, { passive: true });
-  const ease = (x) => 1 - Math.pow(1 - x, 3);
-  const t0 = performance.now();
-
-  function frame(t) {
-    const k = reduce ? 1 : Math.min(1, (performance.now() - t0) / 2600);
-    const p = Math.min(1, Math.max(0, (pageYOffset || 0) / (hero.offsetHeight || 1)));
-    sx += (mx - sx) * 0.04; sy += (my - sy) * 0.04;
-    root.rotation.y = -0.22 + sx * 0.16 + Math.sin(t * 0.2) * 0.04 + p * 0.25;
-    root.rotation.x = 0.04 + sy * 0.05;
-    root.position.y = p * 0.9;
-
-    tubeGeo.setDrawRange(0, Math.floor(tubeCount * Math.min(1, k * 1.15)));
-    nodes.forEach((n, i) => {
-      const s = ease(Math.min(1, Math.max(0, (k * 1.25 - i * 0.14) / 0.35)));
-      n.holder.scale.setScalar(Math.max(0.0001, s));
-      n.obj.position.y = reduce ? 0 : Math.sin(t * 0.9 + i * 1.1) * 0.035;
+if (desktop && webglOK()) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (!en.isIntersecting) return;
+      io.unobserve(en.target);
+      loadThree().then(({ T, RB }) => SCENES[en.target.dataset.scene](en.target, T, RB)).catch(() => {});
     });
-    const ai = nodes[3].obj.userData.spin; if (ai) { ai.rotation.y = t * 0.25; ai.rotation.x = t * 0.1; }
-    const au = nodes[4].obj.userData;
-    au.sats.forEach((s, i) => { const a = t * 0.9 + i * 2.094; v3.set(Math.cos(a) * 0.34, 0, Math.sin(a) * 0.34).applyEuler(au.ring.rotation); s.position.set(v3.x, 0.5 + v3.y, v3.z); });
-
-    const flowOn = k > 0.85;
-    pulses.forEach((pu, i) => {
-      if (!reduce) pu.t = (pu.t + pu.v * 0.016) % 1;
-      curve.getPointAt(pu.t, v3);
-      const sc = flowOn ? Math.sin(pu.t * Math.PI) * 1.1 : 0.0001;
-      m4.makeScale(sc, sc, sc).setPosition(v3);
-      pulseMesh.setMatrixAt(i, m4);
-    });
-    pulseMesh.instanceMatrix.needsUpdate = true;
-
-    renderer.render(scene, camera);
-
-    const w = canvas.clientWidth, h = canvas.clientHeight;
-    labels.forEach((el, i) => {
-      const above = i % 2 === 1;
-      v3.set(0, above ? 1.12 : -0.28, above ? 0 : 0.62); nodes[i].holder.localToWorld(v3); v3.project(camera);
-      el.style.transform = 'translate(' + ((v3.x * 0.5 + 0.5) * w).toFixed(0) + 'px,' + ((-v3.y * 0.5 + 0.5) * h).toFixed(0) + 'px) translate(-50%, ' + (above ? '-100%' : '0') + ')';
-      el.classList.toggle('on', k > 0.4 + i * 0.1 && p < 0.7);
-    });
-  }
-
-  resize();
-  if (reduce) { frame(0); return; }
-  let visible = false, raf = 0;
-  const clock = new THREE.Clock();
-  const loop = () => { frame(clock.getElapsedTime()); raf = visible ? requestAnimationFrame(loop) : 0; };
-  new IntersectionObserver(([en]) => { visible = en.isIntersecting; if (visible && !raf) raf = requestAnimationFrame(loop); }).observe(wrap);
+  }, { rootMargin: '400px 0px' });
+  document.querySelectorAll('[data-scene]').forEach((el) => io.observe(el));
 }
-init();
+
+/* ---------- shared helpers ---------- */
+const INK = 0x0D1F22, TEAL = 0x2FA59C, LUM = 0x6FD0C7, GREEN = 0x7DBE4E;
+const clamp = (v) => Math.max(0, Math.min(1, v));
+const ease = (x) => 1 - Math.pow(1 - clamp(x), 3);
+
+function stage(el, T, { fov = 30, dark = false } = {}) {
+  const canvas = document.createElement('canvas');
+  el.insertBefore(canvas, el.firstChild);
+  const renderer = new T.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+  const scene = new T.Scene();
+  const camera = new T.PerspectiveCamera(fov, 1, 0.1, 100);
+  scene.add(new T.HemisphereLight(0xffffff, dark ? 0x0d1f22 : 0xc9d3d1, dark ? 1.3 : 1.7));
+  const sun = new T.DirectionalLight(0xffffff, dark ? 1.1 : 1.4); sun.position.set(4, 8, 6); scene.add(sun);
+  const st = { el, canvas, renderer, scene, camera, w: 1, h: 1, mx: 0, my: 0, sx: 0, sy: 0, progress: reduce ? 0.6 : 0, frame: null, t: 0 };
+  el.addEventListener('pointermove', (e) => { const r = el.getBoundingClientRect(); st.mx = (e.clientX - r.left) / r.width * 2 - 1; st.my = (e.clientY - r.top) / r.height * 2 - 1; st.px = e.clientX - r.left; st.py = e.clientY - r.top; });
+  el.addEventListener('pointerleave', () => { st.mx = 0; st.my = 0; st.px = null; });
+  const render = (t) => {
+    st.t = t;
+    if (!reduce) { const r = el.getBoundingClientRect(); st.progress = clamp((innerHeight - r.top) / (innerHeight + r.height)); }
+    st.sx += (st.mx - st.sx) * 0.05; st.sy += (st.my - st.sy) * 0.05;
+    st.frame && st.frame(t, st);
+    renderer.render(scene, camera);
+  };
+  st.render = render;
+  const resize = () => { st.w = el.clientWidth; st.h = el.clientHeight; if (!st.w || !st.h) return; renderer.setSize(st.w, st.h, false); camera.aspect = st.w / st.h; st.onResize && st.onResize(st); camera.updateProjectionMatrix(); render(st.t); };
+  st.start = () => {
+    el.classList.add('has-webgl');
+    new ResizeObserver(resize).observe(el); resize();
+    if (reduce) return;
+    let visible = false, raf = 0; const clock = new T.Clock();
+    const loop = () => { render(clock.getElapsedTime()); raf = visible ? requestAnimationFrame(loop) : 0; };
+    new IntersectionObserver(([en]) => { visible = en.isIntersecting; if (visible && !raf) raf = requestAnimationFrame(loop); }).observe(el);
+  };
+  return st;
+}
+const glass = (T, color, opacity, extra = {}) => new T.MeshPhysicalMaterial({ color, roughness: 0.22, metalness: 0, clearcoat: 0.9, clearcoatRoughness: 0.2, transparent: true, opacity, ...extra });
+const solid = (T, color, extra = {}) => new T.MeshStandardMaterial({ color, roughness: 0.42, metalness: 0.05, ...extra });
+const edgeLines = (T, geo, color = INK, opacity = 0.3, thr = 25) => new T.LineSegments(new T.EdgesGeometry(geo, thr), new T.LineBasicMaterial({ color, transparent: true, opacity }));
+const withEdges = (T, geo, mat, color, opacity) => { const m = new T.Mesh(geo, mat); m.add(edgeLines(T, geo, color, opacity)); return m; };
+function labels(st, defs) {
+  return defs.map((d) => { const el = document.createElement('span'); el.className = 'scene-label' + (d.cls ? ' ' + d.cls : ''); el.innerHTML = '<b></b>'; el.firstChild.textContent = d.text; st.el.appendChild(el); return { el, ...d }; });
+}
+function place(T, st, L, v = new T.Vector3()) {
+  L.forEach((l) => {
+    v.copy(l.off || v.set(0, 0, 0)); l.obj.localToWorld(v);
+    l.wz = v.z; v.project(st.camera);
+    const x = l.fixedX != null ? l.fixedX : (v.x * 0.5 + 0.5) * st.w, y = (-v.y * 0.5 + 0.5) * st.h;
+    l.el.style.transform = `translate(${x.toFixed(0)}px, ${y.toFixed(0)}px) translate(${l.fixedX != null ? '0' : '-50%'}, -50%)`;
+  });
+}
+function pulses(T, count, color, r = 0.04) { const m = new T.InstancedMesh(new T.SphereGeometry(r, 10, 10), new T.MeshBasicMaterial({ color }), count); m.frustumCulled = false; return m; }
+
+const SCENES = {
+  /* ================= HERO: enterprise ecosystem ================= */
+  hero(el, T, RB) {
+    const st = stage(el, T, { fov: 32 });
+    const { scene, camera } = st;
+    const root = new T.Group(); scene.add(root);
+    const look = new T.Vector3(0, 0.15, 0);
+
+    // central core — the organisation
+    const core = new T.Group(); root.add(core);
+    const shellGeo = new T.IcosahedronGeometry(0.95, 1);
+    const shell = new T.Mesh(shellGeo, glass(T, 0xe2f3f0, 0.4)); shell.add(edgeLines(T, shellGeo, TEAL, 0.85, 1)); core.add(shell);
+    core.add(new T.Mesh(new T.SphereGeometry(0.44, 40, 40), solid(T, INK, { roughness: 0.3, metalness: 0.25 })));
+    const halos = [1.3, 1.52].map((r, i) => { const h = new T.Mesh(new T.TorusGeometry(r, 0.006, 8, 140), new T.MeshBasicMaterial({ color: i ? GREEN : TEAL, transparent: true, opacity: 0.55 })); h.rotation.set(Math.PI / 2 + (i ? 0.5 : -0.35), i ? 0.3 : 0, 0); core.add(h); return h; });
+
+    // orbiting capability nodes
+    const orbit = new T.Group(); orbit.rotation.x = 0.16; root.add(orbit);
+    const R = 3.4, names = ['BUSINESS', 'APPLICATIONS', 'DATA', 'CLOUD', 'AI', 'AUTOMATION', 'SECURITY', 'INTEGRATION'];
+    const wGlass = () => glass(T, 0xffffff, 0.92);
+    const build = {
+      BUSINESS: () => { const g = new T.Group(); for (let i = 0; i < 3; i++) { const b = withEdges(T, new RB(0.5, 0.06, 0.5, 2, 0.02), wGlass(), INK, 0.3); b.position.y = i * 0.1 - 0.1; g.add(b); } return g; },
+      APPLICATIONS: () => { const g = new T.Group(); [[-1, -1], [1, -1], [-1, 1], [1, 1]].forEach(([x, z], i) => { const b = withEdges(T, new RB(0.2, 0.2, 0.2, 2, 0.03), i === 3 ? solid(T, TEAL) : wGlass(), INK, 0.3); b.position.set(x * 0.13, 0, z * 0.13); g.add(b); }); return g; },
+      DATA: () => { const g = new T.Group(); for (let i = 0; i < 3; i++) { const c = withEdges(T, new T.CylinderGeometry(0.2, 0.2, 0.09, 36), i === 2 ? glass(T, 0xcdeae6, 0.95) : wGlass(), INK, 0.28); c.position.y = i * 0.12 - 0.12; g.add(c); } return g; },
+      CLOUD: () => { const g = new T.Group(); [[0, 0.05, 0, 0.19], [-0.17, -0.03, 0, 0.14], [0.17, -0.03, 0.02, 0.15], [0.05, 0.14, -0.05, 0.12]].forEach(([x, y, z, r]) => { const s = new T.Mesh(new T.SphereGeometry(r, 24, 24), glass(T, 0xf2fbfa, 0.9, { emissive: 0x2fa59c, emissiveIntensity: 0.08 })); s.position.set(x, y, z); g.add(s); }); return g; },
+      AI: () => { const g = new T.Group(); const ig = new T.IcosahedronGeometry(0.26, 1); const s = new T.Mesh(ig, glass(T, 0xd9f1ee, 0.6)); s.add(edgeLines(T, ig, TEAL, 0.95, 1)); g.add(s); g.add(new T.Mesh(new T.SphereGeometry(0.09, 20, 20), solid(T, INK))); g.userData.spin = s; return g; },
+      AUTOMATION: () => { const g = new T.Group(); const t = new T.Mesh(new T.TorusGeometry(0.2, 0.045, 14, 60), wGlass()); t.rotation.x = Math.PI / 2.4; g.add(t); const s = new T.Mesh(new T.SphereGeometry(0.045, 14, 14), solid(T, GREEN)); g.add(s); g.userData.sat = s; return g; },
+      SECURITY: () => { const g = new T.Group(); const og = new T.OctahedronGeometry(0.24, 0); const o = withEdges(T, og, glass(T, 0xffffff, 0.9), INK, 0.4); o.scale.y = 1.2; g.add(o); return g; },
+      INTEGRATION: () => { const g = new T.Group(); const a = new T.Mesh(new T.TorusGeometry(0.13, 0.035, 12, 48), solid(T, TEAL)); a.position.x = -0.08; const b = new T.Mesh(new T.TorusGeometry(0.13, 0.035, 12, 48), wGlass()); b.position.x = 0.08; b.rotation.y = Math.PI / 2; g.add(a, b); return g; },
+    };
+    const nodes = names.map((n, i) => {
+      const a = (i / names.length) * Math.PI * 2;
+      const pos = new T.Vector3(Math.cos(a) * R, Math.sin(a * 2) * 0.32, Math.sin(a) * R);
+      const holder = new T.Group(); holder.position.copy(pos); orbit.add(holder);
+      const obj = build[n](); holder.add(obj);
+      const ring = new T.Mesh(new T.TorusGeometry(0.34, 0.005, 6, 64), new T.MeshBasicMaterial({ color: TEAL, transparent: true, opacity: 0.45 })); ring.rotation.x = Math.PI / 2; ring.position.y = -0.24; holder.add(ring);
+      const curve = new T.QuadraticBezierCurve3(pos.clone().setLength(1.0), pos.clone().multiplyScalar(0.5).add(new T.Vector3(0, 0.75, 0)), pos.clone().add(new T.Vector3(0, -0.05, 0)));
+      const line = new T.Line(new T.BufferGeometry().setFromPoints(curve.getPoints(40)), new T.LineBasicMaterial({ color: TEAL, transparent: true, opacity: 0.4 }));
+      orbit.add(line);
+      return { n, holder, obj, curve, line, phase: i * 0.8 };
+    });
+    const ringCurve = new T.CatmullRomCurve3(nodes.map((d) => d.holder.position.clone()), true);
+    orbit.add(new T.Line(new T.BufferGeometry().setFromPoints(ringCurve.getPoints(160)), new T.LineBasicMaterial({ color: INK, transparent: true, opacity: 0.14 })));
+
+    const P = 16, pm = pulses(T, P, TEAL, 0.038); orbit.add(pm);
+    const pz = Array.from({ length: P }, (_, i) => ({ k: i % 8, t: Math.random(), v: 0.18 + Math.random() * 0.14, ring: i >= 8 }));
+    const dustGeo = new T.BufferGeometry(); const dp = new Float32Array(90 * 3); for (let i = 0; i < 90; i++) { const v = new T.Vector3().randomDirection().multiplyScalar(3 + Math.random() * 2.6); dp.set([v.x, v.y * 0.6, v.z], i * 3); }
+    dustGeo.setAttribute('position', new T.BufferAttribute(dp, 3));
+    const dust = new T.Points(dustGeo, new T.PointsMaterial({ color: TEAL, size: 0.028, transparent: true, opacity: 0.55, depthWrite: false })); root.add(dust);
+
+    const L = labels(st, [{ text: 'YOUR ORGANISATION', obj: core, off: new T.Vector3(0, -1.3, 0), cls: 'key' }, ...nodes.map((d) => ({ text: d.n, obj: d.holder, off: new T.Vector3(0, -0.5, 0), cls: d.n === 'AI' ? 'key' : '' }))]);
+    st.onResize = () => { const d = Math.max(10.2, 4.5 / (Math.tan(T.MathUtils.degToRad(16)) * camera.aspect)); camera.position.set(0, 1.9, d); camera.lookAt(look); };
+    const m4 = new T.Matrix4(), v = new T.Vector3(), t0 = performance.now();
+    st.frame = (t) => {
+      const k = reduce ? 1 : clamp((performance.now() - t0) / 2200);
+      orbit.rotation.y = reduce ? 0.3 : t * 0.045;
+      root.rotation.y = st.sx * 0.22; root.rotation.x = st.sy * 0.08;
+      camera.position.x = Math.sin(t * 0.12) * 0.5; camera.position.y = 1.9 + Math.sin(t * 0.09) * 0.2; camera.lookAt(look);
+      core.rotation.y = t * 0.12; shell.rotation.x = t * 0.05; halos[0].rotation.z = t * 0.2; halos[1].rotation.z = -t * 0.15;
+      core.scale.setScalar(0.001 + ease(k * 1.6));
+      nodes.forEach((d, i) => {
+        const s = ease((k * 1.4) - i * 0.07); d.holder.scale.setScalar(Math.max(0.001, s) * 1.25);
+        d.obj.position.y = reduce ? 0 : Math.sin(t * 0.9 + d.phase) * 0.06;
+        d.obj.rotation.y = -orbit.rotation.y + t * 0.2;
+        d.line.material.opacity = 0.4 * s;
+        if (d.obj.userData.spin) d.obj.userData.spin.rotation.y = t * 0.4;
+        if (d.obj.userData.sat) { const a = t * 1.4; d.obj.userData.sat.position.set(Math.cos(a) * 0.2, Math.sin(a) * 0.08, Math.sin(a) * 0.2); }
+      });
+      pz.forEach((p, i) => {
+        if (!reduce) p.t = (p.t + p.v * 0.012) % 1;
+        if (p.ring) ringCurve.getPointAt(p.t, v); else nodes[p.k].curve.getPointAt(p.t, v);
+        const sc = k > 0.8 ? 1 : 0.001; m4.makeScale(sc, sc, sc).setPosition(v); pm.setMatrixAt(i, m4);
+      });
+      pm.instanceMatrix.needsUpdate = true;
+      dust.rotation.y = t * 0.01;
+      place(T, st, L, v);
+      L.forEach((l, i) => { const depth = clamp((l.wz + R) / (2 * R)); l.el.style.opacity = (k > 0.3 + i * 0.05 ? (i === 0 ? 1 : 0.3 + 0.7 * depth) : 0).toFixed(2); });
+    };
+    st.start();
+  },
+
+  /* ================= ENTERPRISE ARCHITECTURE: layered model ================= */
+  ea(el, T, RB) {
+    const st = stage(el, T, { fov: 30 });
+    const { scene, camera } = st;
+    const root = new T.Group(); scene.add(root);
+    const names = ['CLOUD / INFRASTRUCTURE', 'TECHNOLOGY', 'DATA', 'APPLICATION', 'BUSINESS'];
+    const GAP = 0.66;
+    const comps = [
+      [[-1.05, 0.1], [0, -0.3], [1.05, 0.2]],
+      [[-1.15, -0.35], [-0.35, 0.4], [0.5, -0.25], [1.2, 0.45]],
+      [[-0.7, 0], [0.55, 0.25]],
+      [[-1.0, 0.3], [0, -0.35], [1.0, 0.35]],
+      [[-0.75, 0], [0.75, 0]],
+    ];
+    const layers = names.map((n, i) => {
+      const g = new T.Group(); root.add(g);
+      const pg = new RB(3.4, 0.07, 2.3, 2, 0.06);
+      const plate = withEdges(T, pg, glass(T, i === 4 ? 0xe4f3f1 : 0xffffff, 0.62), TEAL, 0.5); g.add(plate);
+      const cs = comps[i].map(([x, z]) => {
+        let m;
+        if (i === 0) m = withEdges(T, new RB(0.52, 0.14, 0.5, 2, 0.03), solid(T, INK, { transparent: true, opacity: 0.9 }), LUM, 0.5);
+        else if (i === 1) m = withEdges(T, new RB(0.36, 0.22, 0.36, 2, 0.03), glass(T, 0xdde7e5, 0.95), INK, 0.3);
+        else if (i === 2) m = withEdges(T, new T.CylinderGeometry(0.2, 0.2, 0.24, 36), glass(T, 0xcdeae6, 0.95), INK, 0.3);
+        else if (i === 3) m = withEdges(T, new RB(0.5, 0.14, 0.34, 2, 0.03), solid(T, TEAL, { transparent: true, opacity: 1 }), INK, 0.2);
+        else m = withEdges(T, new RB(0.72, 0.05, 0.46, 2, 0.02), glass(T, 0xffffff, 0.95), INK, 0.35);
+        const hgt = i === 1 ? 0.22 : i === 2 ? 0.24 : i === 4 ? 0.05 : 0.14;
+        m.position.set(x, 0.035 + hgt / 2, z); g.add(m); m.userData.top = 0.035 + hgt;
+        return m;
+      });
+      const mats = []; g.traverse((o) => { if (o.material) { o.material.transparent = true; mats.push([o.material, o.material.opacity]); } });
+      return { g, cs, mats, baseY: i * GAP };
+    });
+    const pairs = [[0, 0, 1, 0], [0, 1, 1, 1], [0, 2, 1, 2], [0, 2, 1, 3], [1, 1, 2, 0], [1, 2, 2, 1], [1, 3, 2, 1], [2, 0, 3, 0], [2, 1, 3, 1], [2, 1, 3, 2], [3, 0, 4, 0], [3, 1, 4, 0], [3, 2, 4, 1]];
+    const lp = new Float32Array(pairs.length * 6), lg = new T.BufferGeometry(); lg.setAttribute('position', new T.BufferAttribute(lp, 3));
+    const lines = new T.LineSegments(lg, new T.LineBasicMaterial({ color: TEAL, transparent: true, opacity: 0.85 })); root.add(lines);
+    const P = 10, pm = pulses(T, P, TEAL, 0.035); root.add(pm);
+    const pz = Array.from({ length: P }, () => ({ k: Math.floor(Math.random() * pairs.length), t: Math.random(), v: 0.4 + Math.random() * 0.4 }));
+    const L = labels(st, names.map((n, i) => ({ text: n, obj: layers[i].g, off: new T.Vector3(-1.7, 0, 1.15), fixedX: 16, cls: 'plain' })));
+    const a = new T.Vector3(), b = new T.Vector3(), v = new T.Vector3(), m4 = new T.Matrix4();
+    st.frame = (t) => {
+      const p = st.progress, q = reduce ? 1 : clamp((p - 0.12) / 0.45);
+      const th = 0.95 - p * 0.45 + st.sx * 0.12, r = 8.6;
+      camera.position.set(Math.sin(th) * r, 5.1 - p * 1.9 - st.sy * 0.4, Math.cos(th) * r); camera.lookAt(0, 1.35, 0);
+      const appear = layers.map((Lr, i) => {
+        const s = ease((q - i * 0.13) / 0.28);
+        Lr.g.position.y = Lr.baseY - (1 - s) * 0.9 + (reduce ? 0 : Math.sin(t * 0.8 + i) * 0.015);
+        Lr.mats.forEach(([m, o]) => { m.opacity = o * s; });
+        return s;
+      });
+      root.updateMatrixWorld(true);
+      pairs.forEach(([la, ca, lb, cb], k) => {
+        const g = clamp((q - (la * 0.13 + 0.32)) / 0.22) * (appear[lb] > 0.9 ? 1 : 0);
+        const A = layers[la].cs[ca], B = layers[lb].cs[cb];
+        a.set(0, A.userData.top - A.position.y, 0); A.localToWorld(a);
+        b.set(0, -B.position.y + 0.035 - 0.07, 0); B.localToWorld(b);
+        v.lerpVectors(a, b, g);
+        lp.set([a.x, a.y, a.z, v.x, v.y, v.z], k * 6);
+      });
+      lg.attributes.position.needsUpdate = true;
+      pz.forEach((pu, i) => {
+        if (!reduce) { pu.t += pu.v * 0.01; if (pu.t > 1) { pu.t = 0; pu.k = Math.floor(Math.random() * pairs.length); } }
+        const o = pu.k * 6; v.set(lp[o] + (lp[o + 3] - lp[o]) * pu.t, lp[o + 1] + (lp[o + 4] - lp[o + 1]) * pu.t, lp[o + 2] + (lp[o + 5] - lp[o + 2]) * pu.t);
+        const sc = q > 0.95 ? 1 : 0.001; m4.makeScale(sc, sc, sc).setPosition(v); pm.setMatrixAt(i, m4);
+      });
+      pm.instanceMatrix.needsUpdate = true;
+      place(T, st, L, v);
+      L.forEach((l, i) => { l.el.style.opacity = appear[i].toFixed(2); });
+    };
+    st.start();
+  },
+
+  /* ================= AI: data → knowledge → AI → decision → action ================= */
+  ai(el, T) {
+    const st = stage(el, T, { fov: 32 });
+    const { scene, camera } = st;
+    camera.position.set(0, 1.2, 9.4); camera.lookAt(0, 0, 0);
+    const root = new T.Group(); scene.add(root);
+    const cols = [{ n: 'DATA', c: 7, x: -3.2 }, { n: 'KNOWLEDGE', c: 5, x: -1.6 }, { n: 'AI', c: 4, x: 0 }, { n: 'DECISION', c: 3, x: 1.6 }, { n: 'ACTION', c: 2, x: 3.2 }];
+    const colNodes = cols.map((col, ci) => {
+      const arr = [];
+      for (let i = 0; i < col.c; i++) {
+        const y = col.c === 1 ? 0 : (i / (col.c - 1) - 0.5) * (col.c > 4 ? 2.6 : 1.8);
+        const z = -Math.abs(col.x) * 0.22 + (ci === 2 ? (i % 2 ? 0.6 : -0.6) : 0);
+        const color = ci === 0 ? 0xffffff : ci === 1 ? 0xd6efeb : ci === 2 ? TEAL : ci === 3 ? TEAL : GREEN;
+        const m = ci === 0 ? withEdges(T, new T.SphereGeometry(0.1, 20, 20), glass(T, color, 0.95), INK, 0.25) : new T.Mesh(new T.SphereGeometry(ci === 4 ? 0.15 : 0.11, 24, 24), ci === 1 ? glass(T, color, 0.95) : solid(T, color, { emissive: color, emissiveIntensity: 0.25 }));
+        m.position.set(col.x, ci === 2 ? y * 0.9 : y, z); root.add(m); arr.push(m);
+      }
+      return arr;
+    });
+    const coreGeo = new T.IcosahedronGeometry(0.55, 1);
+    const core = new T.Mesh(coreGeo, glass(T, 0xdff3f0, 0.45)); core.add(edgeLines(T, coreGeo, TEAL, 0.9, 1)); root.add(core);
+    core.add(new T.Mesh(new T.SphereGeometry(0.2, 24, 24), solid(T, INK)));
+    const edges = [];
+    for (let ci = 0; ci < cols.length - 1; ci++) colNodes[ci].forEach((a) => colNodes[ci + 1].forEach((b) => edges.push([a, b, ci])));
+    const ep = new Float32Array(edges.length * 6); edges.forEach(([a, b], k) => ep.set([a.position.x, a.position.y, a.position.z, b.position.x, b.position.y, b.position.z], k * 6));
+    const eg = new T.BufferGeometry(); eg.setAttribute('position', new T.BufferAttribute(ep, 3));
+    root.add(new T.LineSegments(eg, new T.LineBasicMaterial({ color: TEAL, transparent: true, opacity: 0.2 })));
+    const P = 22, pm = pulses(T, P, TEAL, 0.04); root.add(pm);
+    const route = () => colNodes.map((arr) => arr[Math.floor(Math.random() * arr.length)]);
+    const pz = Array.from({ length: P }, () => ({ path: route(), s: Math.random() * 4, v: 0.5 + Math.random() * 0.4 }));
+    const L = labels(st, cols.map((col, ci) => ({ text: col.n, obj: root, off: new T.Vector3(col.x, -1.85, -Math.abs(col.x) * 0.22), cls: ci === 2 ? 'key' : 'plain' })));
+    const v = new T.Vector3(), m4 = new T.Matrix4();
+    st.onResize = () => { camera.position.z = Math.max(9.4, 4.4 / (Math.tan(T.MathUtils.degToRad(16)) * camera.aspect)); camera.lookAt(0, 0, 0); };
+    st.frame = (t) => {
+      const q = reduce ? 1 : ease((st.progress - 0.1) / 0.35);
+      root.rotation.y = st.sx * 0.35 + Math.sin(t * 0.25) * 0.08; root.rotation.x = st.sy * 0.15;
+      core.rotation.y = t * 0.3; core.rotation.x = t * 0.12;
+      root.scale.setScalar(0.85 + q * 0.15);
+      pz.forEach((p, i) => {
+        if (!reduce) { p.s += p.v * 0.012; if (p.s >= 4) { p.s = 0; p.path = route(); } }
+        const seg = Math.floor(p.s), f = p.s - seg;
+        v.lerpVectors(p.path[seg].position, p.path[seg + 1].position, f);
+        const sc = q > 0.5 ? 1 : 0.001; m4.makeScale(sc, sc, sc).setPosition(v); pm.setMatrixAt(i, m4);
+      });
+      pm.instanceMatrix.needsUpdate = true;
+      place(T, st, L, v);
+      L.forEach((l, i) => { l.el.style.opacity = clamp(q * 1.6 - i * 0.15).toFixed(2); });
+    };
+    st.start();
+  },
+
+  /* ================= AUTOMATION: repeatable workflow loop ================= */
+  auto(el, T, RB) {
+    const st = stage(el, T, { fov: 30 });
+    const { scene, camera } = st;
+    const root = new T.Group(); scene.add(root);
+    // rounded-rectangle loop in the XZ plane
+    const W = 2.6, D = 1.15, rr = 0.75, pts = [];
+    const arc = (cx, cz, a0) => { for (let i = 0; i <= 12; i++) { const a = a0 + (i / 12) * Math.PI / 2; pts.push(new T.Vector3(cx + Math.cos(a) * rr, 0, cz + Math.sin(a) * rr)); } };
+    arc(W - rr, D - rr, 0); arc(-W + rr, D - rr, Math.PI / 2); arc(-W + rr, -D + rr, Math.PI); arc(W - rr, -D + rr, Math.PI * 1.5);
+    const curve = new T.CatmullRomCurve3(pts, true, 'catmullrom', 0.1);
+    const track = new T.Mesh(new T.TubeGeometry(curve, 240, 0.05, 10, true), glass(T, 0xffffff, 0.9)); root.add(track);
+    const flow = new T.Mesh(new T.TubeGeometry(curve, 240, 0.012, 6, true), new T.MeshBasicMaterial({ color: TEAL })); flow.position.y = 0.05; root.add(flow);
+    const base = new T.Mesh(new RB(W * 2 + 0.6, 0.05, D * 2 + 0.6, 2, 0.2), glass(T, 0xeef3f1, 0.7)); base.position.y = -0.1; root.add(base);
+    // stages: front straight (left→right), then back straight (right→left)
+    const stages = [
+      { n: 'INPUT', x: -1.75, z: D }, { n: 'ANALYSE', x: 0, z: D }, { n: 'DECIDE', x: 1.75, z: D },
+      { n: 'AUTOMATE', x: 1.75, z: -D, back: true }, { n: 'EXECUTE', x: 0, z: -D, back: true }, { n: 'OUTCOME', x: -1.75, z: -D, back: true },
+    ];
+    // (curve starts at +x/+z corner and runs toward -x along +z: front straight is t≈0.13–0.37)
+    const shapes = [
+      () => withEdges(T, new RB(0.46, 0.12, 0.34, 2, 0.03), glass(T, 0xffffff, 0.95), INK, 0.35),
+      () => { const g = new T.Group(); const c = withEdges(T, new T.CylinderGeometry(0.17, 0.17, 0.3, 36), glass(T, 0xcdeae6, 0.95), INK, 0.3); g.add(c); const r = new T.Mesh(new T.TorusGeometry(0.24, 0.012, 8, 48), new T.MeshBasicMaterial({ color: TEAL })); r.rotation.x = Math.PI / 2; g.add(r); return g; },
+      () => { const og = new T.OctahedronGeometry(0.22, 0); const o = withEdges(T, og, solid(T, INK, { transparent: true, opacity: 0.92 }), LUM, 0.7); o.scale.y = 1.25; return o; },
+      () => { const g = new T.Group(); const tr = new T.Mesh(new T.TorusGeometry(0.19, 0.06, 14, 8), solid(T, TEAL)); tr.rotation.x = Math.PI / 2; g.add(tr); g.userData.spin = tr; return g; },
+      () => withEdges(T, new RB(0.34, 0.34, 0.34, 2, 0.05), glass(T, 0xffffff, 0.95), INK, 0.35),
+      () => { const g = new T.Group(); [0.2, 0.34, 0.5].forEach((h, i) => { const b = new T.Mesh(new RB(0.11, h, 0.11, 2, 0.02), solid(T, i === 2 ? GREEN : TEAL)); b.position.set(-0.14 + i * 0.14, h / 2 - 0.12, 0); g.add(b); }); return g; },
+    ];
+    const S = stages.map((s, i) => {
+      const p = new T.Vector3(s.x, 0, s.z); let best = 1e9; for (let j = 0; j <= 600; j++) { const c = curve.getPointAt(j / 600); const dd = c.distanceToSquared(p); if (dd < best) { best = dd; s.t = j / 600; } }
+      const holder = new T.Group(); holder.position.copy(curve.getPointAt(s.t)); holder.position.y = 0.22; root.add(holder);
+      const obj = shapes[i](); holder.add(obj);
+      const pad = new T.Mesh(new T.CylinderGeometry(0.32, 0.32, 0.03, 40), new T.MeshStandardMaterial({ color: 0xffffff, emissive: TEAL, emissiveIntensity: 0, transparent: true, opacity: 0.95 })); pad.position.y = -0.2; holder.add(pad);
+      return { ...s, holder, obj, pad, glow: 0 };
+    });
+    const TK = 9, tokens = new T.InstancedMesh(new RB(0.11, 0.11, 0.11, 2, 0.02), solid(T, GREEN), TK); tokens.frustumCulled = false; root.add(tokens);
+    const tz = Array.from({ length: TK }, (_, i) => ({ t: i / TK }));
+    const L = labels(st, S.map((s) => ({ text: s.n, obj: s.holder, off: new T.Vector3(0, s.back ? 0.62 : -0.55, s.back ? 0 : 0.35), cls: s.n === 'OUTCOME' ? 'key' : '' })));
+    const v = new T.Vector3(), m4 = new T.Matrix4(), q4 = new T.Quaternion(), sc3 = new T.Vector3(1, 1, 1);
+    st.onResize = () => { const d = Math.max(6.4, 3.25 / (Math.tan(T.MathUtils.degToRad(15)) * camera.aspect)); camera.position.set(0, d * 0.6, d * 0.8); camera.lookAt(0, 0.05, 0.1); };
+    st.frame = (t) => {
+      const q = reduce ? 1 : ease((st.progress - 0.08) / 0.35);
+      root.rotation.y = st.sx * 0.2 + Math.sin(t * 0.2) * 0.04; root.rotation.x = st.sy * 0.06;
+      root.scale.setScalar(0.9 + q * 0.1);
+      S.forEach((s) => { s.glow *= 0.94; });
+      tz.forEach((k, i) => {
+        if (!reduce) k.t = (k.t - 0.0009 + 1) % 1;   // travel direction: along the front row left→right, back row right→left
+        curve.getPointAt(k.t, v); v.y = 0.11;
+        S.forEach((s) => { const dt = Math.abs(k.t - s.t); if (dt < 0.012) s.glow = 1; });
+        const on = q > 0.6 ? 1 : 0.001; sc3.set(on, on, on); q4.setFromAxisAngle(new T.Vector3(0, 1, 0), t + i); m4.compose(v, q4, sc3); tokens.setMatrixAt(i, m4);
+      });
+      tokens.instanceMatrix.needsUpdate = true;
+      S.forEach((s, i) => {
+        const a = ease(q * 1.3 - i * 0.08); s.holder.scale.setScalar(Math.max(0.001, a));
+        s.pad.material.emissiveIntensity = s.glow * 0.8;
+        s.obj.position.y = s.glow * 0.08 + (reduce ? 0 : Math.sin(t + i) * 0.02);
+        if (s.obj.userData.spin) s.obj.userData.spin.rotation.z = t * 1.2;
+      });
+      place(T, st, L, v);
+      L.forEach((l, i) => { l.el.style.opacity = clamp(q * 1.5 - i * 0.1).toFixed(2); });
+    };
+    st.start();
+  },
+
+  /* ================= ONE JOINED-UP DISCIPLINE: three objects around outcomes ================= */
+  pillars(el, T, RB) {
+    const st = stage(el, T, { fov: 30, dark: true });
+    const { scene, camera } = st;
+    const look = new T.Vector3(0, 0.25, 0);
+    const root = new T.Group(); scene.add(root);
+    const darkGlass = (c = 0xcfeeea, o = 0.2) => glass(T, c, o, { roughness: 0.15 });
+    // centre: business outcomes
+    const center = new T.Group(); root.add(center);
+    const dg = new T.DodecahedronGeometry(0.72, 0);
+    const shell = new T.Mesh(dg, darkGlass(0xbfeee7, 0.18)); shell.add(edgeLines(T, dg, LUM, 0.9, 1)); center.add(shell);
+    const heart = new T.Mesh(new T.SphereGeometry(0.3, 32, 32), solid(T, GREEN, { emissive: GREEN, emissiveIntensity: 0.55 })); center.add(heart);
+    // three disciplines
+    const P0 = [new T.Vector3(-3.1, -0.35, 0.5), new T.Vector3(0, 1.05, -1.7), new T.Vector3(3.1, -0.35, 0.5)];
+    const objs = [
+      () => { const g = new T.Group(); for (let i = 0; i < 4; i++) { const pg = new RB(1.05, 0.07, 1.05, 2, 0.05); const p = new T.Mesh(pg, darkGlass(0xd6f3ef, 0.22 + i * 0.06)); p.add(edgeLines(T, pg, LUM, 0.85)); p.position.y = i * 0.22 - 0.33; g.add(p); } return g; },
+      () => { const g = new T.Group(); const ig = new T.IcosahedronGeometry(0.62, 1); const s = new T.Mesh(ig, darkGlass(0xd6f3ef, 0.14)); s.add(edgeLines(T, ig, LUM, 0.9, 1)); g.add(s); const vp = ig.attributes.position; const seen = {}; for (let i = 0; i < vp.count; i++) { const k = vp.getX(i).toFixed(2) + vp.getY(i).toFixed(2) + vp.getZ(i).toFixed(2); if (seen[k]) continue; seen[k] = 1; const n = new T.Mesh(new T.SphereGeometry(0.035, 10, 10), new T.MeshBasicMaterial({ color: LUM })); n.position.set(vp.getX(i), vp.getY(i), vp.getZ(i)); s.add(n); } g.add(new T.Mesh(new T.SphereGeometry(0.2, 24, 24), solid(T, LUM, { emissive: LUM, emissiveIntensity: 0.4 }))); g.userData.spin = s; return g; },
+      () => { const g = new T.Group(); const tr = new T.Mesh(new T.TorusGeometry(0.55, 0.09, 18, 80), darkGlass(0xd6f3ef, 0.3)); tr.rotation.x = Math.PI / 2.3; g.add(tr); g.userData.ring = tr; g.userData.sats = [0, 1, 2, 3].map((i) => { const s = new T.Mesh(new RB(0.11, 0.11, 0.11, 2, 0.02), solid(T, i ? LUM : GREEN, { emissive: i ? LUM : GREEN, emissiveIntensity: 0.3 })); g.add(s); return s; }); return g; },
+    ];
+    const items = P0.map((p, i) => {
+      const g = new T.Group(); g.position.copy(p); root.add(g);
+      const o = objs[i](); g.add(o);
+      const hit = new T.Mesh(new T.SphereGeometry(1.15, 12, 12), new T.MeshBasicMaterial({ visible: false })); hit.userData.idx = i; g.add(hit);
+      return { g, o, hit, base: p.clone(), h: 0 };
+    });
+    // relationships: EA→AI, AI→Automation, and each → outcomes
+    const beamDefs = [[0, 1], [1, 2], [0, 3], [1, 3], [2, 3]];
+    const posOf = (i) => (i === 3 ? center.position : items[i].g.position);
+    const beams = beamDefs.map(([a, b]) => { const geo = new T.BufferGeometry().setFromPoints([new T.Vector3(), new T.Vector3()]); const line = new T.Line(geo, new T.LineBasicMaterial({ color: LUM, transparent: true, opacity: 0.25 })); root.add(line); return { a, b, line, geo }; });
+    const P = 14, pm = pulses(T, P, LUM, 0.05); root.add(pm);
+    const pz = Array.from({ length: P }, (_, i) => ({ s: (i / P) * 3 }));
+    const L = labels(st, [
+      { text: 'ENTERPRISE ARCHITECTURE', obj: items[0].g, off: new T.Vector3(0, -1.05, 0) },
+      { text: 'AI', obj: items[1].g, off: new T.Vector3(0, 1.0, 0) },
+      { text: 'AUTOMATION', obj: items[2].g, off: new T.Vector3(0, -1.05, 0) },
+      { text: 'BUSINESS OUTCOMES', obj: center, off: new T.Vector3(0, -1.05, 0), cls: 'key' },
+    ]);
+    const cards = Array.prototype.slice.call(document.querySelectorAll('.pillar[data-pillar]'));
+    const caption = document.getElementById('pillars-caption');
+    const captions = ['<b>Defines</b> · Enterprise Architecture sets how the ecosystem should work', '<b>Adds intelligence</b> · AI builds on data the architecture makes reliable', '<b>Makes it repeatable</b> · Automation turns capabilities into governed workflows'];
+    let sceneHover = -1, cardHover = -1, active = -1;
+    cards.forEach((c, i) => { const on = () => { cardHover = i; }; const off = () => { cardHover = -1; }; c.addEventListener('mouseenter', on); c.addEventListener('mouseleave', off); c.addEventListener('focusin', on); c.addEventListener('focusout', off); });
+    const ray = new T.Raycaster(), ndc = new T.Vector2();
+    st.onResize = () => { const d = Math.max(9.2, 4.9 / (Math.tan(T.MathUtils.degToRad(15)) * camera.aspect)); camera.position.set(0, 1.9, d); camera.lookAt(look); };
+    const v = new T.Vector3(), m4 = new T.Matrix4(), toCam = new T.Vector3();
+    st.frame = (t) => {
+      if (st.px != null) { ndc.set(st.px / st.w * 2 - 1, -(st.py / st.h) * 2 + 1); ray.setFromCamera(ndc, camera); const hit = ray.intersectObjects(items.map((it) => it.hit), false)[0]; sceneHover = hit ? hit.object.userData.idx : -1; } else sceneHover = -1;
+      const next = cardHover >= 0 ? cardHover : sceneHover;
+      if (next !== active) { active = next; cards.forEach((c, i) => c.classList.toggle('is-on', i === active)); caption.innerHTML = active >= 0 ? captions[active] : 'Hover a discipline to see how it connects'; }
+      st.el.style.cursor = sceneHover >= 0 ? 'pointer' : '';
+      root.rotation.y = st.sx * 0.12 + Math.sin(t * 0.15) * 0.05; root.rotation.x = st.sy * 0.05;
+      center.rotation.y = t * 0.2; shell.rotation.x = t * 0.08; heart.scale.setScalar(1 + Math.sin(t * 2) * 0.04);
+      items.forEach((it, i) => {
+        it.h += ((i === active ? 1 : 0) - it.h) * 0.1;
+        toCam.copy(camera.position).sub(it.base).normalize();
+        it.g.position.copy(it.base).addScaledVector(toCam, it.h * 1.1);
+        it.g.position.y += reduce ? 0 : Math.sin(t * 0.8 + i * 2) * 0.06;
+        it.g.scale.setScalar(1 + it.h * 0.14);
+        it.o.rotation.y = t * 0.18 + i;
+        if (it.o.userData.spin) it.o.userData.spin.rotation.x = t * 0.15;
+        if (it.o.userData.sats) it.o.userData.sats.forEach((s, j) => { const a = t * 0.9 + j * Math.PI / 2; v.set(Math.cos(a) * 0.55, 0, Math.sin(a) * 0.55).applyEuler(it.o.userData.ring.rotation); s.position.copy(v); s.rotation.y = a; });
+      });
+      beams.forEach((bm) => {
+        const pa = posOf(bm.a), pb = posOf(bm.b); bm.geo.attributes.position.setXYZ(0, pa.x, pa.y, pa.z); bm.geo.attributes.position.setXYZ(1, pb.x, pb.y, pb.z); bm.geo.attributes.position.needsUpdate = true;
+        const lit = active >= 0 && (bm.a === active || bm.b === active);
+        const target = active < 0 ? 0.35 : lit ? 1 : 0.1;
+        bm.line.material.opacity += (target - bm.line.material.opacity) * 0.12;
+      });
+      // pulses follow the story: EA → AI → Automation → Outcomes
+      const chain = [[0, 1], [1, 2], [2, 3]];
+      pz.forEach((p, i) => {
+        if (!reduce) p.s = (p.s + 0.006 * (active >= 0 ? 1.8 : 1)) % 3;
+        const seg = Math.floor(p.s), f = p.s - seg, [a, b] = chain[seg];
+        v.lerpVectors(posOf(a), posOf(b), f);
+        m4.makeScale(1, 1, 1).setPosition(v); pm.setMatrixAt(i, m4);
+      });
+      pm.instanceMatrix.needsUpdate = true;
+      place(T, st, L, v);
+      L.forEach((l, i) => { l.el.style.opacity = (active < 0 || i === active || i === 3 ? 1 : 0.35).toString(); });
+    };
+    st.start();
+  },
+};
 </script>
 </body>
 </html>
