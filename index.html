@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>In4Rtech | Enterprise Architecture, AI &amp; Automation Consultancy | Manchester, UK</title>
+<meta name="description" content="In4Rtech is a Manchester-based IT consultancy helping organisations with enterprise architecture, AI and intelligent automation: from understanding today’s technology landscape to designing and delivering what comes next.">
+<link rel="canonical" href="https://www.in4rtech.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="In4Rtech | Enterprise Architecture, AI & Automation Consultancy">
+<meta property="og:description" content="Architect the enterprise, then make it intelligent. Enterprise architecture, AI and automation consultancy based in Manchester, UK.">
+<meta property="og:url" content="https://www.in4rtech.com/">
+<meta property="og:image" content="https://www.in4rtech.com/i4rimages/Logo.png">
+<meta name="theme-color" content="#0D1F22">
+<link rel="icon" href="https://www.in4rtech.com/i4rimages/Logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "In4Rtech Solutions Ltd",
+  "url": "https://www.in4rtech.com/",
+  "logo": "https://www.in4rtech.com/i4rimages/Logo.png",
+  "description": "IT consultancy helping organisations with enterprise architecture, AI and intelligent automation.",
+  "telephone": "+44 7574519460",
+  "email": "rajneesh@in4rtech.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Manchester", "addressCountry": "GB" },
+  "founder": { "@type": "Person", "name": "Rajneesh Kumar", "jobTitle": "Founder & Managing Director" },
+  "knowsAbout": ["Enterprise Architecture", "Artificial Intelligence", "Generative AI", "Intelligent Automation", "Technology Strategy", "Digital Transformation", "Cloud Modernisation"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Consulting services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Enterprise Architecture" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Consulting" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Intelligent Automation" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technology Strategy" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Transformation" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud & Platform Modernisation" } }
+    ]
+  }
+}
+</script>
+
+<!-- Enable motion only in browsers that can run it; everything is visible without it (IE, no-JS, reduced motion). -->
+<script>
+  (function () {
+    var d = document.documentElement;
+    d.className = d.className.replace('no-js', '') + ' js';
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if ('IntersectionObserver' in window && 'classList' in d && !reduce) d.className += ' anim';
+  })();
+</script>
+
+<style>
+/* ==========================================================================
+   Palette (literal values so older browsers render colours correctly)
+   porcelain #F4F5F1 · white #FFFFFF · petrol ink #0D1F22 · slate #4E5F63
+   brand teal #2FA59C (accents) · teal text #1E7C75 · logo green #7DBE4E
+   deep petrol #0D1F22 / on-dark #E8EFEE / on-dark muted #9DB0B1
+   ========================================================================== */
+@property --ang { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+
+*, *:before, *:after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: #F4F5F1; color: #0D1F22;
+  font-family: "IBM Plex Sans", "Segoe UI", Arial, sans-serif; font-size: 17px; line-height: 1.65;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+main, header, footer, section, nav, article, figure, figcaption, aside { display: block; }
+img { max-width: 100%; border: 0; }
+a { color: inherit; }
+a:focus, button:focus, input:focus, select:focus, textarea:focus { outline: 2px solid #2FA59C; outline-offset: 3px; }
+a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
+section[id] { scroll-margin-top: 90px; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+.skip { position: absolute; left: -999px; top: 8px; z-index: 100; padding: 10px 16px; background: #0D1F22; color: #FFFFFF; border-radius: 8px; }
+.skip:focus { left: 16px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* type */
+.serif { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-weight: 500; letter-spacing: -.015em; }
+.kicker { display: block; margin: 0 0 18px; font-size: 12.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #1E7C75; }
+.dark .kicker { color: #6FD0C7; }
+.h2 { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; letter-spacing: -.02em; line-height: 1.08; font-size: 46px; font-size: clamp(2.1rem, 4.2vw, 3.5rem); }
+.lead { margin: 22px 0 0; max-width: 640px; font-size: 19px; line-height: 1.6; color: #4E5F63; }
+.dark .lead { color: #9DB0B1; }
+.section { position: relative; padding: 130px 0; padding: clamp(88px, 11vw, 150px) 0; }
+.section-white { background: #FFFFFF; }
+.dark { background: #0D1F22; color: #E8EFEE; }
+.head { max-width: 760px; margin-bottom: 64px; }
+.head-center { margin-left: auto; margin-right: auto; text-align: center; }
+.head-center .lead { margin-left: auto; margin-right: auto; }
+
+/* buttons */
+.btn {
+  display: inline-block; min-height: 50px; padding: 14px 24px; border-radius: 999px; border: 1px solid transparent;
+  font: 500 15px/20px "IBM Plex Sans", "Segoe UI", Arial, sans-serif; text-decoration: none; cursor: pointer;
+  transition: background-color .25s, color .25s, border-color .25s, box-shadow .3s, transform .3s;
+}
+.btn .arr { display: inline-block; margin-left: 8px; transition: transform .3s; }
+.btn:hover .arr { transform: translateX(4px); }
+.btn-primary { background: #0D1F22; color: #FFFFFF; }
+.btn-primary:hover { background: #1E7C75; box-shadow: 0 14px 30px -14px rgba(30, 124, 117, .7); transform: translateY(-1px); }
+.btn-ghost { background: transparent; color: #0D1F22; border-color: rgba(13, 31, 34, .22); }
+.btn-ghost:hover { border-color: #0D1F22; }
+.dark .btn-primary { background: #6FD0C7; color: #0D1F22; }
+.dark .btn-primary:hover { background: #FFFFFF; }
+.link-arrow { display: inline-block; margin-top: 26px; font-weight: 600; color: #1E7C75; text-decoration: none; border-bottom: 1px solid rgba(30, 124, 117, .35); padding-bottom: 2px; }
+.link-arrow:hover { border-color: #1E7C75; }
+
+/* ================= Header ================= */
+.header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: #F4F5F1; background: rgba(244, 245, 241, .88); border-bottom: 1px solid transparent; transition: border-color .3s, box-shadow .3s; }
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) { .header { -webkit-backdrop-filter: saturate(1.4) blur(14px); backdrop-filter: saturate(1.4) blur(14px); } }
+.header.scrolled { border-color: rgba(13, 31, 34, .08); box-shadow: 0 10px 30px -24px rgba(13, 31, 34, .6); }
+.header-in { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+.brand { display: flex; align-items: center; text-decoration: none; }
+.brand img { display: block; height: 46px; width: auto; }
+.nav { display: flex; align-items: center; }
+.nav-list { display: flex; align-items: center; list-style: none; margin: 0 18px 0 0; padding: 0; }
+.nav-list > li { position: relative; }
+.nav-link { display: inline-block; padding: 12px 16px; border: 0; background: none; cursor: pointer; font: 500 15px/20px "IBM Plex Sans", "Segoe UI", Arial, sans-serif; color: #0D1F22; text-decoration: none; position: relative; }
+.nav-link:after { content: ""; position: absolute; left: 16px; right: 16px; bottom: 6px; height: 1.5px; background: #2FA59C; transform: scaleX(0); transform-origin: left; transition: transform .3s; }
+.nav-link:hover:after, .nav-link.active:after { transform: scaleX(1); }
+.nav-link .chev { display: inline-block; margin-left: 6px; width: 7px; height: 7px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg) translateY(-3px); transition: transform .3s; }
+.nav-link[aria-expanded="true"] .chev { transform: rotate(-135deg) translateY(-1px); }
+.mega {
+  position: absolute; top: 100%; left: 50%; width: 760px; margin-left: -300px; margin-top: 10px; padding: 18px;
+  background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .08); border-radius: 18px; box-shadow: 0 30px 60px -30px rgba(13, 31, 34, .45);
+  display: none;
+}
+.mega.open { display: block; }
+.mega-grid { display: flex; flex-wrap: wrap; }
+.mega a { display: block; width: 33.333%; padding: 14px 16px; border-radius: 12px; text-decoration: none; transition: background-color .2s; }
+.mega a:hover { background: #F4F5F1; }
+.mega strong { display: block; font-weight: 600; font-size: 15px; }
+.mega span { display: block; margin-top: 4px; font-size: 13.5px; line-height: 1.45; color: #4E5F63; }
+.mega .core strong:before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: #2FA59C; vertical-align: 2px; }
+.menu-btn { display: none; width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(13, 31, 34, .18); background: #FFFFFF; cursor: pointer; }
+.menu-btn span, .menu-btn span:before, .menu-btn span:after { display: block; width: 18px; height: 1.5px; margin: 0 auto; background: #0D1F22; position: relative; transition: transform .3s; content: ""; }
+.menu-btn span:before { position: absolute; top: -6px; }
+.menu-btn span:after { position: absolute; top: 6px; }
+.mobile-panel { display: none; }
+
+/* ================= Hero ================= */
+.hero { position: relative; overflow: hidden; padding: 150px 0 90px; min-height: 760px; background: #F4F5F1; }
+.hero-bg { position: absolute; left: 0; top: 0; right: 0; bottom: 0; pointer-events: none; }
+.hero-bg .grid {
+  position: absolute; left: 0; top: 0; right: 0; bottom: 0; opacity: .6;
+  background-image: linear-gradient(rgba(13, 31, 34, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(13, 31, 34, .05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 70% 45%, #000 20%, transparent 75%); mask-image: radial-gradient(ellipse 70% 60% at 70% 45%, #000 20%, transparent 75%);
+}
+.hero-bg .glow { position: absolute; right: -10%; top: 5%; width: 60%; height: 90%; background: radial-gradient(closest-side, rgba(47, 165, 156, .14), rgba(47, 165, 156, 0)); }
+.hero-in { position: relative; display: flex; align-items: center; }
+.hero-copy { position: relative; z-index: 2; width: 48%; }
+.hero h1 { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; letter-spacing: -.025em; line-height: 1.02; font-size: 64px; font-size: clamp(2.7rem, 5.5vw, 5.1rem); }
+.hero h1 em { font-style: italic; color: #1E7C75; }
+.hero .lead { font-size: 19.5px; max-width: 560px; }
+.hero-cta { margin-top: 36px; }
+.hero-cta .btn { margin: 0 10px 10px 0; }
+.focus { margin-top: 38px; padding-top: 26px; border-top: 1px solid rgba(13, 31, 34, .1); }
+.focus .focus-title { margin: 0 0 12px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #4E5F63; font-weight: 600; }
+.chips a { display: inline-block; margin: 0 8px 8px 0; padding: 8px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .1); font-size: 14.5px; font-weight: 500; text-decoration: none; transition: border-color .25s, color .25s; }
+.chips a:hover { border-color: #2FA59C; color: #1E7C75; }
+.who { margin: 18px 0 0; font-size: 15px; color: #4E5F63; }
+.hero-visual { position: absolute; right: -40px; top: -60px; bottom: -40px; width: 58%; z-index: 1; }
+.hero-visual canvas { display: none; position: relative; z-index: 1; width: 100%; height: 100%; }
+.hero-visual.has-webgl canvas { display: block; }
+.hero-visual.has-webgl .flow-fallback { display: none; }
+.flow-fallback { position: absolute; left: 6%; top: 12%; width: 90%; height: 78%; }
+.flow-label { position: absolute; z-index: 2; left: 0; top: 0; white-space: nowrap; pointer-events: none; font-size: 11.5px; font-weight: 600; letter-spacing: .14em; color: #0D1F22; opacity: 0; transition: opacity .6s; }
+.flow-label span { display: inline-block; padding: 5px 10px; border-radius: 999px; background: rgba(255, 255, 255, .85); border: 1px solid rgba(13, 31, 34, .08); }
+.flow-label.on { opacity: 1; }
+.flow-label.ai span { background: #0D1F22; color: #FFFFFF; border-color: #0D1F22; }
+
+/* ================= Challenges ================= */
+.challenges { display: flex; flex-wrap: wrap; margin: 0 -10px; }
+.challenge { width: 25%; padding: 10px; }
+.challenge-in { height: 100%; padding: 26px 24px 24px; border-radius: 18px; background: #F4F5F1; border: 1px solid rgba(13, 31, 34, .06); transition: background-color .3s, border-color .3s, transform .3s, box-shadow .3s; }
+.challenge-in:hover { background: #FFFFFF; border-color: rgba(47, 165, 156, .45); transform: translateY(-3px); box-shadow: 0 24px 40px -30px rgba(13, 31, 34, .5); }
+.challenge h3 { margin: 0 0 10px; font-size: 18px; line-height: 1.3; font-weight: 600; }
+.challenge p { margin: 0; font-size: 15px; line-height: 1.55; color: #4E5F63; }
+.tags { margin-top: 18px; }
+.tag { display: inline-block; margin: 0 6px 0 0; padding: 3px 9px; border-radius: 6px; font-size: 11.5px; font-weight: 600; letter-spacing: .06em; background: #E4EEEC; color: #1E7C75; }
+.tag.ai { background: #0D1F22; color: #FFFFFF; }
+.tag.auto { background: #EAF3E2; color: #3F6F1F; }
+.legend { margin-top: 30px; font-size: 14px; color: #4E5F63; }
+.legend .tag { margin-left: 14px; }
+
+/* ================= Pillars connection ================= */
+.pillars { position: relative; display: flex; margin: 0 -12px; }
+.pillar { position: relative; z-index: 1; width: 33.333%; padding: 0 12px; }
+.pillar-card { position: relative; height: 100%; padding: 34px 30px; border-radius: 22px; background: #13292D; border: 1px solid rgba(232, 239, 238, .08); transition: border-color .35s, transform .35s, background-color .35s; }
+.pillar-card:hover, .pillar.is-on .pillar-card { border-color: rgba(111, 208, 199, .55); background: #16302F; transform: translateY(-4px); }
+.pillar-step { font-size: 12.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #6FD0C7; }
+.pillar-card h3 { margin: 16px 0 12px; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 30px; line-height: 1.1; }
+.pillar-card p { margin: 0; color: #B7C6C6; }
+.pillar-icon { width: 64px; height: 64px; margin-bottom: 24px; }
+.pillar-link { position: absolute; left: 12%; right: 12%; top: 62px; height: 2px; z-index: 0; }
+.pillar-link svg { display: block; width: 100%; height: 12px; margin-top: -5px; overflow: visible; }
+.result { margin-top: 26px; display: flex; align-items: center; padding: 28px 32px; border-radius: 22px; background: linear-gradient(110deg, rgba(47, 165, 156, .22), rgba(125, 190, 78, .12)); border: 1px solid rgba(111, 208, 199, .35); }
+.result-mark { flex: none; width: 52px; height: 52px; margin-right: 22px; border-radius: 50%; background: #6FD0C7; position: relative; }
+.result-mark:after { content: ""; position: absolute; left: 18px; top: 14px; width: 12px; height: 20px; border-right: 3px solid #0D1F22; border-bottom: 3px solid #0D1F22; transform: rotate(45deg); }
+.result p { margin: 0; font-size: 20px; line-height: 1.45; }
+.result strong { font-weight: 600; color: #FFFFFF; }
+.pov { margin: 48px auto 0; max-width: 820px; text-align: center; font-family: "Source Serif 4", Georgia, serif; font-size: 24px; line-height: 1.45; font-style: italic; color: #C9D6D5; }
+
+/* ================= Services ================= */
+.service { display: flex; align-items: flex-start; padding: 64px 0; border-top: 1px solid rgba(13, 31, 34, .1); }
+.service:first-of-type { border-top: 0; padding-top: 0; }
+.service-intro { width: 42%; padding-right: 56px; }
+.service-detail { width: 58%; }
+.service-label { display: inline-block; margin-bottom: 18px; padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; background: #E4EEEC; color: #1E7C75; }
+.service h3 { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 40px; font-size: clamp(2rem, 3.4vw, 2.8rem); letter-spacing: -.02em; line-height: 1.08; }
+.service-intro p { margin: 18px 0 0; font-size: 18px; color: #4E5F63; }
+.detail-card { padding: 34px 36px; border-radius: 22px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .07); box-shadow: 0 30px 60px -48px rgba(13, 31, 34, .5); }
+.detail-card h4 { margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #4E5F63; }
+.ticks { display: flex; flex-wrap: wrap; list-style: none; margin: 0 -10px; padding: 0; }
+.ticks li { position: relative; width: 50%; padding: 9px 10px 9px 38px; font-size: 16px; line-height: 1.45; }
+.ticks li:before { content: ""; position: absolute; left: 12px; top: 13px; width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid #2FA59C; }
+.ticks li:after { content: ""; position: absolute; left: 17px; top: 16px; width: 3px; height: 6px; border-right: 1.5px solid #1E7C75; border-bottom: 1.5px solid #1E7C75; transform: rotate(45deg); }
+.questions { margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(13, 31, 34, .08); }
+.questions ul { list-style: none; margin: 0; padding: 0; }
+.questions li { margin: 0 0 10px; padding-left: 22px; position: relative; font-family: "Source Serif 4", Georgia, serif; font-size: 19px; font-style: italic; color: #0D1F22; }
+.questions li:before { content: "\201C"; position: absolute; left: 0; top: -2px; color: #2FA59C; font-size: 26px; font-style: normal; }
+.supporting-head { margin: 90px 0 30px; }
+.supporting-head h3 { margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #4E5F63; }
+.supporting { display: flex; flex-wrap: wrap; margin: 0 -10px; }
+.support { width: 33.333%; padding: 10px; }
+.support-in { height: 100%; padding: 32px 30px; border-radius: 22px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .07); transition: border-color .3s, transform .3s, box-shadow .3s; }
+.support-in:hover { border-color: rgba(47, 165, 156, .5); transform: translateY(-3px); box-shadow: 0 26px 50px -36px rgba(13, 31, 34, .5); }
+.support h4 { margin: 0 0 12px; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 26px; line-height: 1.15; }
+.support p { margin: 0 0 18px; color: #4E5F63; }
+.support ul { list-style: none; margin: 0; padding: 18px 0 0; border-top: 1px solid rgba(13, 31, 34, .08); }
+.support li { padding: 5px 0 5px 18px; position: relative; font-size: 15px; }
+.support li:before { content: ""; position: absolute; left: 0; top: 14px; width: 8px; height: 1.5px; background: #2FA59C; }
+
+/* ================= Approach ================= */
+.steps { position: relative; display: flex; margin: 0 -10px; }
+.steps-line { position: absolute; left: 10px; right: 10px; top: 21px; height: 2px; background: rgba(232, 239, 238, .12); }
+.steps-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; background: #6FD0C7; transform-origin: left; }
+.anim .steps-fill { transform: scaleX(var(--p, 0)); }
+.step { position: relative; width: 16.666%; padding: 0 10px; }
+.step-dot { position: relative; z-index: 1; display: block; width: 44px; height: 44px; border-radius: 50%; background: #0D1F22; border: 2px solid #6FD0C7; text-align: center; line-height: 40px; font-size: 13px; font-weight: 600; color: #6FD0C7; transition: background-color .4s, color .4s; }
+.step.on .step-dot { background: #6FD0C7; color: #0D1F22; }
+.anim .step .step-dot { border-color: rgba(111, 208, 199, .35); color: #9DB0B1; }
+.anim .step.on .step-dot { border-color: #6FD0C7; color: #0D1F22; }
+.step h3 { margin: 26px 0 10px; font-size: 20px; font-weight: 600; letter-spacing: .02em; }
+.step p { margin: 0; font-size: 15px; line-height: 1.55; color: #B7C6C6; }
+.approach-note { margin-top: 56px; font-size: 15px; color: #9DB0B1; }
+
+/* ================= Case studies ================= */
+.placeholder-note { display: flex; align-items: center; margin-bottom: 30px; padding: 14px 18px; border-radius: 14px; border: 1px dashed rgba(13, 31, 34, .3); font-size: 14.5px; color: #4E5F63; }
+.placeholder-note b { flex: none; margin-right: 12px; padding: 3px 9px; border-radius: 6px; background: #FFF3D6; color: #7A5200; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.cases { display: flex; flex-wrap: wrap; margin: 0 -10px; }
+.case { width: 33.333%; padding: 10px; }
+.case-in { height: 100%; padding: 30px; border-radius: 22px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .07); transition: transform .35s, box-shadow .35s; }
+.case-in:hover { transform: translateY(-4px); box-shadow: 0 30px 60px -40px rgba(13, 31, 34, .55); }
+.case-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.case-title { margin: 0 0 22px; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 24px; line-height: 1.2; color: #4E5F63; }
+.case dl { margin: 0; }
+.case dt { margin-top: 14px; font-size: 11.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #1E7C75; }
+.case dd { margin: 4px 0 0; padding-bottom: 12px; border-bottom: 1px dashed rgba(13, 31, 34, .14); font-size: 15px; font-style: italic; color: #8A999C; }
+.case dd:last-child { border-bottom: 0; }
+
+/* ================= About ================= */
+.about { display: flex; align-items: flex-start; }
+.about-main { width: 58%; padding-right: 70px; }
+.about-main p { margin: 22px 0 0; font-size: 18.5px; line-height: 1.7; color: #2F4145; }
+.about-side { width: 42%; }
+.facts { margin: 0; padding: 8px 30px; border-radius: 22px; background: #F4F5F1; }
+.facts div { padding: 18px 0; border-bottom: 1px solid rgba(13, 31, 34, .08); }
+.facts div:last-child { border-bottom: 0; }
+.facts dt { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #4E5F63; }
+.facts dd { margin: 4px 0 0; font-size: 17px; font-weight: 500; }
+.principles { display: flex; flex-wrap: wrap; margin: 70px -10px 0; }
+.principle { width: 25%; padding: 10px; }
+.principle-in { height: 100%; padding-top: 22px; border-top: 2px solid #0D1F22; }
+.principle h3 { margin: 0 0 8px; font-size: 18px; font-weight: 600; }
+.principle p { margin: 0; font-size: 15px; color: #4E5F63; }
+
+/* ================= People ================= */
+.person { display: flex; align-items: center; }
+.person-photo-col { width: 42%; }
+.person-info { width: 58%; padding-left: 80px; }
+/* Photo: padding-box crop + background image works in every browser (incl. IE11);
+   modern browsers layer the <img> on top with object-fit. */
+.photo {
+  position: relative; height: 0; padding-bottom: 118%; overflow: hidden; border-radius: 26px;
+  background-color: #DCE3E1; background-image: url("https://www.in4rtech.com/i4rimages/RK1.jpg");
+  background-repeat: no-repeat; background-position: 50% 28%; background-size: auto 132%;
+}
+.photo img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; }
+@supports (object-fit: cover) {
+  .photo img { object-fit: cover; object-position: 50% 28%; opacity: 1; transform: scale(1.32); transform-origin: 50% 28%; }
+}
+.photo-frame { position: relative; }
+.photo-frame:before { content: ""; position: absolute; left: -16px; top: -16px; width: 70px; height: 70px; border-left: 2px solid #2FA59C; border-top: 2px solid #2FA59C; border-top-left-radius: 14px; }
+.photo-frame:after { content: ""; position: absolute; right: -16px; bottom: -16px; width: 70px; height: 70px; border-right: 2px solid #2FA59C; border-bottom: 2px solid #2FA59C; border-bottom-right-radius: 14px; }
+.person-name { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 56px; font-size: clamp(2.4rem, 5vw, 4.2rem); letter-spacing: -.025em; line-height: 1; }
+.person-role { margin: 14px 0 0; font-size: 19px; color: #1E7C75; font-weight: 500; }
+.bio-placeholder { margin: 30px 0 0; padding: 20px 22px; border-radius: 16px; border: 1px dashed rgba(13, 31, 34, .28); font-size: 15.5px; color: #6B7B7E; font-style: italic; }
+.person-actions { margin-top: 32px; }
+.person-actions .btn { margin: 0 10px 10px 0; }
+
+/* ================= Contact ================= */
+.contact { overflow: hidden; }
+#contact-net { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: .7; pointer-events: none; }
+.contact-in { position: relative; display: flex; align-items: flex-start; }
+.contact-info { width: 44%; padding-right: 56px; }
+.contact .h2 { font-size: 40px; font-size: clamp(2rem, 3.3vw, 2.9rem); }
+.contact-form { width: 56%; }
+.details { list-style: none; margin: 40px 0 0; padding: 0; }
+.details li { padding: 20px 0; border-top: 1px solid rgba(232, 239, 238, .1); }
+.details li:last-child { border-bottom: 1px solid rgba(232, 239, 238, .1); }
+.details small { display: block; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #9DB0B1; }
+.details a, .details span { font-size: 18px; font-weight: 500; text-decoration: none; }
+.details a:hover { color: #6FD0C7; }
+.form { padding: 36px; border-radius: 24px; background: #13292D; border: 1px solid rgba(232, 239, 238, .1); }
+.row { display: flex; margin: 0 -8px; }
+.field { width: 100%; padding: 0 8px; margin-bottom: 18px; }
+.row .field { width: 50%; }
+.field label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 600; letter-spacing: .06em; color: #B7C6C6; }
+.field label i { font-style: normal; font-weight: 400; color: #7F9496; }
+.field input, .field select, .field textarea {
+  display: block; width: 100%; min-height: 50px; padding: 12px 14px; border-radius: 12px;
+  font: 400 16px/1.4 "IBM Plex Sans", "Segoe UI", Arial, sans-serif; color: #E8EFEE;
+  background: #0D1F22; border: 1px solid rgba(232, 239, 238, .16); transition: border-color .25s, box-shadow .25s;
+}
+.field select { -webkit-appearance: none; -moz-appearance: none; appearance: none; background-image: linear-gradient(45deg, transparent 50%, #9DB0B1 50%), linear-gradient(135deg, #9DB0B1 50%, transparent 50%); background-position: calc(100% - 20px) 22px, calc(100% - 15px) 22px; background-size: 5px 5px; background-repeat: no-repeat; }
+.field select::-ms-expand { display: none; }
+.field textarea { min-height: 140px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: #6FD0C7; box-shadow: 0 0 0 4px rgba(111, 208, 199, .18); }
+.form-foot { display: flex; align-items: center; flex-wrap: wrap; }
+.form-foot .btn { margin-right: 18px; }
+.form-note { margin: 10px 0; font-size: 14px; color: #9DB0B1; }
+.form-status { margin: 12px 0 0; font-size: 14.5px; color: #F4B7A5; min-height: 1.4em; }
+
+/* ================= Footer ================= */
+.footer { background: #081416; color: #C9D6D5; padding: 70px 0 34px; }
+.footer-top { display: flex; flex-wrap: wrap; padding-bottom: 50px; border-bottom: 1px solid rgba(232, 239, 238, .08); }
+.footer-brand { width: 34%; padding-right: 40px; }
+.footer-col { width: 22%; }
+.footer-logo { display: inline-block; padding: 6px 10px; border-radius: 12px; background: #FFFFFF; }
+.footer-logo img { display: block; height: 44px; width: auto; }
+.footer-brand p { margin: 20px 0 0; max-width: 320px; font-size: 15px; color: #9DB0B1; }
+.footer h2 { margin: 0 0 16px; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #7F9496; }
+.footer ul { list-style: none; margin: 0; padding: 0; }
+.footer li { margin-bottom: 9px; font-size: 15px; }
+.footer a { text-decoration: none; }
+.footer a:hover { color: #6FD0C7; }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; padding-top: 26px; font-size: 14px; color: #7F9496; }
+
+/* ================= Motion (only when .anim is set) ================= */
+.anim [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.2, .7, .1, 1), transform .8s cubic-bezier(.2, .7, .1, 1); transition-delay: calc(var(--d, 0) * 80ms); }
+.anim [data-reveal].in { opacity: 1; transform: none; }
+.anim .pillar-link path.flow { stroke-dasharray: 6 10; animation: dash 1.6s linear infinite; }
+@keyframes dash { to { stroke-dashoffset: -32; } }
+.anim .photo img { transform: scale(1.44); transition: transform 1.6s cubic-bezier(.2, .7, .1, 1); }
+.anim .person.in .photo img { transform: scale(1.32); }
+
+/* ================= Responsive ================= */
+@media (max-width: 1100px) {
+  .challenge { width: 50%; }
+  .principle { width: 50%; }
+  .hero-copy { width: 52%; }
+  .hero-visual { width: 50%; right: -16px; }
+}
+@media (max-width: 900px) {
+  .wrap { padding: 0 24px; }
+  .nav-list, .nav .btn { display: none; }
+  .menu-btn { display: block; }
+  .mobile-panel { position: fixed; left: 0; right: 0; top: 76px; bottom: 0; z-index: 49; overflow-y: auto; padding: 18px 24px 40px; background: #F4F5F1; }
+  .mobile-panel.open { display: block; }
+  .mobile-panel a { display: block; padding: 14px 0; border-bottom: 1px solid rgba(13, 31, 34, .08); font-size: 22px; font-weight: 500; text-decoration: none; }
+  .mobile-panel .sub a { padding: 10px 0 10px 16px; font-size: 16px; color: #4E5F63; }
+  .mobile-panel .btn { margin-top: 24px; border-bottom: 0; font-size: 16px; text-align: center; display: block; }
+  .hero { padding: 104px 0 70px; min-height: 0; }
+  .hero-in { display: block; }
+  .hero-visual { position: relative; right: auto; top: auto; bottom: auto; width: auto; height: 360px; margin: 0 -24px 10px; }
+  .hero-copy { width: auto; }
+  .pillars { display: block; }
+  .pillar { width: auto; margin-bottom: 16px; }
+  .pillar-link { display: none; }
+  .service { display: block; padding: 48px 0; }
+  .service-intro, .service-detail { width: auto; padding-right: 0; }
+  .service-detail { margin-top: 26px; }
+  .support, .case { width: 100%; }
+  .steps { display: block; margin: 0; padding-left: 64px; }
+  .steps-line { left: 21px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; }
+  .steps-fill { transform-origin: top; }
+  .anim .steps-fill { transform: scaleY(var(--p, 0)); }
+  .step { width: auto; padding: 0 0 34px; }
+  .step-dot { position: absolute; left: -64px; top: 0; }
+  .step h3 { margin-top: 8px; }
+  .about, .person, .contact-in { display: block; }
+  .about-main, .about-side, .person-photo-col, .person-info, .contact-info, .contact-form { width: auto; padding: 0; }
+  .about-side { margin-top: 40px; }
+  .person-photo-col { max-width: 420px; margin: 0 auto 50px; }
+  .contact-form { margin-top: 44px; }
+  .footer-brand { width: 100%; padding: 0 0 36px; }
+  .footer-col { width: 50%; margin-bottom: 26px; }
+}
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  .challenge, .principle { width: 100%; }
+  .ticks li { width: 100%; }
+  .row { display: block; margin: 0; }
+  .row .field { width: auto; padding: 0; }
+  .field { padding: 0; }
+  .form { padding: 24px 20px; }
+  .detail-card { padding: 26px 22px; }
+  .hero-visual { height: 300px; }
+  .flow-label { font-size: 10px; letter-spacing: .1em; }
+  .flow-label span { padding: 3px 7px; }
+  .result { display: block; }
+  .result-mark { margin-bottom: 16px; }
+  .footer-col { width: 100%; }
+  .placeholder-note { display: block; }
+  .placeholder-note b { display: inline-block; margin-bottom: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *:before, *:after { animation: none !important; transition: none !important; }
+}
+</style>
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ================= Header ================= -->
+<header class="header" id="header">
+  <div class="wrap header-in">
+    <a href="#home" class="brand" aria-label="In4Rtech Solutions Ltd, home">
+      <img src="https://www.in4rtech.com/i4rimages/Logo.png" alt="In4rtech" width="107" height="85">
+    </a>
+    <nav class="nav" aria-label="Main">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="#about" data-nav>About</a></li>
+        <li>
+          <button class="nav-link" type="button" id="services-btn" aria-expanded="false" aria-controls="mega">Services<span class="chev" aria-hidden="true"></span></button>
+          <div class="mega" id="mega">
+            <div class="mega-grid">
+              <a class="core" href="#enterprise-architecture"><strong>Enterprise Architecture</strong><span>A clear landscape and a target architecture to build towards.</span></a>
+              <a class="core" href="#ai-consulting"><strong>AI Consulting</strong><span>AI as a governed enterprise capability, not a side project.</span></a>
+              <a class="core" href="#intelligent-automation"><strong>Intelligent Automation</strong><span>Connected systems and repeatable, reliable workflows.</span></a>
+              <a href="#technology-strategy"><strong>Technology Strategy</strong><span>Technology investment tied to business priorities.</span></a>
+              <a href="#digital-transformation"><strong>Digital Transformation</strong><span>Change programmes that deliver what they were funded for.</span></a>
+              <a href="#cloud-modernisation"><strong>Cloud &amp; Platform Modernisation</strong><span>Platforms that are easier to run, change and scale.</span></a>
+            </div>
+          </div>
+        </li>
+        <li><a class="nav-link" href="#work" data-nav>Work</a></li>
+        <li><a class="nav-link" href="#people" data-nav>People</a></li>
+      </ul>
+      <a class="btn btn-primary" href="#contact">Contact us<span class="arr" aria-hidden="true">→</span></a>
+      <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="mobile-panel" aria-label="Open menu"><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobile-panel">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <div class="sub">
+    <a href="#enterprise-architecture">Enterprise Architecture</a>
+    <a href="#ai-consulting">AI Consulting</a>
+    <a href="#intelligent-automation">Intelligent Automation</a>
+    <a href="#technology-strategy">Technology Strategy</a>
+    <a href="#digital-transformation">Digital Transformation</a>
+    <a href="#cloud-modernisation">Cloud &amp; Platform Modernisation</a>
+  </div>
+  <a href="#approach">Approach</a>
+  <a href="#work">Work</a>
+  <a href="#people">People</a>
+  <a class="btn btn-primary" href="#contact">Discuss your technology landscape</a>
+</div>
+
+<main id="main">
+
+  <!-- ================= Hero ================= -->
+  <section class="hero" id="home" aria-labelledby="hero-title">
+    <div class="hero-bg" aria-hidden="true"><div class="grid"></div><div class="glow"></div></div>
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <span class="kicker">IT consultancy · Manchester, UK</span>
+        <h1 id="hero-title">Architect the enterprise. <em>Then make it intelligent.</em></h1>
+        <p class="lead">In4Rtech helps organisations make sense of complex technology landscapes: designing the architecture they need, then applying AI and automation where they deliver real business value.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#contact">Discuss your technology landscape<span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#services">Explore our services</a>
+        </div>
+        <div class="focus">
+          <p class="focus-title">Our focus</p>
+          <div class="chips">
+            <a href="#enterprise-architecture">Enterprise Architecture</a><a href="#ai-consulting">AI</a><a href="#intelligent-automation">Automation</a>
+          </div>
+          <p class="who">For CIOs, CTOs and transformation leaders responsible for complex, multi-platform technology estates.</p>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <canvas id="flow-3d"></canvas>
+        <span class="flow-label" data-i="0"><span>BUSINESS</span></span>
+        <span class="flow-label" data-i="1"><span>ARCHITECTURE</span></span>
+        <span class="flow-label" data-i="2"><span>DATA</span></span>
+        <span class="flow-label ai" data-i="3"><span>AI</span></span>
+        <span class="flow-label" data-i="4"><span>AUTOMATION</span></span>
+        <span class="flow-label" data-i="5"><span>OUTCOMES</span></span>
+        <!-- Static diagram for browsers without WebGL (and older browsers such as IE11) -->
+        <svg class="flow-fallback" viewBox="0 0 600 460" role="presentation" focusable="false">
+          <path d="M60 390 C 140 360, 150 300, 190 290 S 270 260, 300 230 S 380 180, 410 160 S 500 110, 540 70" fill="none" stroke="#2FA59C" stroke-width="2.5"/>
+          <g font-family="IBM Plex Sans, Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" letter-spacing="1.6" fill="#0D1F22" text-anchor="middle">
+            <circle cx="60" cy="390" r="26" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".3"/><text x="60" y="438">BUSINESS</text>
+            <circle cx="190" cy="290" r="26" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".3"/><text x="190" y="338">ARCHITECTURE</text>
+            <circle cx="300" cy="230" r="26" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".3"/><text x="300" y="278">DATA</text>
+            <circle cx="410" cy="160" r="30" fill="#0D1F22"/><text x="410" y="212">AI</text>
+            <circle cx="480" cy="112" r="24" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".3"/><text x="480" y="158">AUTOMATION</text>
+            <circle cx="540" cy="70" r="26" fill="#2FA59C"/><text x="540" y="30">OUTCOMES</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Challenges ================= -->
+  <section class="section section-white" id="challenges" aria-labelledby="challenges-title">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker" data-reveal>The challenge</span>
+        <h2 class="h2" id="challenges-title" data-reveal style="--d:1">Most technology problems are really landscape problems.</h2>
+        <p class="lead" data-reveal style="--d:2">When systems, data and processes grow without a shared architecture, every new initiative gets harder, including AI. These are the situations we help organisations work through.</p>
+      </div>
+      <div class="challenges">
+        <article class="challenge" data-reveal style="--d:0"><div class="challenge-in"><h3>Legacy technology estates</h3><p>Ageing applications that are costly to run and risky to change.</p><div class="tags"><span class="tag">EA</span></div></div></article>
+        <article class="challenge" data-reveal style="--d:1"><div class="challenge-in"><h3>Disconnected systems</h3><p>Platforms that don’t share data, so people re-key it instead.</p><div class="tags"><span class="tag">EA</span><span class="tag auto">AUTO</span></div></div></article>
+        <article class="challenge" data-reveal style="--d:2"><div class="challenge-in"><h3>Fragmented data</h3><p>No single, trusted view of customers, operations or performance.</p><div class="tags"><span class="tag">EA</span><span class="tag ai">AI</span></div></div></article>
+        <article class="challenge" data-reveal style="--d:3"><div class="challenge-in"><h3>Manual, repetitive processes</h3><p>Skilled people spending hours on work a workflow could handle.</p><div class="tags"><span class="tag auto">AUTO</span></div></div></article>
+        <article class="challenge" data-reveal style="--d:0"><div class="challenge-in"><h3>Unclear AI opportunities</h3><p>Pressure to adopt AI without knowing where it will genuinely help.</p><div class="tags"><span class="tag ai">AI</span></div></div></article>
+        <article class="challenge" data-reveal style="--d:1"><div class="challenge-in"><h3>Decisions without a long-term architecture</h3><p>Technology bought project by project, adding to the complexity.</p><div class="tags"><span class="tag">EA</span></div></div></article>
+        <article class="challenge" data-reveal style="--d:2"><div class="challenge-in"><h3>Applications that are hard to modernise</h3><p>Core systems that block change but can’t simply be switched off.</p><div class="tags"><span class="tag">EA</span><span class="tag auto">AUTO</span></div></div></article>
+        <article class="challenge" data-reveal style="--d:3"><div class="challenge-in"><h3>No practical roadmap</h3><p>A transformation ambition, but no sequenced plan to get there.</p><div class="tags"><span class="tag">EA</span><span class="tag ai">AI</span><span class="tag auto">AUTO</span></div></div></article>
+      </div>
+      <p class="legend">Where we help: <span class="tag">EA</span> Enterprise Architecture <span class="tag ai">AI</span> AI Consulting <span class="tag auto">AUTO</span> Intelligent Automation</p>
+    </div>
+  </section>
+
+  <!-- ================= How the pillars connect ================= -->
+  <section class="section dark" id="pillars" aria-labelledby="pillars-title">
+    <div class="wrap">
+      <div class="head head-center">
+        <span class="kicker" data-reveal>One joined-up discipline</span>
+        <h2 class="h2" id="pillars-title" data-reveal style="--d:1">Architecture, AI and automation work best when they’re designed together.</h2>
+      </div>
+
+      <div class="pillars" id="pillar-row">
+        <div class="pillar-link" aria-hidden="true">
+          <svg viewBox="0 0 100 12" preserveAspectRatio="none"><path d="M0 6 H100" stroke="rgba(111,208,199,.25)" stroke-width="2" vector-effect="non-scaling-stroke"/><path class="flow" d="M0 6 H100" stroke="#6FD0C7" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>
+        </div>
+        <div class="pillar" data-reveal style="--d:0">
+          <div class="pillar-card">
+            <svg class="pillar-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M32 10 L56 22 L32 34 L8 22 Z" stroke="#6FD0C7" stroke-width="1.6" fill="rgba(111,208,199,.12)"/><path d="M8 32 L32 44 L56 32" stroke="#6FD0C7" stroke-width="1.6"/><path d="M8 42 L32 54 L56 42" stroke="#6FD0C7" stroke-width="1.6" stroke-opacity=".5"/></svg>
+            <div class="pillar-step">Defines</div>
+            <h3>Enterprise Architecture</h3>
+            <p>Sets out how your technology ecosystem should work, what to keep, change or retire, and the order in which to do it.</p>
+          </div>
+        </div>
+        <div class="pillar" data-reveal style="--d:1">
+          <div class="pillar-card">
+            <svg class="pillar-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="7" fill="#6FD0C7"/><g stroke="#6FD0C7" stroke-width="1.6"><circle cx="12" cy="18" r="4"/><circle cx="52" cy="18" r="4"/><circle cx="12" cy="46" r="4"/><circle cx="52" cy="46" r="4"/><circle cx="32" cy="8" r="3"/><circle cx="32" cy="56" r="3"/><path d="M16 20 L26 28 M48 20 L38 28 M16 44 L26 36 M48 44 L38 36 M32 11 V25 M32 39 V53" stroke-opacity=".7"/></g></svg>
+            <div class="pillar-step">Adds intelligence</div>
+            <h3>AI</h3>
+            <p>Brings intelligence into processes and decisions, built on data the architecture has made reliable and governed.</p>
+          </div>
+        </div>
+        <div class="pillar" data-reveal style="--d:2">
+          <div class="pillar-card">
+            <svg class="pillar-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M50 26 A20 20 0 0 0 14 22" stroke="#6FD0C7" stroke-width="1.8"/><path d="M14 38 A20 20 0 0 0 50 42" stroke="#6FD0C7" stroke-width="1.8"/><path d="M14 12 V22 H24" stroke="#6FD0C7" stroke-width="1.8"/><path d="M50 52 V42 H40" stroke="#6FD0C7" stroke-width="1.8"/><rect x="26" y="26" width="12" height="12" rx="3" fill="#6FD0C7"/></svg>
+            <div class="pillar-step">Makes it repeatable</div>
+            <h3>Automation</h3>
+            <p>Turns those capabilities into consistent, governed workflows that connect your systems and run every day.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="result" data-reveal>
+        <span class="result-mark" aria-hidden="true"></span>
+        <p><strong>The result: an intelligent, connected enterprise.</strong> Simpler to run, easier to change and ready to scale, instead of a fragmented collection of systems.</p>
+      </div>
+      <p class="pov" data-reveal>Without architecture, AI and automation create new silos. Without AI and automation, architecture stays on paper.</p>
+    </div>
+  </section>
+
+  <!-- ================= Services ================= -->
+  <section class="section" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker" data-reveal>Services</span>
+        <h2 class="h2" id="services-title" data-reveal style="--d:1">Where we help</h2>
+        <p class="lead" data-reveal style="--d:2">Three core services, supported by the strategy, transformation and modernisation work that makes them stick.</p>
+      </div>
+
+      <article class="service" id="enterprise-architecture" aria-labelledby="ea-title">
+        <div class="service-intro" data-reveal>
+          <span class="service-label">Core service</span>
+          <h3 id="ea-title">Enterprise Architecture</h3>
+          <p>Get a clear, shared picture of your technology landscape and a target architecture everyone can build towards, so technology decisions support the business strategy instead of working against it.</p>
+          <a class="link-arrow" href="#contact" data-interest="Enterprise Architecture">Discuss enterprise architecture →</a>
+        </div>
+        <div class="service-detail" data-reveal style="--d:1">
+          <div class="detail-card">
+            <h4>What we help with</h4>
+            <ul class="ticks">
+              <li>Current-state landscape assessment</li>
+              <li>Target architecture definition</li>
+              <li>Business and technology strategy alignment</li>
+              <li>Legacy modernisation planning</li>
+              <li>Application and platform rationalisation</li>
+              <li>Reducing complexity and technical debt</li>
+              <li>Architecture roadmaps</li>
+              <li>Architecture governance and decision support</li>
+            </ul>
+            <div class="questions">
+              <h4>Questions we help answer</h4>
+              <ul>
+                <li>What do we actually run, and what does it cost to keep?</li>
+                <li>Which systems should we invest in, retire or replace?</li>
+                <li>What should our landscape look like in three years?</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="service" id="ai-consulting" aria-labelledby="ai-title">
+        <div class="service-intro" data-reveal>
+          <span class="service-label">Core service</span>
+          <h3 id="ai-title">AI Consulting</h3>
+          <p>Treat AI as an enterprise capability, with a clear purpose, the right data, sensible governance and a realistic route from idea to everyday use.</p>
+          <a class="link-arrow" href="#contact" data-interest="AI Consulting">Explore your AI opportunities →</a>
+        </div>
+        <div class="service-detail" data-reveal style="--d:1">
+          <div class="detail-card">
+            <h4>What we help with</h4>
+            <ul class="ticks">
+              <li>AI strategy and roadmap</li>
+              <li>AI readiness assessment</li>
+              <li>Generative AI use-case discovery</li>
+              <li>AI assistants and AI agents</li>
+              <li>Intelligent knowledge systems</li>
+              <li>AI-enabled business processes</li>
+              <li>Integrating AI with enterprise systems</li>
+              <li>Responsible, governed AI adoption</li>
+            </ul>
+            <div class="questions">
+              <h4>Questions we help answer</h4>
+              <ul>
+                <li>Where will AI make a measurable difference for us?</li>
+                <li>Is our data ready to support it?</li>
+                <li>How do we adopt AI safely and stay in control of it?</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="service" id="intelligent-automation" aria-labelledby="auto-title">
+        <div class="service-intro" data-reveal>
+          <span class="service-label">Core service</span>
+          <h3 id="auto-title">Intelligent Automation</h3>
+          <p>Remove repetitive work and connect the systems your processes depend on, so operations run consistently and people can focus on work that needs judgement.</p>
+          <a class="link-arrow" href="#contact" data-interest="Intelligent Automation">Discuss automation →</a>
+        </div>
+        <div class="service-detail" data-reveal style="--d:1">
+          <div class="detail-card">
+            <h4>What we help with</h4>
+            <ul class="ticks">
+              <li>Process discovery and assessment</li>
+              <li>Workflow automation</li>
+              <li>AI-powered intelligent automation</li>
+              <li>System and API integration</li>
+              <li>Automating repetitive tasks</li>
+              <li>Process optimisation</li>
+              <li>Automation governance and monitoring</li>
+            </ul>
+            <div class="questions">
+              <h4>Questions we help answer</h4>
+              <ul>
+                <li>Which processes are worth automating first?</li>
+                <li>How do we connect systems that don’t talk to each other?</li>
+                <li>How do we keep automations reliable as they scale?</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="supporting-head" data-reveal><h3>Supporting services</h3></div>
+      <div class="supporting">
+        <article class="support" id="technology-strategy" data-reveal style="--d:0">
+          <div class="support-in">
+            <h4>Technology Strategy</h4>
+            <p>Connect technology investment to business priorities, with a strategy leaders can act on.</p>
+            <ul><li>Technology vision and principles</li><li>Investment prioritisation</li><li>Capability and operating-model review</li></ul>
+          </div>
+        </article>
+        <article class="support" id="digital-transformation" data-reveal style="--d:1">
+          <div class="support-in">
+            <h4>Digital Transformation</h4>
+            <p>Plan and steer change programmes so they deliver the outcomes they were funded for.</p>
+            <ul><li>Transformation roadmaps</li><li>Programme architecture assurance</li><li>Adoption and change planning</li></ul>
+          </div>
+        </article>
+        <article class="support" id="cloud-modernisation" data-reveal style="--d:2">
+          <div class="support-in">
+            <h4>Cloud &amp; Platform Modernisation</h4>
+            <p>Move from ageing infrastructure and applications to platforms that are easier to run, change and scale.</p>
+            <ul><li>Cloud readiness and migration planning</li><li>Platform and application modernisation</li><li>Integration and API strategy</li></ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Approach ================= -->
+  <section class="section dark" id="approach" aria-labelledby="approach-title">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker" data-reveal>How we work</span>
+        <h2 class="h2" id="approach-title" data-reveal style="--d:1">A practical path from today’s landscape to tomorrow’s.</h2>
+        <p class="lead" data-reveal style="--d:2">Every engagement is shaped around the organisation and where it is starting from. Most follow this arc, in full or in part.</p>
+      </div>
+      <ol class="steps" id="steps" style="list-style:none">
+        <li class="steps-line" aria-hidden="true"><span class="steps-fill"></span></li>
+        <li class="step"><span class="step-dot">01</span><h3>Discover</h3><p>Understand business goals, the current technology landscape and the challenges behind them.</p></li>
+        <li class="step"><span class="step-dot">02</span><h3>Assess</h3><p>Analyse architecture, applications, data, processes and capabilities to find what matters most.</p></li>
+        <li class="step"><span class="step-dot">03</span><h3>Architect</h3><p>Define the target-state architecture and a sequenced, realistic roadmap to reach it.</p></li>
+        <li class="step"><span class="step-dot">04</span><h3>Enable</h3><p>Identify and prioritise where AI and automation will add genuine value.</p></li>
+        <li class="step"><span class="step-dot">05</span><h3>Transform</h3><p>Support implementation and adoption, keeping delivery aligned to the architecture.</p></li>
+        <li class="step"><span class="step-dot">06</span><h3>Evolve</h3><p>Review and refine the landscape as the business and technology move on.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= Work / case studies ================= -->
+  <section class="section" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker" data-reveal>Work</span>
+        <h2 class="h2" id="work-title" data-reveal style="--d:1">Case studies</h2>
+        <p class="lead" data-reveal style="--d:2">Each engagement is presented the same way, from the business challenge through to the outcome, so it’s clear how the thinking turned into results.</p>
+      </div>
+      <p class="placeholder-note" data-reveal><b>Content placeholder</b>Case-study details are to be supplied by In4Rtech. The cards below show the structure each case study will follow.</p>
+      <div class="cases">
+        <article class="case" data-reveal style="--d:0">
+          <div class="case-in">
+            <div class="case-top"><span class="tag">ENTERPRISE ARCHITECTURE</span></div>
+            <h3 class="case-title">[Engagement title]</h3>
+            <dl>
+              <dt>Client / industry</dt><dd>[Client name or sector]</dd>
+              <dt>Business challenge</dt><dd>[What the organisation needed to achieve]</dd>
+              <dt>Technology challenge</dt><dd>[Landscape, systems or constraints involved]</dd>
+              <dt>Approach</dt><dd>[How the engagement was run]</dd>
+              <dt>Architecture work</dt><dd>[Target architecture, roadmap, decisions]</dd>
+              <dt>Outcome</dt><dd>[Verified result, agreed with the client]</dd>
+            </dl>
+          </div>
+        </article>
+        <article class="case" data-reveal style="--d:1">
+          <div class="case-in">
+            <div class="case-top"><span class="tag ai">AI</span></div>
+            <h3 class="case-title">[Engagement title]</h3>
+            <dl>
+              <dt>Client / industry</dt><dd>[Client name or sector]</dd>
+              <dt>Business challenge</dt><dd>[What the organisation needed to achieve]</dd>
+              <dt>Technology challenge</dt><dd>[Data, systems or governance constraints]</dd>
+              <dt>Approach</dt><dd>[How the engagement was run]</dd>
+              <dt>AI work</dt><dd>[Use cases, solution and integration]</dd>
+              <dt>Outcome</dt><dd>[Verified result, agreed with the client]</dd>
+            </dl>
+          </div>
+        </article>
+        <article class="case" data-reveal style="--d:2">
+          <div class="case-in">
+            <div class="case-top"><span class="tag auto">AUTOMATION</span></div>
+            <h3 class="case-title">[Engagement title]</h3>
+            <dl>
+              <dt>Client / industry</dt><dd>[Client name or sector]</dd>
+              <dt>Business challenge</dt><dd>[What the organisation needed to achieve]</dd>
+              <dt>Technology challenge</dt><dd>[Processes, systems or integrations involved]</dd>
+              <dt>Approach</dt><dd>[How the engagement was run]</dd>
+              <dt>Automation work</dt><dd>[Workflows, integrations and governance]</dd>
+              <dt>Outcome</dt><dd>[Verified result, agreed with the client]</dd>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= About ================= -->
+  <section class="section section-white" id="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <div class="about">
+        <div class="about-main">
+          <span class="kicker" data-reveal>About</span>
+          <h2 class="h2" id="about-title" data-reveal style="--d:1">An IT consultancy built around how enterprises actually change.</h2>
+          <p data-reveal style="--d:2">In4Rtech Solutions Ltd is an IT consultancy based in Manchester, UK. We help organisations understand their technology landscape, define the architecture they need, and put AI and automation to work in ways that are practical, governed and aligned to business goals.</p>
+          <p data-reveal style="--d:3">We work with technology and business leaders who need a structured, objective view of their estate, whether that’s a focused architecture review or support across a longer transformation.</p>
+        </div>
+        <aside class="about-side" data-reveal style="--d:2">
+          <dl class="facts">
+            <div><dt>Company</dt><dd>In4Rtech Solutions Ltd</dd></div>
+            <div><dt>Based in</dt><dd>Manchester, UK</dd></div>
+            <div><dt>Focus</dt><dd>Enterprise Architecture · AI · Automation</dd></div>
+            <div><dt>Also covering</dt><dd>Technology Strategy · Digital Transformation · Cloud &amp; Platform Modernisation</dd></div>
+          </dl>
+        </aside>
+      </div>
+      <div class="principles">
+        <div class="principle" data-reveal style="--d:0"><div class="principle-in"><h3>Strategy balanced with delivery</h3><p>A long-term architecture, and the practical steps that move you towards it now.</p></div></div>
+        <div class="principle" data-reveal style="--d:1"><div class="principle-in"><h3>Focused on outcomes</h3><p>Recommendations tied to business results, not technology for its own sake.</p></div></div>
+        <div class="principle" data-reveal style="--d:2"><div class="principle-in"><h3>Driven and productive</h3><p>Momentum from the start, with visible progress at every stage.</p></div></div>
+        <div class="principle" data-reveal style="--d:3"><div class="principle-in"><h3>Genuinely engaged</h3><p>We care about how your technology works, not just what it’s called.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= People ================= -->
+  <section class="section" id="people" aria-labelledby="people-title">
+    <div class="wrap">
+      <div class="head">
+        <span class="kicker" data-reveal>People</span>
+        <h2 class="h2" id="people-title" data-reveal style="--d:1">Who you’ll work with</h2>
+      </div>
+      <div class="person" id="person">
+        <div class="person-photo-col">
+          <figure class="photo-frame" style="margin:0">
+            <div class="photo">
+              <img src="https://www.in4rtech.com/i4rimages/RK1.jpg" alt="Rajneesh Kumar, Founder and Managing Director of In4Rtech" width="687" height="554" decoding="async">
+            </div>
+          </figure>
+        </div>
+        <div class="person-info">
+          <h3 class="person-name" data-reveal>Rajneesh Kumar</h3>
+          <p class="person-role" data-reveal style="--d:1">Founder &amp; Managing Director</p>
+          <p class="bio-placeholder" data-reveal style="--d:2">[Professional biography to be provided by In4Rtech: background, areas of expertise and the kinds of organisations Rajneesh works with.]</p>
+          <div class="person-actions" data-reveal style="--d:3">
+            <a class="btn btn-primary" href="#contact">Start a conversation<span class="arr" aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="mailto:rajneesh@in4rtech.com">rajneesh@in4rtech.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Contact ================= -->
+  <section class="section dark contact" id="contact" aria-labelledby="contact-title">
+    <canvas id="contact-net" aria-hidden="true"></canvas>
+    <div class="wrap contact-in">
+      <div class="contact-info">
+        <span class="kicker" data-reveal>Contact</span>
+        <h2 class="h2" id="contact-title" data-reveal style="--d:1">Start a conversation about your technology landscape.</h2>
+        <p class="lead" data-reveal style="--d:2">Tell us what you’re working on, whether that’s a landscape review, an AI opportunity or a process you’d like to automate, and we’ll be in touch to discuss it.</p>
+        <ul class="details" data-reveal style="--d:3">
+          <li><small>Email</small><a href="mailto:rajneesh@in4rtech.com">rajneesh@in4rtech.com</a></li>
+          <li><small>Phone</small><a href="tel:+447574519460">+44 7574519460</a></li>
+          <li><small>Location</small><span>Manchester, UK</span></li>
+        </ul>
+      </div>
+      <div class="contact-form" data-reveal style="--d:2">
+        <form class="form" id="enquiry" novalidate>
+          <div class="row">
+            <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="f-org">Organisation <i>(optional)</i></label><input id="f-org" name="organisation" type="text" autocomplete="organization"></div>
+            <div class="field">
+              <label for="f-area">Area of interest</label>
+              <select id="f-area" name="area">
+                <option>Enterprise Architecture</option>
+                <option>AI Consulting</option>
+                <option>Intelligent Automation</option>
+                <option>Technology Strategy</option>
+                <option>Digital Transformation</option>
+                <option>Cloud &amp; Platform Modernisation</option>
+                <option selected>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="field"><label for="f-msg">What’s the challenge?</label><textarea id="f-msg" name="message" required placeholder="A short description of your landscape, goals or the problem you’re trying to solve."></textarea></div>
+          <div class="form-foot">
+            <button class="btn btn-primary" type="submit">Send enquiry<span class="arr" aria-hidden="true">→</span></button>
+            <p class="form-note">Opens your email app with the enquiry addressed to rajneesh@in4rtech.com.</p>
+          </div>
+          <p class="form-status" id="form-status" role="alert"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= Footer ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="footer-logo" aria-label="In4Rtech Solutions Ltd, back to top"><img src="https://www.in4rtech.com/i4rimages/Logo.png" alt="In4rtech" width="107" height="85" loading="lazy"></a>
+        <p>Enterprise architecture, AI and automation consultancy. Manchester, UK.</p>
+      </div>
+      <div class="footer-col">
+        <h2>Services</h2>
+        <ul>
+          <li><a href="#enterprise-architecture">Enterprise Architecture</a></li>
+          <li><a href="#ai-consulting">AI Consulting</a></li>
+          <li><a href="#intelligent-automation">Intelligent Automation</a></li>
+          <li><a href="#technology-strategy">Technology Strategy</a></li>
+          <li><a href="#digital-transformation">Digital Transformation</a></li>
+          <li><a href="#cloud-modernisation">Cloud &amp; Platform Modernisation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Company</h2>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#people">People</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:rajneesh@in4rtech.com">rajneesh@in4rtech.com</a></li>
+          <li><a href="tel:+447574519460">+44 7574519460</a></li>
+          <li>Manchester, UK</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> In4Rtech Solutions Ltd</span>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Core behaviour: written in ES5 so it also runs in older browsers (IE11). -->
+<script>
+(function () {
+  var doc = document, root = doc.documentElement, win = window;
+  var anim = root.className.indexOf('anim') > -1;
+  function $(s, c) { return (c || doc).querySelector(s); }
+  function $$(s, c) { return Array.prototype.slice.call((c || doc).querySelectorAll(s)); }
+  function has(el, c) { return (' ' + el.className + ' ').indexOf(' ' + c + ' ') > -1; }
+  function setClass(el, c, on) {
+    if (on && !has(el, c)) el.className += ' ' + c;
+    if (!on && has(el, c)) el.className = (' ' + el.className + ' ').replace(' ' + c + ' ', ' ').replace(/^\s+|\s+$/g, '');
+  }
+  function scrollTop() { return win.pageYOffset || root.scrollTop || 0; }
+  var y = $('#year'); if (y) y.innerHTML = new Date().getFullYear();
+
+  /* Header shadow + active section */
+  var header = $('#header');
+  var navLinks = $$('[data-nav]');
+  var tracked = ['about', 'work', 'people'];
+  function onScrollNav() {
+    setClass(header, 'scrolled', scrollTop() > 10);
+    var mid = (win.innerHeight || root.clientHeight) * 0.35, current = '';
+    for (var i = 0; i < tracked.length; i++) {
+      var s = doc.getElementById(tracked[i]); if (!s) continue;
+      var r = s.getBoundingClientRect();
+      if (r.top <= mid && r.bottom > mid) current = tracked[i];
+    }
+    for (var j = 0; j < navLinks.length; j++) setClass(navLinks[j], 'active', navLinks[j].getAttribute('href') === '#' + current);
+  }
+  win.addEventListener('scroll', onScrollNav);
+  onScrollNav();
+
+  /* Services mega menu */
+  var sBtn = $('#services-btn'), mega = $('#mega');
+  function setMega(open) { setClass(mega, 'open', open); sBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+  sBtn.addEventListener('click', function (e) { e.stopPropagation(); setMega(!has(mega, 'open')); });
+  doc.addEventListener('click', function (e) { if (!mega.contains(e.target)) setMega(false); });
+  doc.addEventListener('keydown', function (e) { if (e.key === 'Escape' || e.keyCode === 27) { if (has(mega, 'open')) { setMega(false); sBtn.focus(); } setMenu(false); } });
+  $$('a', mega).forEach(function (a) { a.addEventListener('click', function () { setMega(false); }); });
+
+  /* Mobile menu */
+  var mBtn = $('#menu-btn'), panel = $('#mobile-panel');
+  function setMenu(open) { setClass(panel, 'open', open); mBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); mBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); }
+  mBtn.addEventListener('click', function () { setMenu(!has(panel, 'open')); });
+  $$('a', panel).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+
+  /* Service CTAs pre-select the area of interest */
+  $$('[data-interest]').forEach(function (a) {
+    a.addEventListener('click', function () { var sel = $('#f-area'); if (sel) sel.value = a.getAttribute('data-interest'); });
+  });
+
+  /* Reveals (only when motion is enabled) */
+  if (anim) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { setClass(en.target, 'in', true); io.unobserve(en.target); } });
+    }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+    $$('[data-reveal], #person').forEach(function (el) { io.observe(el); });
+  }
+
+  /* Approach: progress line fills with scroll */
+  var steps = $('#steps'), stepEls = $$('.step', steps), fill = $('.steps-fill', steps);
+  function onScrollSteps() {
+    if (!anim) { stepEls.forEach(function (s) { setClass(s, 'on', true); }); return; }
+    var r = steps.getBoundingClientRect(), vh = win.innerHeight;
+    var vertical = win.innerWidth <= 900;
+    var p = Math.max(0, Math.min(1, (vh * 0.75 - r.top) / (r.height + vh * 0.2)));
+    fill.style.setProperty('--p', p.toFixed(3));
+    stepEls.forEach(function (s, i) { setClass(s, 'on', p >= (vertical ? i / stepEls.length : i / (stepEls.length - 1)) - 0.001); });
+  }
+  win.addEventListener('scroll', onScrollSteps);
+  win.addEventListener('resize', onScrollSteps);
+  onScrollSteps();
+
+  /* Enquiry form → email */
+  var form = $('#enquiry'), F = form.elements;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var status = $('#form-status');
+    var name = F['name'].value.replace(/^\s+|\s+$/g, ''), email = F['email'].value.replace(/^\s+|\s+$/g, ''), msg = F['message'].value.replace(/^\s+|\s+$/g, '');
+    if (!name || !email || !msg) { status.innerHTML = 'Please add your name, work email and a short description of the challenge.'; (!name ? F['name'] : !email ? F['email'] : F['message']).focus(); return; }
+    if (!/^\S+@\S+\.\S+$/.test(email)) { status.innerHTML = 'Please enter a valid email address.'; F['email'].focus(); return; }
+    status.innerHTML = '';
+    var org = F['organisation'].value.replace(/^\s+|\s+$/g, ''), area = F['area'].value;
+    var subject = 'Enquiry: ' + area + (org ? ' (' + org + ')' : '');
+    var body = msg + '\n\n' + name + (org ? '\n' + org : '') + '\n' + email + '\nArea of interest: ' + area;
+    win.location.href = 'mailto:rajneesh@in4rtech.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  });
+
+  /* Contact background: quiet node network (skipped without motion) */
+  var c = $('#contact-net');
+  if (anim && c && c.getContext && win.requestAnimationFrame) {
+    var ctx = c.getContext('2d'), small = win.innerWidth < 900;
+    var N = small ? 26 : 54, LINK = small ? 130 : 180, W = 0, H = 0, pts = [], visible = false, raf = 0;
+    var size = function () {
+      var dpr = Math.min(win.devicePixelRatio || 1, 2);
+      W = c.clientWidth; H = c.clientHeight; c.width = W * dpr; c.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (!pts.length) for (var i = 0; i < N; i++) pts.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .22, vy: (Math.random() - .5) * .22 });
+    };
+    var draw = function () {
+      ctx.clearRect(0, 0, W, H);
+      for (var i = 0; i < N; i++) {
+        var a = pts[i]; a.x += a.vx; a.y += a.vy;
+        if (a.x < 0 || a.x > W) a.vx *= -1; if (a.y < 0 || a.y > H) a.vy *= -1;
+        for (var j = i + 1; j < N; j++) {
+          var b = pts[j], d = Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
+          if (d < LINK) { ctx.strokeStyle = 'rgba(111,208,199,' + (0.14 * (1 - d / LINK)).toFixed(3) + ')'; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+        }
+        ctx.fillStyle = 'rgba(111,208,199,.45)'; ctx.beginPath(); ctx.arc(a.x, a.y, 1.5, 0, 6.283); ctx.fill();
+      }
+      raf = visible ? win.requestAnimationFrame(draw) : 0;
+    };
+    new IntersectionObserver(function (en) { visible = en[0].isIntersecting; if (visible && !raf) raf = win.requestAnimationFrame(draw); }).observe(c);
+    win.addEventListener('resize', size);
+    size();
+  }
+})();
+</script>
+
+<!-- Hero 3D (modern browsers only; the static diagram stays in place otherwise) -->
+<script type="module">
+import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const small = matchMedia('(max-width: 900px)').matches;
+const wrap = document.querySelector('.hero-visual');
+const canvas = document.getElementById('flow-3d');
+const hero = document.getElementById('home');
+
+function init() {
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' }); }
+  catch (e) { return; }
+  wrap.classList.add('has-webgl');
+  renderer.setPixelRatio(Math.min(devicePixelRatio, small ? 1.5 : 2));
+
+  const INK = 0x0D1F22, TEAL = 0x2FA59C, GREEN = 0x7DBE4E;
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
+  const look = new THREE.Vector3(0.1, 0.35, 0);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0xc9d3d1, 1.7));
+  const sun = new THREE.DirectionalLight(0xffffff, 1.5); sun.position.set(4, 8, 6); scene.add(sun);
+
+  const root = new THREE.Group(); scene.add(root);
+
+  // Journey: Business → Architecture → Data → AI → Automation → Outcomes
+  const P = [[-3.0, -1.35, 0.7], [-1.8, -0.75, -0.45], [-0.6, -0.15, 0.55], [0.6, 0.45, -0.35], [1.8, 1.05, 0.55], [3.0, 1.65, -0.3]]
+    .map(([x, y, z]) => new THREE.Vector3(x, y, z));
+  const curve = new THREE.CatmullRomCurve3(P, false, 'catmullrom', 0.5);
+  const tubeGeo = new THREE.TubeGeometry(curve, 240, 0.016, 8, false);
+  const tube = new THREE.Mesh(tubeGeo, new THREE.MeshBasicMaterial({ color: TEAL, transparent: true, opacity: 0.9 }));
+  root.add(tube);
+  const tubeCount = tubeGeo.index.count;
+
+  const glass = (color, opacity) => new THREE.MeshPhysicalMaterial({ color, roughness: 0.22, metalness: 0, clearcoat: 0.9, clearcoatRoughness: 0.2, transparent: true, opacity });
+  const solid = (color) => new THREE.MeshStandardMaterial({ color, roughness: 0.45, metalness: 0.05 });
+  const edges = (geo, color = INK, opacity = 0.32) => new THREE.LineSegments(new THREE.EdgesGeometry(geo, 25), new THREE.LineBasicMaterial({ color, transparent: true, opacity }));
+  const mesh = (geo, mat, withEdges = true, ec, eo) => { const m = new THREE.Mesh(geo, mat); if (withEdges) m.add(edges(geo, ec, eo)); return m; };
+
+  function base() {
+    const g = new THREE.Group();
+    const dg = new THREE.CylinderGeometry(0.62, 0.62, 0.05, 56);
+    g.add(mesh(dg, glass(0xffffff, 0.8), true, INK, 0.18));
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(0.64, 0.007, 8, 96), new THREE.MeshBasicMaterial({ color: TEAL }));
+    ring.rotation.x = Math.PI / 2; ring.position.y = 0.03; g.add(ring);
+    return g;
+  }
+  const makers = [
+    // Business: the organisation, as stacked layers
+    () => { const g = new THREE.Group(); for (let i = 0; i < 3; i++) { const bg = new RoundedBoxGeometry(0.8, 0.08, 0.8, 2, 0.03); const m = mesh(bg, glass(i === 2 ? 0xe4f3f1 : 0xffffff, 0.9)); m.position.y = 0.12 + i * 0.13; g.add(m); } return g; },
+    // Architecture: a structured frame with a defined core
+    () => { const g = new THREE.Group(); const og = new THREE.BoxGeometry(0.7, 0.7, 0.7); const o = new THREE.LineSegments(new THREE.EdgesGeometry(og), new THREE.LineBasicMaterial({ color: INK, transparent: true, opacity: 0.55 })); o.position.y = 0.42; g.add(o); const ig = new RoundedBoxGeometry(0.36, 0.36, 0.36, 2, 0.04); const i = mesh(ig, glass(0xbfe5e0, 0.8), true, TEAL, 0.8); i.position.y = 0.42; g.add(i); return g; },
+    // Data: stacked stores
+    () => { const g = new THREE.Group(); for (let i = 0; i < 3; i++) { const cg = new THREE.CylinderGeometry(0.3, 0.3, 0.13, 48); const m = mesh(cg, glass(i === 2 ? 0xcdeae6 : 0xffffff, 0.9)); m.position.y = 0.12 + i * 0.17; g.add(m); } return g; },
+    // AI: a faceted, connected core
+    () => { const g = new THREE.Group(); const ig = new THREE.IcosahedronGeometry(0.42, 1); const shell = new THREE.Mesh(ig, glass(0xd9f1ee, 0.55)); const wire = new THREE.LineSegments(new THREE.EdgesGeometry(ig, 1), new THREE.LineBasicMaterial({ color: TEAL, transparent: true, opacity: 0.9 })); shell.add(wire); shell.position.y = 0.55; g.add(shell); const core = new THREE.Mesh(new THREE.SphereGeometry(0.13, 24, 24), new THREE.MeshStandardMaterial({ color: INK, roughness: 0.3 })); core.position.y = 0.55; g.add(core); g.userData.spin = shell; return g; },
+    // Automation: a continuous loop with items moving through it
+    () => { const g = new THREE.Group(); const tg = new THREE.TorusGeometry(0.34, 0.045, 16, 80); const t = new THREE.Mesh(tg, glass(0xffffff, 0.95)); t.rotation.x = Math.PI / 2.6; t.position.y = 0.5; g.add(t); const sats = []; for (let i = 0; i < 3; i++) { const s = new THREE.Mesh(new THREE.SphereGeometry(0.055, 16, 16), solid(i === 0 ? GREEN : TEAL)); g.add(s); sats.push(s); } g.userData.sats = sats; g.userData.ring = t; return g; },
+    // Outcomes: rising results
+    () => { const g = new THREE.Group(); [0.3, 0.52, 0.78].forEach((h, i) => { const bg = new RoundedBoxGeometry(0.17, h, 0.17, 2, 0.03); const m = new THREE.Mesh(bg, solid(i === 2 ? GREEN : TEAL)); m.position.set(-0.24 + i * 0.24, 0.05 + h / 2, 0); g.add(m); }); return g; },
+  ];
+  const nodes = P.map((p, i) => {
+    const holder = new THREE.Group(); holder.position.copy(p);
+    holder.add(base());
+    const obj = makers[i](); holder.add(obj);
+    root.add(holder);
+    return { holder, obj };
+  });
+
+  // Flow pulses along the journey
+  const PN = small ? 8 : 14;
+  const pulseMesh = new THREE.InstancedMesh(new THREE.SphereGeometry(0.045, 12, 12), new THREE.MeshBasicMaterial({ color: TEAL }), PN);
+  root.add(pulseMesh);
+  const pulses = Array.from({ length: PN }, (_, i) => ({ t: i / PN, v: 0.05 + Math.random() * 0.03 }));
+  const m4 = new THREE.Matrix4(), v3 = new THREE.Vector3();
+
+  const labels = Array.prototype.slice.call(document.querySelectorAll('.flow-label'));
+
+  function resize() {
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    if (!w || !h) return;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    // fit the whole journey (~8.4 units wide) inside the canvas width
+    const d = Math.max(12.5, (small ? 4.9 : 4.2) / (Math.tan(THREE.MathUtils.degToRad(15)) * camera.aspect));
+    camera.position.set(0.4, 2.6, d);
+    camera.lookAt(look);
+    camera.updateProjectionMatrix();
+    if (reduce) frame(0);
+  }
+  addEventListener('resize', resize);
+
+  let mx = 0, my = 0, sx = 0, sy = 0;
+  if (!reduce) addEventListener('pointermove', (e) => { mx = e.clientX / innerWidth * 2 - 1; my = e.clientY / innerHeight * 2 - 1; }, { passive: true });
+  const ease = (x) => 1 - Math.pow(1 - x, 3);
+  const t0 = performance.now();
+
+  function frame(t) {
+    const k = reduce ? 1 : Math.min(1, (performance.now() - t0) / 2600);
+    const p = Math.min(1, Math.max(0, (pageYOffset || 0) / (hero.offsetHeight || 1)));
+    sx += (mx - sx) * 0.04; sy += (my - sy) * 0.04;
+    root.rotation.y = -0.22 + sx * 0.16 + Math.sin(t * 0.2) * 0.04 + p * 0.25;
+    root.rotation.x = 0.04 + sy * 0.05;
+    root.position.y = p * 0.9;
+
+    tubeGeo.setDrawRange(0, Math.floor(tubeCount * Math.min(1, k * 1.15)));
+    nodes.forEach((n, i) => {
+      const s = ease(Math.min(1, Math.max(0, (k * 1.25 - i * 0.14) / 0.35)));
+      n.holder.scale.setScalar(Math.max(0.0001, s));
+      n.obj.position.y = reduce ? 0 : Math.sin(t * 0.9 + i * 1.1) * 0.035;
+    });
+    const ai = nodes[3].obj.userData.spin; if (ai) { ai.rotation.y = t * 0.25; ai.rotation.x = t * 0.1; }
+    const au = nodes[4].obj.userData;
+    au.sats.forEach((s, i) => { const a = t * 0.9 + i * 2.094; v3.set(Math.cos(a) * 0.34, 0, Math.sin(a) * 0.34).applyEuler(au.ring.rotation); s.position.set(v3.x, 0.5 + v3.y, v3.z); });
+
+    const flowOn = k > 0.85;
+    pulses.forEach((pu, i) => {
+      if (!reduce) pu.t = (pu.t + pu.v * 0.016) % 1;
+      curve.getPointAt(pu.t, v3);
+      const sc = flowOn ? Math.sin(pu.t * Math.PI) * 1.1 : 0.0001;
+      m4.makeScale(sc, sc, sc).setPosition(v3);
+      pulseMesh.setMatrixAt(i, m4);
+    });
+    pulseMesh.instanceMatrix.needsUpdate = true;
+
+    renderer.render(scene, camera);
+
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    labels.forEach((el, i) => {
+      const above = i % 2 === 1;
+      v3.set(0, above ? 1.12 : -0.28, above ? 0 : 0.62); nodes[i].holder.localToWorld(v3); v3.project(camera);
+      el.style.transform = 'translate(' + ((v3.x * 0.5 + 0.5) * w).toFixed(0) + 'px,' + ((-v3.y * 0.5 + 0.5) * h).toFixed(0) + 'px) translate(-50%, ' + (above ? '-100%' : '0') + ')';
+      el.classList.toggle('on', k > 0.4 + i * 0.1 && p < 0.7);
+    });
+  }
+
+  resize();
+  if (reduce) { frame(0); return; }
+  let visible = false, raf = 0;
+  const clock = new THREE.Clock();
+  const loop = () => { frame(clock.getElapsedTime()); raf = visible ? requestAnimationFrame(loop) : 0; };
+  new IntersectionObserver(([en]) => { visible = en.isIntersecting; if (visible && !raf) raf = requestAnimationFrame(loop); }).observe(wrap);
+}
+init();
+</script>
+</body>
+</html>
