@@ -179,7 +179,7 @@ section[id] { scroll-margin-top: 84px; }
 /* ---------- Challenges ---------- */
 .challenges { display: flex; flex-wrap: wrap; margin: 0 -10px; }
 .challenge { width: 25%; padding: 10px; }
-.challenge-in { position: relative; height: 100%; padding: 28px 24px 24px; border-radius: 20px; background: #F4F5F1; border: 1px solid rgba(13, 31, 34, .06); transition: background-color .35s, border-color .35s, transform .45s cubic-bezier(.2, .7, .1, 1), box-shadow .45s; overflow: hidden; }
+.challenge-in { position: relative; height: 100%; padding: 28px 24px 24px; border-radius: 16px; background: #F4F5F1; border: 1px solid rgba(13, 31, 34, .06); transition: background-color .35s, border-color .35s, transform .45s cubic-bezier(.2, .7, .1, 1), box-shadow .45s; overflow: hidden; }
 .challenge-in:before { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: #2FA59C; transform: scaleX(0); transform-origin: left; transition: transform .5s cubic-bezier(.2, .7, .1, 1); }
 .challenge-in:hover { background: #FFFFFF; border-color: rgba(47, 165, 156, .35); transform: translateY(-4px); box-shadow: 0 26px 44px -32px rgba(13, 31, 34, .55); }
 .challenge-in:hover:before { transform: scaleX(1); }
@@ -199,7 +199,7 @@ section[id] { scroll-margin-top: 84px; }
 .pillars-caption b { color: #6FD0C7; font-weight: 600; }
 .pillars { display: flex; margin: 0 -12px; }
 .pillar { position: relative; width: 33.333%; padding: 0 12px; }
-.pillar-card { position: relative; display: block; width: 100%; height: 100%; padding: 30px 28px; border-radius: 22px; background: #13292D; border: 1px solid rgba(232, 239, 238, .08); text-align: left; color: #E8EFEE; font: inherit; transition: border-color .4s, transform .5s cubic-bezier(.2, .7, .1, 1), background-color .4s, box-shadow .5s; }
+.pillar-card { position: relative; display: block; width: 100%; height: 100%; padding: 30px 28px; border-radius: 16px; background: #13292D; border: 1px solid rgba(232, 239, 238, .08); text-align: left; color: #E8EFEE; font: inherit; transition: border-color .4s, transform .5s cubic-bezier(.2, .7, .1, 1), background-color .4s, box-shadow .5s; }
 .pillar.is-on .pillar-card, .pillar-card:hover { border-color: rgba(111, 208, 199, .6); background: #163134; transform: translateY(-6px); box-shadow: 0 30px 50px -30px rgba(0, 0, 0, .8), 0 0 0 1px rgba(111, 208, 199, .15); }
 .pillar-step { font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #6FD0C7; }
 .pillar-card h3 { margin: 14px 0 10px; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 29px; line-height: 1.1; }
@@ -207,7 +207,9 @@ section[id] { scroll-margin-top: 84px; }
 .pillar.is-on .pillar-card p, .pillar-card:hover p { color: #DCE6E5; }
 .pillar-icon { width: 56px; height: 56px; margin-bottom: 20px; transition: transform .5s cubic-bezier(.2, .7, .1, 1); }
 .pillar.is-on .pillar-icon, .pillar-card:hover .pillar-icon { transform: translateY(-3px) scale(1.06); }
-.result { margin-top: 26px; display: flex; align-items: center; padding: 28px 32px; border-radius: 22px; background: linear-gradient(110deg, rgba(47, 165, 156, .22), rgba(125, 190, 78, .12)); border: 1px solid rgba(111, 208, 199, .35); }
+.result.is-on { border-color: #6FD0C7; box-shadow: 0 0 0 1px rgba(111, 208, 199, .4), 0 30px 60px -30px rgba(0, 0, 0, .8); }
+.result:focus { outline: 2px solid #6FD0C7; outline-offset: 3px; }
+.result { cursor: default; transition: border-color .4s, box-shadow .4s; margin-top: 26px; display: flex; align-items: center; padding: 28px 32px; border-radius: 16px; background: linear-gradient(110deg, rgba(47, 165, 156, .22), rgba(125, 190, 78, .12)); border: 1px solid rgba(111, 208, 199, .35); }
 .result-mark { flex: none; width: 52px; height: 52px; margin-right: 22px; border-radius: 50%; background: #6FD0C7; position: relative; }
 .result-mark:after { content: ""; position: absolute; left: 18px; top: 13px; width: 12px; height: 21px; border-right: 3px solid #0D1F22; border-bottom: 3px solid #0D1F22; transform: rotate(45deg); }
 .result p { margin: 0; font-size: 20px; line-height: 1.45; }
@@ -222,8 +224,9 @@ section[id] { scroll-margin-top: 84px; }
 .service-label { display: inline-block; margin-bottom: 18px; padding: 5px 12px; border-radius: 999px; font-size: 11.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; background: #E4EEEC; color: #1E7C75; }
 .service h3 { margin: 0; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 42px; font-size: clamp(2.1rem, 3.5vw, 2.9rem); letter-spacing: -.022em; line-height: 1.06; }
 .service-intro p { margin: 18px 0 0; max-width: 46ch; font-size: 18px; color: #4E5F63; }
-.service-visual { height: 380px; margin-top: 30px; border-radius: 24px; background: radial-gradient(80% 80% at 50% 40%, #FFFFFF 0%, #EEF2F0 100%); border: 1px solid rgba(13, 31, 34, .06); overflow: hidden; }
-.detail-card { position: relative; padding: 36px 38px; border-radius: 24px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .07); box-shadow: 0 40px 70px -56px rgba(13, 31, 34, .6); transition: box-shadow .5s, transform .5s cubic-bezier(.2, .7, .1, 1); }
+#enterprise-architecture .service-visual { height: 440px; }
+.service-visual { height: 380px; margin-top: 30px; border-radius: 16px; background: radial-gradient(80% 80% at 50% 40%, #FFFFFF 0%, #EEF2F0 100%); border: 1px solid rgba(13, 31, 34, .06); overflow: hidden; }
+.detail-card { position: relative; padding: 36px 38px; border-radius: 16px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .07); box-shadow: 0 40px 70px -56px rgba(13, 31, 34, .6); transition: box-shadow .5s, transform .5s cubic-bezier(.2, .7, .1, 1); }
 .detail-card:hover { box-shadow: 0 50px 80px -50px rgba(13, 31, 34, .55); transform: translateY(-3px); }
 .detail-card h4 { margin: 0 0 16px; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #4E5F63; }
 .ticks { display: flex; flex-wrap: wrap; list-style: none; margin: 0 -10px; padding: 0; }
@@ -240,7 +243,7 @@ section[id] { scroll-margin-top: 84px; }
 .supporting-head h3 { margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #4E5F63; }
 .supporting { display: flex; flex-wrap: wrap; margin: 0 -10px; }
 .support { width: 33.333%; padding: 10px; }
-.support-in { position: relative; height: 100%; padding: 30px 30px 32px; border-radius: 24px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .07); transition: border-color .4s, transform .5s cubic-bezier(.2, .7, .1, 1), box-shadow .5s; }
+.support-in { position: relative; height: 100%; padding: 30px 30px 32px; border-radius: 16px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .07); transition: border-color .4s, transform .5s cubic-bezier(.2, .7, .1, 1), box-shadow .5s; }
 .support-in:after { content: ""; position: absolute; left: -1px; top: -1px; right: -1px; bottom: -1px; border-radius: inherit; padding: 1px; pointer-events: none; opacity: 0; background: conic-gradient(from var(--ang), transparent 0 65%, #2FA59C 82%, #7DBE4E 90%, transparent 100%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); transition: opacity .4s; }
 .support-in:hover { transform: translateY(-5px); box-shadow: 0 34px 60px -40px rgba(13, 31, 34, .55); border-color: transparent; }
 .anim .support-in:hover:after { opacity: 1; animation: ang 3.5s linear infinite; }
@@ -299,7 +302,7 @@ section[id] { scroll-margin-top: 84px; }
 .placeholder-note b { flex: none; margin-right: 12px; padding: 3px 9px; border-radius: 6px; background: #FFF3D6; color: #7A5200; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
 .cases { display: flex; flex-wrap: wrap; margin: 0 -12px; }
 .case { width: 33.333%; padding: 12px; }
-.case-in { --rx: 0deg; --ry: 0deg; position: relative; height: 100%; border-radius: 26px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .07); overflow: hidden; transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)); transition: transform .6s cubic-bezier(.2, .7, .1, 1), box-shadow .5s; }
+.case-in { --rx: 0deg; --ry: 0deg; position: relative; height: 100%; border-radius: 16px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .07); overflow: hidden; transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)); transition: transform .6s cubic-bezier(.2, .7, .1, 1), box-shadow .5s; }
 .case-in.tilting { transition: transform .12s linear, box-shadow .5s; }
 .case-in:hover { box-shadow: 0 40px 70px -44px rgba(13, 31, 34, .6); }
 .case-visual { position: relative; height: 150px; background: #0D1F22; overflow: hidden; }
@@ -318,7 +321,7 @@ section[id] { scroll-margin-top: 84px; }
 .about-main { width: 58%; padding-right: 70px; }
 .about-main p { margin: 22px 0 0; max-width: 60ch; font-size: 18.5px; line-height: 1.72; color: #2F4145; }
 .about-side { width: 42%; }
-.facts { margin: 0; padding: 8px 30px; border-radius: 24px; background: #F4F5F1; border: 1px solid rgba(13, 31, 34, .05); }
+.facts { margin: 0; padding: 8px 30px; border-radius: 16px; background: #F4F5F1; border: 1px solid rgba(13, 31, 34, .05); }
 .facts div { padding: 18px 0; border-bottom: 1px solid rgba(13, 31, 34, .08); }
 .facts div:last-child { border-bottom: 0; }
 .facts dt { font-size: 11.5px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: #4E5F63; }
@@ -340,7 +343,7 @@ section[id] { scroll-margin-top: 84px; }
 .person-info { width: 56%; padding-left: 84px; }
 /* Photo: padding-ratio box + background image renders in every browser incl. IE11;
    modern browsers layer the <img> above it with object-fit. */
-.photo { position: relative; height: 0; padding-bottom: 120%; overflow: hidden; border-radius: 28px; background-color: #DCE3E1; background-image: url("https://www.in4rtech.com/i4rimages/RK1.jpg"); background-repeat: no-repeat; background-position: 50% 28%; background-size: auto 132%; }
+.photo { position: relative; height: 0; padding-bottom: 120%; overflow: hidden; border-radius: 16px; background-color: #DCE3E1; background-image: url("https://www.in4rtech.com/i4rimages/RK1.jpg"); background-repeat: no-repeat; background-position: 50% 28%; background-size: auto 132%; }
 .photo img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; }
 @supports (object-fit: cover) {
   .photo img { object-fit: cover; object-position: 50% 28%; opacity: 1; transform: scale(1.32); transform-origin: 50% 28%; }
@@ -355,8 +358,8 @@ section[id] { scroll-margin-top: 84px; }
 .bio-placeholder { margin: 30px 0 0; max-width: 56ch; padding: 20px 22px; border-radius: 16px; border: 1px dashed rgba(13, 31, 34, .28); background: rgba(255, 255, 255, .6); font-size: 15.5px; color: #6B7B7E; font-style: italic; }
 .person-actions { margin-top: 32px; }
 .person-actions .btn { margin: 0 10px 10px 0; }
-.anim .photo { clip-path: inset(100% 0 0 0 round 28px); transition: clip-path 1.4s cubic-bezier(.2, .7, .1, 1); }
-.anim .person.in .photo { clip-path: inset(0 0 0 0 round 28px); }
+.anim .photo { clip-path: inset(100% 0 0 0 round 16px); transition: clip-path 1.4s cubic-bezier(.2, .7, .1, 1); }
+.anim .person.in .photo { clip-path: inset(0 0 0 0 round 16px); }
 .anim .photo img { transform: scale(1.46); transition: transform 1.8s cubic-bezier(.2, .7, .1, 1); }
 .anim .person.in .photo img { transform: scale(1.32); }
 
@@ -373,7 +376,7 @@ section[id] { scroll-margin-top: 84px; }
 .details small { display: block; font-size: 11.5px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: #9DB0B1; }
 .details a, .details span { font-size: 18px; font-weight: 500; text-decoration: none; }
 .details a:hover { color: #6FD0C7; }
-.form { padding: 36px; border-radius: 26px; background: #13292D; border: 1px solid rgba(232, 239, 238, .1); box-shadow: 0 40px 80px -50px rgba(0, 0, 0, .8); }
+.form { padding: 36px; border-radius: 16px; background: #13292D; border: 1px solid rgba(232, 239, 238, .1); box-shadow: 0 40px 80px -50px rgba(0, 0, 0, .8); }
 .row { display: flex; margin: 0 -8px; }
 .field { width: 100%; padding: 0 8px; margin-bottom: 18px; }
 .row .field { width: 50%; }
@@ -404,6 +407,141 @@ section[id] { scroll-margin-top: 84px; }
 .footer a { text-decoration: none; transition: color .25s; }
 .footer a:hover { color: #6FD0C7; }
 .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; padding-top: 26px; font-size: 14px; color: #7F9496; }
+
+/* ---------- Upgrade: compact header ---------- */
+.header-in { transition: height .35s cubic-bezier(.2, .7, .1, 1); }
+.header.scrolled .header-in { height: 62px; }
+.brand img { transition: height .35s cubic-bezier(.2, .7, .1, 1); }
+.header.scrolled .brand img { height: 36px; }
+
+/* ---------- Upgrade: hero scroll stages ---------- */
+.hero-stages { display: none; }
+@media (min-width: 901px) {
+  .anim .hero-track { height: 190vh; }
+  .anim .hero-sticky { position: -webkit-sticky; position: sticky; top: 0; height: 100vh; min-height: 720px; display: flex; align-items: center; overflow: hidden; }
+  .anim .hero { padding: 0; min-height: 0; overflow: visible; overflow-x: clip; }
+  .anim .hero-sticky { padding-top: 74px; box-sizing: border-box; }
+  .anim .hero-sticky .hero-in { width: 100%; padding-top: 0; min-height: 0; }
+  .anim .hero-sticky h1 { font-size: 56px; font-size: clamp(2.6rem, 4.9vw, 4.7rem); }
+  .anim .hero-sticky .lead { margin-top: 18px; font-size: 18px; }
+  .anim .hero-sticky .hero-cta { margin-top: 26px; }
+  .anim .hero-sticky .focus { margin-top: 24px; padding-top: 18px; }
+  .anim .hero-stages { display: flex; position: absolute; right: 48px; bottom: 36px; z-index: 4; gap: 6px; align-items: center; padding: 8px; border-radius: 999px; background: rgba(255, 255, 255, .8); border: 1px solid rgba(13, 31, 34, .08); box-shadow: 0 16px 34px -24px rgba(13, 31, 34, .6); }
+}
+.hero-stages span { padding: 6px 13px; border-radius: 999px; font-size: 11.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #6B7B7E; transition: background-color .4s, color .4s; }
+.hero-stages span.on { background: #0D1F22; color: #FFFFFF; }
+.hero-stages i { width: 14px; height: 1px; background: rgba(13, 31, 34, .2); }
+
+/* ---------- Upgrade: subtle architectural backgrounds ---------- */
+.bg-arch { position: relative; isolation: isolate; }
+.bg-arch:before { content: ""; position: absolute; left: 0; top: 0; right: 0; bottom: 0; z-index: -1; pointer-events: none; background-image: linear-gradient(rgba(13, 31, 34, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(13, 31, 34, .035) 1px, transparent 1px); background-size: 88px 88px; -webkit-mask-image: linear-gradient(180deg, transparent, #000 20%, #000 80%, transparent); mask-image: linear-gradient(180deg, transparent, #000 20%, #000 80%, transparent); }
+.bg-arch:after { content: ""; position: absolute; right: 0; top: 10%; width: 50%; height: 70%; z-index: -1; pointer-events: none; background: radial-gradient(closest-side, rgba(47, 165, 156, .07), rgba(47, 165, 156, 0)); }
+
+/* ---------- Upgrade: challenge landscape ---------- */
+.landscape-wrap { display: none; }
+.lchallenges { list-style: none; padding: 0; display: flex; flex-wrap: wrap; margin: 0 -8px; }
+.lchallenges li { width: 50%; padding: 8px; }
+.lchallenges .lc { height: 100%; padding: 22px 22px 20px; border-radius: 14px; background: #F4F5F1; border: 1px solid rgba(13, 31, 34, .06); }
+.lchallenges h3 { margin: 0 0 8px; font-size: 17px; font-weight: 600; }
+.lchallenges p { margin: 0; font-size: 15px; color: #4E5F63; }
+@media (min-width: 901px) {
+  .js .landscape-wrap { display: flex; align-items: center; }
+  .js .lchallenges { display: none; }
+}
+.landscape { position: relative; width: 58%; height: 560px; perspective: 1200px; }
+.landscape svg.lines { position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: visible; }
+.lline { stroke: rgba(13, 31, 34, .14); stroke-width: 1.2; transition: stroke .35s, stroke-width .35s; }
+.lline.on { stroke: #2FA59C; stroke-width: 2; }
+.lcore { position: absolute; left: 50%; top: 50%; width: 170px; height: 170px; margin: -85px 0 0 -85px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-align: center; padding: 26px; box-sizing: border-box; background: radial-gradient(circle at 35% 30%, #1E4448 0%, #0D1F22 70%); color: #E8EFEE; font-size: 13px; font-weight: 600; letter-spacing: .08em; line-height: 1.35; text-transform: uppercase; box-shadow: 0 30px 60px -30px rgba(13, 31, 34, .8), 0 0 0 10px rgba(47, 165, 156, .08), 0 0 0 22px rgba(47, 165, 156, .04); }
+.lcore:before { content: ""; position: absolute; left: -26px; top: -26px; right: -26px; bottom: -26px; border-radius: 50%; border: 1px dashed rgba(47, 165, 156, .45); }
+.anim .lcore:before { animation: spin 50s linear infinite; }
+.lnode { position: absolute; width: 150px; margin: -24px 0 0 -75px; padding: 0; border: 0; background: none; cursor: pointer; font: inherit; color: #0D1F22; text-align: center; transform-style: preserve-3d; transition: transform .5s cubic-bezier(.2, .7, .1, 1), opacity .4s; }
+.lnode .dot { display: block; width: 46px; height: 46px; margin: 0 auto 8px; border-radius: 14px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .12); box-shadow: 0 14px 26px -18px rgba(13, 31, 34, .6); transition: background-color .35s, border-color .35s, box-shadow .35s; position: relative; }
+.lnode .dot:after { content: ""; position: absolute; left: 50%; top: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: #2FA59C; }
+.lnode .lt { display: block; font-size: 13.5px; font-weight: 600; line-height: 1.3; }
+.lnode:hover, .lnode.on { transform: translateZ(40px) scale(1.06); }
+.lnode.on .dot { background: #0D1F22; border-color: #0D1F22; box-shadow: 0 0 0 6px rgba(47, 165, 156, .18), 0 18px 30px -16px rgba(13, 31, 34, .7); }
+.lnode.on .dot:after { background: #6FD0C7; }
+.landscape.has-on .lnode { opacity: .62; }
+.landscape.has-on .lnode.on { opacity: 1; }
+.lnode:focus { outline: none; }
+.lnode:focus-visible .dot { outline: 2px solid #2FA59C; outline-offset: 3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.lpanel { width: 42%; padding-left: 50px; }
+.lpanel-in { padding: 34px 34px 30px; border-radius: 16px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .08); box-shadow: 0 40px 70px -50px rgba(13, 31, 34, .55); }
+.lpanel .count { font-size: 12px; font-weight: 600; letter-spacing: .16em; color: #1E7C75; }
+.lpanel h3 { margin: 12px 0 12px; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 32px; line-height: 1.12; }
+.lpanel p { margin: 0; font-size: 17px; color: #4E5F63; min-height: 3.2em; }
+.lpanel .where { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(13, 31, 34, .08); font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #4E5F63; }
+.lpanel .where .tag { margin: 8px 6px 0 0; }
+.lhint { margin: 14px 0 0; font-size: 13.5px; color: #6B7B7E; }
+
+/* ---------- Upgrade: service tiles ---------- */
+.tiles { display: flex; flex-wrap: wrap; margin: 0 -9px; }
+.tile { width: 33.333%; padding: 9px; }
+.tile-in { --rx: 0deg; --ry: 0deg; position: relative; display: flex; flex-direction: column; height: 100%; box-sizing: border-box; padding: 28px 28px 26px; border-radius: 14px; background: #FFFFFF; border: 1px solid rgba(13, 31, 34, .08); text-decoration: none; color: #0D1F22; transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)); transition: transform .55s cubic-bezier(.2, .7, .1, 1), box-shadow .5s, border-color .4s; }
+.tile-in.tilting { transition: transform .12s linear, box-shadow .5s, border-color .4s; }
+.tile-in:after { content: ""; position: absolute; left: -1px; top: -1px; right: -1px; bottom: -1px; border-radius: inherit; padding: 1px; pointer-events: none; opacity: 0; background: conic-gradient(from var(--ang), transparent 0 64%, #2FA59C 82%, #7DBE4E 90%, transparent 100%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); transition: opacity .4s; }
+.tile-in:hover { box-shadow: 0 34px 60px -40px rgba(13, 31, 34, .6); border-color: transparent; }
+.anim .tile-in:hover:after { opacity: 1; animation: ang 3.5s linear infinite; }
+.tile-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+.tile-num { font-size: 12.5px; font-weight: 600; letter-spacing: .14em; color: #1E7C75; }
+.tile-ico { width: 52px; height: 52px; transition: transform .6s cubic-bezier(.2, .7, .1, 1); }
+.tile-in:hover .tile-ico { transform: translateY(-4px) rotate(-4deg); }
+.tile h3 { margin: 0 0 10px; font-family: "Source Serif 4", Georgia, serif; font-weight: 500; font-size: 27px; line-height: 1.12; }
+.tile p { margin: 0 0 22px; font-size: 15.5px; color: #4E5F63; }
+.tile ul { list-style: none; margin: 0 0 22px; padding: 14px 0 0; border-top: 1px solid rgba(13, 31, 34, .08); }
+.tile li { padding: 4px 0 4px 16px; position: relative; font-size: 14.5px; }
+.tile li:before { content: ""; position: absolute; left: 0; top: 13px; width: 7px; height: 1.5px; background: #2FA59C; }
+.tile-cta { margin-top: auto; font-size: 14.5px; font-weight: 600; color: #1E7C75; }
+.tile-cta span { display: inline-block; transition: transform .35s cubic-bezier(.2, .7, .1, 1); }
+.tile-in:hover .tile-cta span { transform: translateX(5px); }
+.tile.core .tile-in { background: #0D1F22; color: #E8EFEE; border-color: #0D1F22; }
+.tile.core h3 { font-size: 30px; }
+.tile.core p { color: #A9BCBE; }
+.tile.core .tile-num, .tile.core .tile-cta { color: #6FD0C7; }
+.tiles-label { margin: 34px 0 12px; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #4E5F63; }
+
+/* ---------- Upgrade: engagement areas ---------- */
+.eng-row { display: flex; padding: 12px 0; border-bottom: 1px solid rgba(13, 31, 34, .08); }
+.eng-row:last-child { border-bottom: 0; }
+.eng-k { flex: none; width: 124px; padding-right: 12px; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #1E7C75; padding-top: 3px; }
+.eng-v { font-size: 15px; line-height: 1.5; color: #2F4145; }
+.eng-kicker { font-size: 11.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #6B7B7E; }
+
+/* ---------- Upgrade: about ---------- */
+.about-cols { display: flex; margin: 56px -20px 0; }
+.about-col { width: 50%; padding: 0 20px; }
+.about-col h3 { margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #1E7C75; }
+.about-col .rule { position: relative; height: 2px; margin-bottom: 22px; background: rgba(13, 31, 34, .1); overflow: hidden; }
+.about-col .rule:after { content: ""; position: absolute; left: 0; top: 0; height: 100%; width: 100%; background: #2FA59C; transform: scaleX(.12); transform-origin: left; transition: transform 1.4s cubic-bezier(.2, .7, .1, 1); }
+.anim .about-col.in .rule:after { transform: scaleX(1); }
+.about-col p { margin: 0; max-width: 56ch; font-size: 18px; line-height: 1.72; color: #2F4145; }
+.way { margin-top: 64px; padding: 34px 36px; border-radius: 16px; background: #0D1F22; color: #E8EFEE; }
+.way-title { font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #6FD0C7; }
+.way svg { display: block; width: 100%; height: auto; margin-top: 18px; overflow: visible; }
+.way text { font-family: "IBM Plex Sans", "Segoe UI", Arial, sans-serif; font-size: 15px; font-weight: 600; fill: #E8EFEE; }
+.way text.sub { font-size: 13px; font-weight: 400; fill: #9DB0B1; }
+.way-list { display: none; list-style: none; margin: 16px 0 0; padding: 0; }
+.way-list li { padding: 8px 0; border-bottom: 1px solid rgba(232, 239, 238, .1); font-size: 15px; }
+.way-list b { color: #6FD0C7; font-weight: 600; }
+.anim .way-run { animation: wayrun 6s linear infinite; }
+@keyframes wayrun { from { transform: translateX(0); opacity: 0; } 8% { opacity: 1; } 92% { opacity: 1; } to { transform: translateX(920px); opacity: 0; } }
+.people-arch { position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; opacity: .55; }
+.person-lead { margin: 28px 0 0; max-width: 46ch; font-size: 18px; color: #4E5F63; }
+
+@media (max-width: 900px) {
+  .tile { width: 100%; }
+  .about-cols { display: block; }
+  .about-col { width: auto; margin-bottom: 30px; }
+  .way svg { display: none; }
+  .way-list { display: block; }
+}
+@media (max-width: 600px) {
+  .lchallenges li { width: 100%; }
+  .eng-row { display: block; }
+  .eng-k { width: auto; margin-bottom: 4px; }
+}
 
 /* ---------- Reveal hierarchy (only with .anim) ---------- */
 .anim [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .8s cubic-bezier(.2, .7, .1, 1), transform .8s cubic-bezier(.2, .7, .1, 1); transition-delay: calc(var(--d, 0) * 80ms); }
@@ -436,7 +574,7 @@ section[id] { scroll-margin-top: 84px; }
   .pillar { width: auto; margin-bottom: 14px; }
   .service { display: block; padding: 56px 0; }
   .service-intro, .service-detail { width: auto; padding-right: 0; }
-  .service-visual { height: 300px; }
+  .service-visual, #enterprise-architecture .service-visual { height: 320px; }
   .service-detail { margin-top: 26px; }
   .support, .case { width: 100%; }
   .anim .approach-track { height: auto; }
@@ -528,14 +666,16 @@ section[id] { scroll-margin-top: 84px; }
   <!-- ================= Hero ================= -->
   <section class="hero" id="home" aria-labelledby="hero-title">
     <div class="hero-bg" aria-hidden="true"><div class="grid"></div><div class="glow"></div></div>
+    <div class="hero-track" id="hero-track">
+    <div class="hero-sticky">
     <div class="wrap hero-in">
       <div class="hero-copy">
-        <span class="kicker">IT consultancy · Manchester, UK</span>
+        <span class="kicker">IT consultancy</span>
         <h1 id="hero-title">Architect the enterprise. <em>Then make it intelligent.</em></h1>
         <p class="lead">In4Rtech helps organisations make sense of complex technology landscapes: designing the architecture they need, then applying AI and automation where they deliver real business value.</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#contact" data-magnetic>Discuss your technology landscape<span class="arr" aria-hidden="true">→</span></a>
-          <a class="btn btn-ghost" href="#services">Explore our services</a>
+          <a class="btn btn-primary" href="#contact" data-magnetic>Discuss Your Technology Landscape<span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#services">Explore Our Capabilities<span class="arr" aria-hidden="true">→</span></a>
         </div>
         <div class="focus">
           <p class="focus-title">Our focus</p>
@@ -565,26 +705,62 @@ section[id] { scroll-margin-top: 84px; }
         </svg>
       </div>
     </div>
+    <div class="hero-stages" id="hero-stages" aria-hidden="true"><span class="on">Architect</span><i></i><span>Intelligence</span><i></i><span>Automation</span><i></i><span>Outcome</span></div>
+    </div>
+    </div>
   </section>
 
   <!-- ================= Challenges ================= -->
-  <section class="section section-white" id="challenges" aria-labelledby="challenges-title">
+  <section class="section section-white bg-arch" id="challenges" aria-labelledby="challenges-title">
     <div class="wrap">
       <div class="head">
         <span class="kicker" data-reveal>The challenge</span>
         <h2 class="h2" id="challenges-title" data-reveal="major" style="--d:1">Most technology problems are really landscape problems.</h2>
         <p class="lead" data-reveal style="--d:2">When systems, data and processes grow without a shared architecture, every new initiative gets harder, including AI. These are the situations we help organisations work through.</p>
       </div>
-      <div class="challenges">
-        <article class="challenge" data-reveal style="--d:0"><div class="challenge-in"><h3>Legacy technology estates</h3><p>Ageing applications that are costly to run and risky to change.</p><div class="tags"><span class="tag">EA</span></div></div></article>
-        <article class="challenge" data-reveal style="--d:1"><div class="challenge-in"><h3>Disconnected systems</h3><p>Platforms that don’t share data, so people re-key it instead.</p><div class="tags"><span class="tag">EA</span><span class="tag auto">AUTO</span></div></div></article>
-        <article class="challenge" data-reveal style="--d:2"><div class="challenge-in"><h3>Fragmented data</h3><p>No single, trusted view of customers, operations or performance.</p><div class="tags"><span class="tag">EA</span><span class="tag ai">AI</span></div></div></article>
-        <article class="challenge" data-reveal style="--d:3"><div class="challenge-in"><h3>Manual, repetitive processes</h3><p>Skilled people spending hours on work a workflow could handle.</p><div class="tags"><span class="tag auto">AUTO</span></div></div></article>
-        <article class="challenge" data-reveal style="--d:0"><div class="challenge-in"><h3>Unclear AI opportunities</h3><p>Pressure to adopt AI without knowing where it will genuinely help.</p><div class="tags"><span class="tag ai">AI</span></div></div></article>
-        <article class="challenge" data-reveal style="--d:1"><div class="challenge-in"><h3>Decisions without a long-term architecture</h3><p>Technology bought project by project, adding to the complexity.</p><div class="tags"><span class="tag">EA</span></div></div></article>
-        <article class="challenge" data-reveal style="--d:2"><div class="challenge-in"><h3>Applications that are hard to modernise</h3><p>Core systems that block change but can’t simply be switched off.</p><div class="tags"><span class="tag">EA</span><span class="tag auto">AUTO</span></div></div></article>
-        <article class="challenge" data-reveal style="--d:3"><div class="challenge-in"><h3>No practical roadmap</h3><p>A transformation ambition, but no sequenced plan to get there.</p><div class="tags"><span class="tag">EA</span><span class="tag ai">AI</span><span class="tag auto">AUTO</span></div></div></article>
+      <!-- Interactive landscape (desktop, JS). The list below is the same content for mobile, no-JS and older browsers. -->
+      <div class="landscape-wrap" data-reveal="depth">
+        <div class="landscape" id="landscape">
+          <svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <line class="lline" x1="50" y1="50" x2="50" y2="12" vector-effect="non-scaling-stroke"/>
+            <line class="lline" x1="50" y1="50" x2="78.3" y2="23.1" vector-effect="non-scaling-stroke"/>
+            <line class="lline" x1="50" y1="50" x2="90" y2="50" vector-effect="non-scaling-stroke"/>
+            <line class="lline" x1="50" y1="50" x2="78.3" y2="76.9" vector-effect="non-scaling-stroke"/>
+            <line class="lline" x1="50" y1="50" x2="50" y2="88" vector-effect="non-scaling-stroke"/>
+            <line class="lline" x1="50" y1="50" x2="21.7" y2="76.9" vector-effect="non-scaling-stroke"/>
+            <line class="lline" x1="50" y1="50" x2="10" y2="50" vector-effect="non-scaling-stroke"/>
+            <line class="lline" x1="50" y1="50" x2="21.7" y2="23.1" vector-effect="non-scaling-stroke"/>
+          </svg>
+          <div class="lcore" aria-hidden="true">Enterprise technology landscape</div>
+          <button type="button" class="lnode" style="left:50%;top:12%" data-title="Legacy technology estates" data-desc="Ageing applications that are costly to run and risky to change." data-tags="EA"><span class="dot" aria-hidden="true"></span><span class="lt">Legacy systems</span><span class="sr-only">: Legacy technology estates. Ageing applications that are costly to run and risky to change.</span></button>
+          <button type="button" class="lnode" style="left:78.3%;top:23.1%" data-title="Disconnected systems" data-desc="Platforms that don’t share data, so people re-key it instead." data-tags="EA,AUTO"><span class="dot" aria-hidden="true"></span><span class="lt">Disconnected systems</span><span class="sr-only">: Platforms that don’t share data, so people re-key it instead.</span></button>
+          <button type="button" class="lnode" style="left:90%;top:50%" data-title="Fragmented data" data-desc="No single, trusted view of customers, operations or performance." data-tags="EA,AI"><span class="dot" aria-hidden="true"></span><span class="lt">Fragmented data</span><span class="sr-only">: No single, trusted view of customers, operations or performance.</span></button>
+          <button type="button" class="lnode" style="left:78.3%;top:76.9%" data-title="Manual, repetitive processes" data-desc="Skilled people spending hours on work a workflow could handle." data-tags="AUTO"><span class="dot" aria-hidden="true"></span><span class="lt">Manual processes</span><span class="sr-only">: Manual, repetitive processes. Skilled people spending hours on work a workflow could handle.</span></button>
+          <button type="button" class="lnode" style="left:50%;top:88%" data-title="Unclear AI opportunities" data-desc="Pressure to adopt AI without knowing where it will genuinely help." data-tags="AI"><span class="dot" aria-hidden="true"></span><span class="lt">Unclear AI opportunities</span><span class="sr-only">: Pressure to adopt AI without knowing where it will genuinely help.</span></button>
+          <button type="button" class="lnode" style="left:21.7%;top:76.9%" data-title="Decisions without a long-term architecture" data-desc="Technology bought project by project, adding to the complexity." data-tags="EA"><span class="dot" aria-hidden="true"></span><span class="lt">Architecture decisions</span><span class="sr-only">: Decisions without a long-term architecture. Technology bought project by project, adding to the complexity.</span></button>
+          <button type="button" class="lnode" style="left:10%;top:50%" data-title="Applications that are hard to modernise" data-desc="Core systems that block change but can’t simply be switched off." data-tags="EA,AUTO"><span class="dot" aria-hidden="true"></span><span class="lt">Modernisation</span><span class="sr-only">: Applications that are hard to modernise. Core systems that block change but can’t simply be switched off.</span></button>
+          <button type="button" class="lnode" style="left:21.7%;top:23.1%" data-title="No practical roadmap" data-desc="A transformation ambition, but no sequenced plan to get there." data-tags="EA,AI,AUTO"><span class="dot" aria-hidden="true"></span><span class="lt">Transformation roadmaps</span><span class="sr-only">: No practical roadmap. A transformation ambition, but no sequenced plan to get there.</span></button>
+        </div>
+        <div class="lpanel" aria-live="polite">
+          <div class="lpanel-in">
+            <span class="count" id="lp-count">01 / 08</span>
+            <h3 id="lp-title">Legacy technology estates</h3>
+            <p id="lp-desc">Ageing applications that are costly to run and risky to change.</p>
+            <div class="where">Where we help<div id="lp-tags"><span class="tag">EA</span></div></div>
+          </div>
+          <p class="lhint">Hover or select a point on the landscape to explore it.</p>
+        </div>
       </div>
+      <ol class="lchallenges">
+        <li><div class="lc"><h3>Legacy technology estates</h3><p>Ageing applications that are costly to run and risky to change.</p><div class="tags"><span class="tag">EA</span></div></div></li>
+        <li><div class="lc"><h3>Disconnected systems</h3><p>Platforms that don’t share data, so people re-key it instead.</p><div class="tags"><span class="tag">EA</span><span class="tag auto">AUTO</span></div></div></li>
+        <li><div class="lc"><h3>Fragmented data</h3><p>No single, trusted view of customers, operations or performance.</p><div class="tags"><span class="tag">EA</span><span class="tag ai">AI</span></div></div></li>
+        <li><div class="lc"><h3>Manual, repetitive processes</h3><p>Skilled people spending hours on work a workflow could handle.</p><div class="tags"><span class="tag auto">AUTO</span></div></div></li>
+        <li><div class="lc"><h3>Unclear AI opportunities</h3><p>Pressure to adopt AI without knowing where it will genuinely help.</p><div class="tags"><span class="tag ai">AI</span></div></div></li>
+        <li><div class="lc"><h3>Decisions without a long-term architecture</h3><p>Technology bought project by project, adding to the complexity.</p><div class="tags"><span class="tag">EA</span></div></div></li>
+        <li><div class="lc"><h3>Applications that are hard to modernise</h3><p>Core systems that block change but can’t simply be switched off.</p><div class="tags"><span class="tag">EA</span><span class="tag auto">AUTO</span></div></div></li>
+        <li><div class="lc"><h3>No practical roadmap</h3><p>A transformation ambition, but no sequenced plan to get there.</p><div class="tags"><span class="tag">EA</span><span class="tag ai">AI</span><span class="tag auto">AUTO</span></div></div></li>
+      </ol>
       <p class="legend">Where we help: <span class="tag">EA</span> Enterprise Architecture <span class="tag ai">AI</span> AI Consulting <span class="tag auto">AUTO</span> Intelligent Automation</p>
     </div>
   </section>
@@ -637,7 +813,7 @@ section[id] { scroll-margin-top: 84px; }
         </div>
       </div>
 
-      <div class="result" data-reveal>
+      <div class="result" data-reveal data-pillar="3" tabindex="0">
         <span class="result-mark" aria-hidden="true"></span>
         <p><strong>The result: an intelligent, connected enterprise.</strong> Simpler to run, easier to change and ready to scale, instead of a fragmented collection of systems.</p>
       </div>
@@ -646,13 +822,91 @@ section[id] { scroll-margin-top: 84px; }
   </section>
 
   <!-- ================= Services ================= -->
-  <section class="section" id="services" aria-labelledby="services-title">
+  <section class="section bg-arch" id="services" aria-labelledby="services-title">
     <div class="wrap">
       <div class="head">
         <span class="kicker" data-reveal>Services</span>
         <h2 class="h2" id="services-title" data-reveal="major" style="--d:1">Where we help</h2>
         <p class="lead" data-reveal style="--d:2">Three core services, supported by the strategy, transformation and modernisation work that makes them stick.</p>
       </div>
+
+      <div class="tiles">
+        <div class="tile core" data-reveal style="--d:0">
+          <a class="tile-in" href="#enterprise-architecture" data-tilt>
+            <span class="tile-top"><span class="tile-num">01</span>
+              <svg class="tile-ico" viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M26 8 L46 18 L26 28 L6 18 Z" stroke="#6FD0C7" stroke-width="1.6" fill="rgba(111,208,199,.14)"/><path d="M6 26 L26 36 L46 26" stroke="#6FD0C7" stroke-width="1.6"/><path d="M6 34 L26 44 L46 34" stroke="#6FD0C7" stroke-width="1.6" stroke-opacity=".5"/></svg></span>
+            <h3>Enterprise Architecture</h3>
+            <p>A clear landscape and a target architecture to build towards.</p>
+            <span class="tile-cta">Explore <span aria-hidden="true">→</span></span>
+          </a>
+        </div>
+        <div class="tile core" data-reveal style="--d:1">
+          <a class="tile-in" href="#ai-consulting" data-tilt>
+            <span class="tile-top"><span class="tile-num">02</span>
+              <svg class="tile-ico" viewBox="0 0 52 52" fill="none" aria-hidden="true"><circle cx="26" cy="26" r="6" fill="#6FD0C7"/><g stroke="#6FD0C7" stroke-width="1.5"><circle cx="9" cy="14" r="3.5"/><circle cx="43" cy="14" r="3.5"/><circle cx="9" cy="38" r="3.5"/><circle cx="43" cy="38" r="3.5"/><path d="M12 16 L21 23 M40 16 L31 23 M12 36 L21 29 M40 36 L31 29" stroke-opacity=".7"/></g></svg></span>
+            <h3>AI Consulting</h3>
+            <p>AI as a governed enterprise capability, not a side project.</p>
+            <span class="tile-cta">Explore <span aria-hidden="true">→</span></span>
+          </a>
+        </div>
+        <div class="tile core" data-reveal style="--d:2">
+          <a class="tile-in" href="#intelligent-automation" data-tilt>
+            <span class="tile-top"><span class="tile-num">03</span>
+              <svg class="tile-ico" viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M41 21 A16 16 0 0 0 12 18" stroke="#6FD0C7" stroke-width="1.8"/><path d="M11 31 A16 16 0 0 0 40 34" stroke="#6FD0C7" stroke-width="1.8"/><path d="M12 9 V18 H21" stroke="#6FD0C7" stroke-width="1.8"/><path d="M40 43 V34 H31" stroke="#6FD0C7" stroke-width="1.8"/><rect x="21" y="21" width="10" height="10" rx="2.5" fill="#7DBE4E"/></svg></span>
+            <h3>Intelligent Automation</h3>
+            <p>Connected systems and repeatable, reliable workflows.</p>
+            <span class="tile-cta">Explore <span aria-hidden="true">→</span></span>
+          </a>
+        </div>
+      </div>
+
+      <p class="tiles-label" data-reveal>Supporting capabilities</p>
+      <div class="tiles">
+        <div class="tile" id="technology-strategy" data-reveal style="--d:0">
+          <a class="tile-in" href="#contact" data-interest="Technology Strategy" data-tilt>
+            <svg class="support-icon" viewBox="0 0 300 110" fill="none" aria-hidden="true">
+              <path class="si-road" d="M24 84 C 80 84, 90 30, 150 36 S 230 86, 276 30" stroke="#2FA59C" stroke-width="2.5" stroke-linecap="round"/>
+              <g class="si-mile"><circle cx="24" cy="84" r="7" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".35"/></g>
+              <g class="si-mile"><circle cx="150" cy="36" r="7" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".35"/></g>
+              <g class="si-mile"><path d="M276 14 V32" stroke="#0D1F22"/><path d="M276 14 L292 19 L276 24 Z" fill="#7DBE4E"/><circle cx="276" cy="32" r="5" fill="#0D1F22"/></g>
+            </svg>
+            <h3>Technology Strategy</h3>
+            <p>Connect technology investment to business priorities, with a strategy leaders can act on.</p>
+            <ul><li>Technology vision and principles</li><li>Investment prioritisation</li><li>Capability and operating-model review</li></ul>
+            <span class="tile-cta">Discuss technology strategy <span aria-hidden="true">→</span></span>
+          </a>
+        </div>
+        <div class="tile" id="digital-transformation" data-reveal style="--d:1">
+          <a class="tile-in" href="#contact" data-interest="Digital Transformation" data-tilt>
+            <svg class="support-icon" viewBox="0 0 300 110" fill="none" aria-hidden="true">
+              <g stroke="#0D1F22" stroke-opacity=".3"><rect x="40" y="30" width="22" height="22" rx="4" fill="#FFFFFF"/><rect x="70" y="58" width="22" height="22" rx="4" fill="#FFFFFF"/><rect x="36" y="64" width="18" height="18" rx="4" fill="#FFFFFF"/></g>
+              <path d="M112 55 H150" stroke="#2FA59C" stroke-width="2" stroke-dasharray="3 5"/><path d="M146 49 L156 55 L146 61" stroke="#2FA59C" stroke-width="2"/>
+              <g stroke="#2FA59C" stroke-width="1.5"><path d="M200 55 L240 30 M200 55 L250 76 M240 30 L250 76 M200 55 L180 84"/></g>
+              <circle class="si-node a" cx="240" cy="30" r="8" fill="#2FA59C"/><circle class="si-node b" cx="250" cy="76" r="8" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".35"/><circle class="si-node c" cx="180" cy="84" r="6" fill="#7DBE4E"/><circle cx="200" cy="55" r="11" fill="#0D1F22"/>
+            </svg>
+            <h3>Digital Transformation</h3>
+            <p>Plan and steer change programmes so they deliver the outcomes they were funded for.</p>
+            <ul><li>Transformation roadmaps</li><li>Programme architecture assurance</li><li>Adoption and change planning</li></ul>
+            <span class="tile-cta">Discuss digital transformation <span aria-hidden="true">→</span></span>
+          </a>
+        </div>
+        <div class="tile" id="cloud-modernisation" data-reveal style="--d:2">
+          <a class="tile-in" href="#contact" data-interest="Cloud &amp; Platform Modernisation" data-tilt>
+            <svg class="support-icon" viewBox="0 0 300 110" fill="none" aria-hidden="true">
+              <path d="M112 50 C 112 34, 132 26, 144 34 C 150 18, 178 16, 186 34 C 204 30, 214 44, 206 54 Z" fill="#E4EEEC" stroke="#2FA59C" stroke-width="1.5"/>
+              <g class="si-layer l2"><path d="M120 76 L160 64 L200 76 L160 88 Z" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".3"/></g>
+              <g class="si-layer l1"><path d="M120 86 L160 74 L200 86 L160 98 Z" fill="#EAF6F4" stroke="#0D1F22" stroke-opacity=".3"/></g>
+              <path d="M120 96 L160 84 L200 96 L160 108 Z" fill="#0D1F22" fill-opacity=".85"/>
+              <path d="M160 56 V66" stroke="#2FA59C" stroke-width="1.5" stroke-dasharray="2 3"/>
+            </svg>
+            <h3>Cloud &amp; Platform Modernisation</h3>
+            <p>Move from ageing infrastructure and applications to platforms that are easier to run, change and scale.</p>
+            <ul><li>Cloud readiness and migration planning</li><li>Platform and application modernisation</li><li>Integration and API strategy</li></ul>
+            <span class="tile-cta">Discuss modernisation <span aria-hidden="true">→</span></span>
+          </a>
+        </div>
+      </div>
+      <div style="height: 70px" aria-hidden="true"></div>
 
       <article class="service" id="enterprise-architecture" aria-labelledby="ea-title">
         <div class="service-intro">
@@ -665,10 +919,10 @@ section[id] { scroll-margin-top: 84px; }
           <div class="service-visual scene" data-scene="ea" data-reveal="depth" style="--d:1" aria-hidden="true">
             <svg class="fallback" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" focusable="false">
               <g stroke="#0D1F22" stroke-opacity=".25" fill="#FFFFFF">
-                <path d="M200 250 L330 215 L200 180 L70 215 Z" fill="#E4EEEC"/><path d="M200 208 L330 173 L200 138 L70 173 Z"/><path d="M200 166 L330 131 L200 96 L70 131 Z" fill="#EAF6F4"/><path d="M200 124 L330 89 L200 54 L70 89 Z"/><path d="M200 82 L330 47 L200 12 L70 47 Z" fill="#E4EEEC"/>
+                <path d="M190 262 L310 232 L190 202 L70 232 Z" fill="#E4EEEC"/><path d="M190 226 L310 196 L190 166 L70 196 Z"/><path d="M190 190 L310 160 L190 130 L70 160 Z" fill="#EAF6F4"/><path d="M190 154 L310 124 L190 94 L70 124 Z"/><path d="M190 118 L310 88 L190 58 L70 88 Z" fill="#EAF6F4"/><path d="M190 82 L310 52 L190 22 L70 52 Z" fill="#E4EEEC"/>
               </g>
-              <g stroke="#2FA59C" stroke-width="1.5"><path class="flowline" d="M160 205 V163 M240 205 V163 M200 160 V118 M160 120 V78 M240 120 V78 M200 76 V40"/></g>
-              <g text-anchor="start"><text x="338" y="219">CLOUD / INFRA</text><text x="338" y="177">TECHNOLOGY</text><text x="338" y="135">DATA</text><text x="338" y="93">APPLICATION</text><text x="338" y="51">BUSINESS</text></g>
+              <g stroke="#2FA59C" stroke-width="1.5"><path class="flowline" d="M150 222 V186 M230 222 V186 M190 186 V150 M150 150 V114 M230 150 V114 M190 114 V78 M190 78 V44"/></g>
+              <g text-anchor="start"><text x="318" y="236">CLOUD / INFRA</text><text x="318" y="200">TECHNOLOGY</text><text x="318" y="164">INTEGRATION</text><text x="318" y="128">DATA</text><text x="318" y="92">APPLICATION</text><text x="318" y="56">BUSINESS</text></g>
             </svg>
           </div>
         </div>
@@ -785,49 +1039,6 @@ section[id] { scroll-margin-top: 84px; }
         </div>
       </article>
 
-      <div class="supporting-head" data-reveal><h3>Supporting services</h3></div>
-      <div class="supporting">
-        <article class="support" id="technology-strategy" data-reveal style="--d:0">
-          <div class="support-in">
-            <svg class="support-icon" viewBox="0 0 300 110" fill="none" aria-hidden="true">
-              <path class="si-road" d="M24 84 C 80 84, 90 30, 150 36 S 230 86, 276 30" stroke="#2FA59C" stroke-width="2.5" stroke-linecap="round"/>
-              <g class="si-mile"><circle cx="24" cy="84" r="7" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".35"/></g>
-              <g class="si-mile"><circle cx="150" cy="36" r="7" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".35"/></g>
-              <g class="si-mile"><path d="M276 14 V32" stroke="#0D1F22"/><path d="M276 14 L292 19 L276 24 Z" fill="#7DBE4E"/><circle cx="276" cy="32" r="5" fill="#0D1F22"/></g>
-            </svg>
-            <h4>Technology Strategy</h4>
-            <p>Connect technology investment to business priorities, with a strategy leaders can act on.</p>
-            <ul><li>Technology vision and principles</li><li>Investment prioritisation</li><li>Capability and operating-model review</li></ul>
-          </div>
-        </article>
-        <article class="support" id="digital-transformation" data-reveal style="--d:1">
-          <div class="support-in">
-            <svg class="support-icon" viewBox="0 0 300 110" fill="none" aria-hidden="true">
-              <g stroke="#0D1F22" stroke-opacity=".3"><rect x="40" y="30" width="22" height="22" rx="4" fill="#FFFFFF"/><rect x="70" y="58" width="22" height="22" rx="4" fill="#FFFFFF"/><rect x="36" y="64" width="18" height="18" rx="4" fill="#FFFFFF"/></g>
-              <path d="M112 55 H150" stroke="#2FA59C" stroke-width="2" stroke-dasharray="3 5"/><path d="M146 49 L156 55 L146 61" stroke="#2FA59C" stroke-width="2"/>
-              <g stroke="#2FA59C" stroke-width="1.5"><path d="M200 55 L240 30 M200 55 L250 76 M240 30 L250 76 M200 55 L180 84"/></g>
-              <circle class="si-node a" cx="240" cy="30" r="8" fill="#2FA59C"/><circle class="si-node b" cx="250" cy="76" r="8" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".35"/><circle class="si-node c" cx="180" cy="84" r="6" fill="#7DBE4E"/><circle cx="200" cy="55" r="11" fill="#0D1F22"/>
-            </svg>
-            <h4>Digital Transformation</h4>
-            <p>Plan and steer change programmes so they deliver the outcomes they were funded for.</p>
-            <ul><li>Transformation roadmaps</li><li>Programme architecture assurance</li><li>Adoption and change planning</li></ul>
-          </div>
-        </article>
-        <article class="support" id="cloud-modernisation" data-reveal style="--d:2">
-          <div class="support-in">
-            <svg class="support-icon" viewBox="0 0 300 110" fill="none" aria-hidden="true">
-              <path d="M112 50 C 112 34, 132 26, 144 34 C 150 18, 178 16, 186 34 C 204 30, 214 44, 206 54 Z" fill="#E4EEEC" stroke="#2FA59C" stroke-width="1.5"/>
-              <g class="si-layer l2"><path d="M120 76 L160 64 L200 76 L160 88 Z" fill="#FFFFFF" stroke="#0D1F22" stroke-opacity=".3"/></g>
-              <g class="si-layer l1"><path d="M120 86 L160 74 L200 86 L160 98 Z" fill="#EAF6F4" stroke="#0D1F22" stroke-opacity=".3"/></g>
-              <path d="M120 96 L160 84 L200 96 L160 108 Z" fill="#0D1F22" fill-opacity=".85"/>
-              <path d="M160 56 V66" stroke="#2FA59C" stroke-width="1.5" stroke-dasharray="2 3"/>
-            </svg>
-            <h4>Cloud &amp; Platform Modernisation</h4>
-            <p>Move from ageing infrastructure and applications to platforms that are easier to run, change and scale.</p>
-            <ul><li>Cloud readiness and migration planning</li><li>Platform and application modernisation</li><li>Integration and API strategy</li></ul>
-          </div>
-        </article>
-      </div>
     </div>
   </section>
 
@@ -862,15 +1073,14 @@ section[id] { scroll-margin-top: 84px; }
     </div>
   </section>
 
-  <!-- ================= Work / case studies ================= -->
-  <section class="section" id="work" aria-labelledby="work-title">
+  <!-- ================= Work: selected engagement areas ================= -->
+  <section class="section bg-arch" id="work" aria-labelledby="work-title">
     <div class="wrap">
       <div class="head">
         <span class="kicker" data-reveal>Work</span>
-        <h2 class="h2" id="work-title" data-reveal="major" style="--d:1">Case studies</h2>
-        <p class="lead" data-reveal style="--d:2">Each engagement is presented the same way, from the business challenge through to the outcome, so it’s clear how the thinking turned into results.</p>
+        <h2 class="h2" id="work-title" data-reveal="major" style="--d:1">Selected engagement areas</h2>
+        <p class="lead" data-reveal style="--d:2">How our work typically takes shape across the three core disciplines, from the business challenge through to the outcome it is designed to achieve.</p>
       </div>
-      <p class="placeholder-note" data-reveal><b>Content placeholder</b>Case-study details are to be supplied by In4Rtech. The cards below show the structure each case study will follow.</p>
       <div class="cases">
         <article class="case" data-reveal="depth" style="--d:0">
           <div class="case-in" data-tilt>
@@ -879,15 +1089,12 @@ section[id] { scroll-margin-top: 84px; }
               <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" fill="none"><g stroke="#6FD0C7" stroke-opacity=".5"><path d="M200 128 L320 100 L200 72 L80 100 Z" fill="rgba(111,208,199,.06)"/><path d="M200 102 L320 74 L200 46 L80 74 Z" fill="rgba(111,208,199,.1)"/><path d="M200 76 L320 48 L200 20 L80 48 Z" fill="rgba(111,208,199,.16)"/></g><g stroke="#6FD0C7" stroke-dasharray="3 4"><path d="M160 96 V70 M240 96 V70 M200 72 V44"/></g></svg>
             </div>
             <div class="case-body">
-              <h3 class="case-title">[Engagement title]</h3>
-              <dl>
-                <dt>Client / industry</dt><dd>[Client name or sector]</dd>
-                <dt>Business challenge</dt><dd>[What the organisation needed to achieve]</dd>
-                <dt>Technology challenge</dt><dd>[Landscape, systems or constraints involved]</dd>
-                <dt>Approach</dt><dd>[How the engagement was run]</dd>
-                <dt>Architecture work</dt><dd>[Target architecture, roadmap, decisions]</dd>
-                <dt>Outcome</dt><dd>[Verified result, agreed with the client]</dd>
-              </dl>
+              <span class="eng-kicker">Typical engagement</span>
+              <h3 class="case-title" style="color:#0D1F22;margin-top:8px">Landscape review &amp; target architecture</h3>
+              <div class="eng-row"><span class="eng-k">Challenge</span><span class="eng-v">A complex, multi-platform estate with no shared view of what exists or where it should go.</span></div>
+              <div class="eng-row"><span class="eng-k">Approach</span><span class="eng-v">Discover and assess the current landscape with business and technology stakeholders.</span></div>
+              <div class="eng-row"><span class="eng-k">Architecture</span><span class="eng-v">Target-state architecture, rationalisation options and a sequenced roadmap.</span></div>
+              <div class="eng-row"><span class="eng-k">Intended outcome</span><span class="eng-v">A shared plan that guides technology decisions and investment.</span></div>
             </div>
           </div>
         </article>
@@ -898,15 +1105,12 @@ section[id] { scroll-margin-top: 84px; }
               <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" fill="none"><g stroke="#6FD0C7" stroke-opacity=".35"><path d="M60 40 L150 75 M60 75 L150 75 M60 110 L150 75 M150 75 L240 50 M150 75 L240 100 M240 50 L330 75 M240 100 L330 75"/></g><g fill="#6FD0C7"><circle cx="60" cy="40" r="4"/><circle cx="60" cy="75" r="4"/><circle cx="60" cy="110" r="4"/><circle cx="240" cy="50" r="5"/><circle cx="240" cy="100" r="5"/></g><circle cx="150" cy="75" r="14" fill="#E8EFEE"/><circle cx="330" cy="75" r="7" fill="#7DBE4E"/></svg>
             </div>
             <div class="case-body">
-              <h3 class="case-title">[Engagement title]</h3>
-              <dl>
-                <dt>Client / industry</dt><dd>[Client name or sector]</dd>
-                <dt>Business challenge</dt><dd>[What the organisation needed to achieve]</dd>
-                <dt>Technology challenge</dt><dd>[Data, systems or governance constraints]</dd>
-                <dt>Approach</dt><dd>[How the engagement was run]</dd>
-                <dt>AI work</dt><dd>[Use cases, solution and integration]</dd>
-                <dt>Outcome</dt><dd>[Verified result, agreed with the client]</dd>
-              </dl>
+              <span class="eng-kicker">Typical engagement</span>
+              <h3 class="case-title" style="color:#0D1F22;margin-top:8px">AI readiness &amp; adoption</h3>
+              <div class="eng-row"><span class="eng-k">Challenge</span><span class="eng-v">Pressure to adopt AI without clarity on where it will genuinely help.</span></div>
+              <div class="eng-row"><span class="eng-k">Approach</span><span class="eng-v">Assess data, processes and governance, then identify and prioritise use cases.</span></div>
+              <div class="eng-row"><span class="eng-k">AI</span><span class="eng-v">AI strategy and roadmap, use-case design and integration with enterprise systems.</span></div>
+              <div class="eng-row"><span class="eng-k">Intended outcome</span><span class="eng-v">AI adopted where it adds value, safely and under control.</span></div>
             </div>
           </div>
         </article>
@@ -917,15 +1121,12 @@ section[id] { scroll-margin-top: 84px; }
               <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" fill="none"><rect x="80" y="40" width="240" height="80" rx="40" stroke="#6FD0C7" stroke-opacity=".5" stroke-width="2"/><g fill="#6FD0C7"><circle cx="140" cy="120" r="6"/><circle cx="200" cy="120" r="6"/><circle cx="260" cy="120" r="6"/><circle cx="260" cy="40" r="6"/><circle cx="200" cy="40" r="6"/></g><circle cx="140" cy="40" r="8" fill="#7DBE4E"/></svg>
             </div>
             <div class="case-body">
-              <h3 class="case-title">[Engagement title]</h3>
-              <dl>
-                <dt>Client / industry</dt><dd>[Client name or sector]</dd>
-                <dt>Business challenge</dt><dd>[What the organisation needed to achieve]</dd>
-                <dt>Technology challenge</dt><dd>[Processes, systems or integrations involved]</dd>
-                <dt>Approach</dt><dd>[How the engagement was run]</dd>
-                <dt>Automation work</dt><dd>[Workflows, integrations and governance]</dd>
-                <dt>Outcome</dt><dd>[Verified result, agreed with the client]</dd>
-              </dl>
+              <span class="eng-kicker">Typical engagement</span>
+              <h3 class="case-title" style="color:#0D1F22;margin-top:8px">Process automation &amp; integration</h3>
+              <div class="eng-row"><span class="eng-k">Challenge</span><span class="eng-v">Manual, repetitive work and systems that don’t talk to each other.</span></div>
+              <div class="eng-row"><span class="eng-k">Approach</span><span class="eng-v">Discover and assess processes to find where automation pays off first.</span></div>
+              <div class="eng-row"><span class="eng-k">Automation</span><span class="eng-v">Workflow automation, system and API integration, and automation governance.</span></div>
+              <div class="eng-row"><span class="eng-k">Intended outcome</span><span class="eng-v">Consistent operations, with people focused on work that needs judgement.</span></div>
             </div>
           </div>
         </article>
@@ -940,8 +1141,6 @@ section[id] { scroll-margin-top: 84px; }
         <div class="about-main">
           <span class="kicker" data-reveal>About</span>
           <h2 class="h2" id="about-title" data-reveal="major" style="--d:1">An IT consultancy built around how enterprises actually change.</h2>
-          <p data-reveal style="--d:2">In4Rtech Solutions Ltd is an IT consultancy based in Manchester, UK. We help organisations understand their technology landscape, define the architecture they need, and put AI and automation to work in ways that are practical, governed and aligned to business goals.</p>
-          <p data-reveal style="--d:3">We work with technology and business leaders who need a structured, objective view of their estate, whether that’s a focused architecture review or support across a longer transformation.</p>
         </div>
         <aside class="about-side" data-reveal style="--d:2">
           <dl class="facts">
@@ -951,6 +1150,22 @@ section[id] { scroll-margin-top: 84px; }
             <div><dt>Also covering</dt><dd>Technology Strategy · Digital Transformation · Cloud &amp; Platform Modernisation</dd></div>
           </dl>
         </aside>
+      </div>
+      <div class="about-cols">
+        <div class="about-col" data-reveal style="--d:0"><span class="rule" aria-hidden="true"></span><h3>Who we are</h3><p>In4Rtech Solutions Ltd is an IT consultancy based in Manchester, UK. We help organisations understand their technology landscape, define the architecture they need, and put AI and automation to work in ways that are practical, governed and aligned to business goals.</p></div>
+        <div class="about-col" data-reveal style="--d:1"><span class="rule" aria-hidden="true"></span><h3>Who we work with</h3><p>We work with technology and business leaders who need a structured, objective view of their estate, whether that’s a focused architecture review or support across a longer transformation.</p></div>
+      </div>
+      <div class="way" data-reveal="depth">
+        <span class="way-title">How the disciplines connect</span>
+        <svg viewBox="0 0 1100 110" aria-hidden="true" focusable="false">
+          <line x1="90" y1="40" x2="1010" y2="40" stroke="rgba(111,208,199,.3)" stroke-width="2"/>
+          <circle class="way-run" cx="90" cy="40" r="5" fill="#D9FBF6"/>
+          <g fill="#0D1F22" stroke="#6FD0C7" stroke-width="2"><circle cx="90" cy="40" r="13"/><circle cx="397" cy="40" r="13"/><circle cx="703" cy="40" r="13"/></g>
+          <circle cx="1010" cy="40" r="15" fill="#7DBE4E"/>
+          <g text-anchor="middle"><text x="90" y="84">Enterprise Architecture</text><text x="397" y="84">AI</text><text x="703" y="84">Automation</text><text x="1010" y="84">Business outcomes</text></g>
+          <g text-anchor="middle"><text class="sub" x="90" y="104">Defines</text><text class="sub" x="397" y="104">Adds intelligence</text><text class="sub" x="703" y="104">Makes it repeatable</text><text class="sub" x="1010" y="104">Connected enterprise</text></g>
+        </svg>
+        <ul class="way-list"><li><b>Defines</b> · Enterprise Architecture</li><li><b>Adds intelligence</b> · AI</li><li><b>Makes it repeatable</b> · Automation</li><li><b>Result</b> · An intelligent, connected enterprise</li></ul>
       </div>
       <div class="principles">
         <div class="principle" data-reveal style="--d:0"><div class="principle-in"><h3>Strategy balanced with delivery</h3><p>A long-term architecture, and the practical steps that move you towards it now.</p></div></div>
@@ -964,6 +1179,12 @@ section[id] { scroll-margin-top: 84px; }
   <!-- ================= People ================= -->
   <section class="section people" id="people" aria-labelledby="people-title">
     <div class="people-pattern" aria-hidden="true"></div>
+    <svg class="people-arch" viewBox="0 0 1440 900" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" focusable="false">
+      <g stroke="#2FA59C" stroke-opacity=".22" fill="none">
+        <path d="M900 700 L1180 620 L1440 700 M900 600 L1180 520 L1440 600 M900 500 L1180 420 L1440 500"/>
+        <path d="M1180 420 V620 M1040 460 V660 M1310 460 V660" stroke-dasharray="3 6"/>
+      </g>
+    </svg>
     <div class="wrap">
       <div class="head">
         <span class="kicker" data-reveal>People</span>
@@ -981,7 +1202,7 @@ section[id] { scroll-margin-top: 84px; }
         <div class="person-info">
           <h3 class="person-name" data-reveal>Rajneesh Kumar</h3>
           <p class="person-role" data-reveal style="--d:1">Founder &amp; Managing Director</p>
-          <p class="bio-placeholder" data-reveal style="--d:2">[Professional biography to be provided by In4Rtech: background, areas of expertise and the kinds of organisations Rajneesh works with.]</p>
+          <p class="person-lead" data-reveal style="--d:2">Start a conversation with Rajneesh about your technology landscape, architecture, AI or automation priorities.</p>
           <div class="person-actions" data-reveal style="--d:3">
             <a class="btn btn-primary" href="#contact" data-magnetic>Start a conversation<span class="arr" aria-hidden="true">→</span></a>
             <a class="btn btn-ghost" href="mailto:rajneesh@in4rtech.com">rajneesh@in4rtech.com</a>
@@ -1128,6 +1349,45 @@ section[id] { scroll-margin-top: 84px; }
 
   /* Service CTAs pre-select the enquiry area */
   $$('[data-interest]').forEach(function (a) { a.addEventListener('click', function () { var sel = $('#f-area'); if (sel) sel.value = a.getAttribute('data-interest'); }); });
+
+  /* Challenge landscape: hover / focus / click a node to explore it */
+  var land = $('#landscape');
+  if (land) {
+    var lnodes = $$('.lnode', land), llines = $$('.lline', land);
+    var lpCount = $('#lp-count'), lpTitle = $('#lp-title'), lpDesc = $('#lp-desc'), lpTags = $('#lp-tags');
+    var tagHtml = { EA: '<span class="tag">EA</span>', AI: '<span class="tag ai">AI</span>', AUTO: '<span class="tag auto">AUTO</span>' };
+    var setL = function (idx) {
+      lnodes.forEach(function (n, i) { setClass(n, 'on', i === idx); });
+      llines.forEach(function (l, i) { setClass(l, 'on', i === idx); });
+      setClass(land, 'has-on', idx >= 0);
+      if (idx < 0) return;
+      var n = lnodes[idx];
+      lpCount.innerHTML = '0' + (idx + 1) + ' / 08';
+      lpTitle.innerHTML = n.getAttribute('data-title');
+      lpDesc.innerHTML = n.getAttribute('data-desc');
+      var tags = n.getAttribute('data-tags').split(','), h = '';
+      for (var k = 0; k < tags.length; k++) h += tagHtml[tags[k]] + ' ';
+      lpTags.innerHTML = h;
+    };
+    lnodes.forEach(function (n, i) {
+      n.addEventListener('mouseenter', function () { setL(i); });
+      n.addEventListener('focus', function () { setL(i); });
+      n.addEventListener('click', function () { setL(i); });
+    });
+    setL(0);
+  }
+
+  /* Hero: stage indicator follows the pinned scroll */
+  var hTrack = $('#hero-track'), hStages = $$('#hero-stages span');
+  function onScrollHero() {
+    if (!anim || win.innerWidth <= 900 || !hTrack) return;
+    var r = hTrack.getBoundingClientRect(), span = r.height - win.innerHeight;
+    var p = span > 0 ? clamp(-r.top / span) : 0;
+    var idx = p < 0.28 ? 0 : p < 0.55 ? 1 : p < 0.8 ? 2 : 3;
+    hStages.forEach(function (s, i) { setClass(s, 'on', i === idx); });
+  }
+  win.addEventListener('scroll', onScrollHero);
+  onScrollHero();
 
   /* Reveal hierarchy */
   if (anim) {
@@ -1357,7 +1617,19 @@ const SCENES = {
       return { n, holder, obj, curve, line, phase: i * 0.8 };
     });
     const ringCurve = new T.CatmullRomCurve3(nodes.map((d) => d.holder.position.clone()), true);
-    orbit.add(new T.Line(new T.BufferGeometry().setFromPoints(ringCurve.getPoints(160)), new T.LineBasicMaterial({ color: INK, transparent: true, opacity: 0.14 })));
+    const ringLine = new T.Line(new T.BufferGeometry().setFromPoints(ringCurve.getPoints(160)), new T.LineBasicMaterial({ color: INK, transparent: true, opacity: 0.14 }));
+    orbit.add(ringLine);
+
+    // Scroll stage A (Architect): architecture layers form beneath the core
+    const archLayers = [0, 1, 2, 3].map((i) => { const g = new RB(2.5 - i * 0.28, 0.05, 2.5 - i * 0.28, 2, 0.08); const m = new T.Mesh(g, glass(T, i === 3 ? 0xe4f3f1 : 0xffffff, 0.6)); m.add(edgeLines(T, g, TEAL, 0.65)); m.position.y = -1.95 + i * 0.26; m.scale.setScalar(0.001); root.add(m); return m; });
+    // Stage B (Intelligence): chords between capabilities, AI halo, core lights up
+    const chordPts = []; nodes.forEach((d, i) => { [2, 3].forEach((s) => { chordPts.push(d.holder.position.clone(), nodes[(i + s) % 8].holder.position.clone()); }); });
+    const chords = new T.LineSegments(new T.BufferGeometry().setFromPoints(chordPts), new T.LineBasicMaterial({ color: TEAL, transparent: true, opacity: 0 })); orbit.add(chords);
+    const aiHalo = new T.Mesh(new T.TorusGeometry(0.5, 0.012, 8, 80), new T.MeshBasicMaterial({ color: TEAL, transparent: true, opacity: 0 })); aiHalo.rotation.x = Math.PI / 2; nodes[4].holder.add(aiHalo);
+    const coreMat = core.children[1].material; coreMat.emissive = new T.Color(TEAL); coreMat.emissiveIntensity = 0;
+    // Stage C (Automation): work items circulate the orbit pathway
+    const TK = 10, toks = new T.InstancedMesh(new RB(0.1, 0.1, 0.1, 2, 0.02), solid(T, GREEN), TK); toks.frustumCulled = false; orbit.add(toks);
+    const heroTrack = document.getElementById('hero-track');
 
     const P = 16, pm = pulses(T, P, TEAL, 0.038); orbit.add(pm);
     const pz = Array.from({ length: P }, (_, i) => ({ k: i % 8, t: Math.random(), v: 0.18 + Math.random() * 0.14, ring: i >= 8 }));
@@ -1366,29 +1638,42 @@ const SCENES = {
     const dust = new T.Points(dustGeo, new T.PointsMaterial({ color: TEAL, size: 0.028, transparent: true, opacity: 0.55, depthWrite: false })); root.add(dust);
 
     const L = labels(st, [{ text: 'YOUR ORGANISATION', obj: core, off: new T.Vector3(0, -1.3, 0), cls: 'key' }, ...nodes.map((d) => ({ text: d.n, obj: d.holder, off: new T.Vector3(0, -0.5, 0), cls: d.n === 'AI' ? 'key' : '' }))]);
-    st.onResize = () => { const d = Math.max(10.2, 4.5 / (Math.tan(T.MathUtils.degToRad(16)) * camera.aspect)); camera.position.set(0, 1.9, d); camera.lookAt(look); };
+    st.onResize = () => { const d = Math.max(10.2, 4.5 / (Math.tan(T.MathUtils.degToRad(16)) * camera.aspect)); st.baseD = d; camera.position.set(0, 1.9, d); camera.lookAt(look); };
     const m4 = new T.Matrix4(), v = new T.Vector3(), t0 = performance.now();
     st.frame = (t) => {
       const k = reduce ? 1 : clamp((performance.now() - t0) / 2200);
+      // scroll progress through the pinned hero drives the story: architect → intelligence → automation → outcome
+      let sp = reduce ? 0.9 : 0;
+      if (heroTrack && !reduce) { const r = heroTrack.getBoundingClientRect(), span = r.height - innerHeight; sp = span > 50 ? clamp(-r.top / span) : 0; }
+      const A = ease((sp - 0.04) / 0.24), B = ease((sp - 0.3) / 0.24), C = ease((sp - 0.55) / 0.24), D = ease((sp - 0.8) / 0.18);
       orbit.rotation.y = reduce ? 0.3 : t * 0.045;
       root.rotation.y = st.sx * 0.22; root.rotation.x = st.sy * 0.08;
-      camera.position.x = Math.sin(t * 0.12) * 0.5; camera.position.y = 1.9 + Math.sin(t * 0.09) * 0.2; camera.lookAt(look);
+      camera.position.x = Math.sin(t * 0.12) * 0.5; camera.position.y = 1.9 + Math.sin(t * 0.09) * 0.2 + A * 0.5;
+      camera.position.z = (st.baseD || 12) * (1 + D * 0.06); camera.lookAt(look.x, look.y - A * 0.35, look.z);
       core.rotation.y = t * 0.12; shell.rotation.x = t * 0.05; halos[0].rotation.z = t * 0.2; halos[1].rotation.z = -t * 0.15;
-      core.scale.setScalar(0.001 + ease(k * 1.6));
+      core.scale.setScalar((0.001 + ease(k * 1.6)) * (1 + D * 0.08 * (1 + Math.sin(t * 2.4))));
+      coreMat.emissiveIntensity = 0.55 * B;
+      halos[1].material.opacity = 0.55 + 0.45 * D;
+      archLayers.forEach((m, i) => { const s = ease(A * 1.35 - (3 - i) * 0.1); m.scale.setScalar(Math.max(0.001, s)); m.rotation.y = t * 0.05; });
+      chords.material.opacity = 0.32 * B;
+      aiHalo.material.opacity = 0.9 * B; aiHalo.scale.setScalar(1 + Math.sin(t * 2) * 0.08 * B);
+      ringLine.material.opacity = 0.14 + 0.4 * C;
       nodes.forEach((d, i) => {
-        const s = ease((k * 1.4) - i * 0.07); d.holder.scale.setScalar(Math.max(0.001, s) * 1.25);
+        const s = ease((k * 1.4) - i * 0.07); d.holder.scale.setScalar(Math.max(0.001, s) * 1.25 * (i === 4 ? 1 + 0.3 * B : 1));
         d.obj.position.y = reduce ? 0 : Math.sin(t * 0.9 + d.phase) * 0.06;
         d.obj.rotation.y = -orbit.rotation.y + t * 0.2;
-        d.line.material.opacity = 0.4 * s;
-        if (d.obj.userData.spin) d.obj.userData.spin.rotation.y = t * 0.4;
-        if (d.obj.userData.sat) { const a = t * 1.4; d.obj.userData.sat.position.set(Math.cos(a) * 0.2, Math.sin(a) * 0.08, Math.sin(a) * 0.2); }
+        d.line.material.opacity = (0.4 + 0.45 * A) * s;
+        if (d.obj.userData.spin) d.obj.userData.spin.rotation.y = t * (0.4 + B * 1.2);
+        if (d.obj.userData.sat) { const a = t * (1.4 + C * 2.5); d.obj.userData.sat.position.set(Math.cos(a) * 0.2, Math.sin(a) * 0.08, Math.sin(a) * 0.2); }
       });
       pz.forEach((p, i) => {
-        if (!reduce) p.t = (p.t + p.v * 0.012) % 1;
+        if (!reduce) p.t = (p.t + p.v * 0.012 * (p.ring ? 1 + C * 2.5 : 1)) % 1;
         if (p.ring) ringCurve.getPointAt(p.t, v); else nodes[p.k].curve.getPointAt(p.t, v);
         const sc = k > 0.8 ? 1 : 0.001; m4.makeScale(sc, sc, sc).setPosition(v); pm.setMatrixAt(i, m4);
       });
       pm.instanceMatrix.needsUpdate = true;
+      for (let i = 0; i < TK; i++) { ringCurve.getPointAt(((reduce ? 0 : t * 0.05) + i / TK) % 1, v); const sc = Math.max(0.001, C); m4.makeRotationY(t + i).setPosition(v); m4.scale(v.set(sc, sc, sc)); toks.setMatrixAt(i, m4); }
+      toks.instanceMatrix.needsUpdate = true;
       dust.rotation.y = t * 0.01;
       place(T, st, L, v);
       L.forEach((l, i) => { const depth = clamp((l.wz + R) / (2 * R)); l.el.style.opacity = (k > 0.3 + i * 0.05 ? (i === 0 ? 1 : 0.3 + 0.7 * depth) : 0).toFixed(2); });
@@ -1401,11 +1686,12 @@ const SCENES = {
     const st = stage(el, T, { fov: 30 });
     const { scene, camera } = st;
     const root = new T.Group(); scene.add(root);
-    const names = ['CLOUD / INFRASTRUCTURE', 'TECHNOLOGY', 'DATA', 'APPLICATION', 'BUSINESS'];
-    const GAP = 0.66;
+    const names = ['CLOUD / INFRASTRUCTURE', 'TECHNOLOGY', 'INTEGRATION', 'DATA', 'APPLICATION', 'BUSINESS'];
+    const GAP = 0.56;
     const comps = [
       [[-1.05, 0.1], [0, -0.3], [1.05, 0.2]],
       [[-1.15, -0.35], [-0.35, 0.4], [0.5, -0.25], [1.2, 0.45]],
+      [[-0.95, 0.05], [0.15, 0.3], [1.1, -0.2]],
       [[-0.7, 0], [0.55, 0.25]],
       [[-1.0, 0.3], [0, -0.35], [1.0, 0.35]],
       [[-0.75, 0], [0.75, 0]],
@@ -1413,22 +1699,23 @@ const SCENES = {
     const layers = names.map((n, i) => {
       const g = new T.Group(); root.add(g);
       const pg = new RB(3.4, 0.07, 2.3, 2, 0.06);
-      const plate = withEdges(T, pg, glass(T, i === 4 ? 0xe4f3f1 : 0xffffff, 0.62), TEAL, 0.5); g.add(plate);
+      const plate = withEdges(T, pg, glass(T, i === 5 ? 0xe4f3f1 : 0xffffff, 0.62), TEAL, 0.5); g.add(plate);
       const cs = comps[i].map(([x, z]) => {
         let m;
         if (i === 0) m = withEdges(T, new RB(0.52, 0.14, 0.5, 2, 0.03), solid(T, INK, { transparent: true, opacity: 0.9 }), LUM, 0.5);
         else if (i === 1) m = withEdges(T, new RB(0.36, 0.22, 0.36, 2, 0.03), glass(T, 0xdde7e5, 0.95), INK, 0.3);
-        else if (i === 2) m = withEdges(T, new T.CylinderGeometry(0.2, 0.2, 0.24, 36), glass(T, 0xcdeae6, 0.95), INK, 0.3);
-        else if (i === 3) m = withEdges(T, new RB(0.5, 0.14, 0.34, 2, 0.03), solid(T, TEAL, { transparent: true, opacity: 1 }), INK, 0.2);
+        else if (i === 2) m = withEdges(T, new RB(0.5, 0.1, 0.2, 2, 0.05), glass(T, 0xbfe5e0, 0.95), TEAL, 0.7);
+        else if (i === 3) m = withEdges(T, new T.CylinderGeometry(0.2, 0.2, 0.24, 36), glass(T, 0xcdeae6, 0.95), INK, 0.3);
+        else if (i === 4) m = withEdges(T, new RB(0.5, 0.14, 0.34, 2, 0.03), solid(T, TEAL, { transparent: true, opacity: 1 }), INK, 0.2);
         else m = withEdges(T, new RB(0.72, 0.05, 0.46, 2, 0.02), glass(T, 0xffffff, 0.95), INK, 0.35);
-        const hgt = i === 1 ? 0.22 : i === 2 ? 0.24 : i === 4 ? 0.05 : 0.14;
+        const hgt = i === 1 ? 0.22 : i === 2 ? 0.1 : i === 3 ? 0.24 : i === 5 ? 0.05 : 0.14;
         m.position.set(x, 0.035 + hgt / 2, z); g.add(m); m.userData.top = 0.035 + hgt;
         return m;
       });
       const mats = []; g.traverse((o) => { if (o.material) { o.material.transparent = true; mats.push([o.material, o.material.opacity]); } });
       return { g, cs, mats, baseY: i * GAP };
     });
-    const pairs = [[0, 0, 1, 0], [0, 1, 1, 1], [0, 2, 1, 2], [0, 2, 1, 3], [1, 1, 2, 0], [1, 2, 2, 1], [1, 3, 2, 1], [2, 0, 3, 0], [2, 1, 3, 1], [2, 1, 3, 2], [3, 0, 4, 0], [3, 1, 4, 0], [3, 2, 4, 1]];
+    const pairs = [[0, 0, 1, 0], [0, 1, 1, 1], [0, 2, 1, 2], [0, 2, 1, 3], [1, 0, 2, 0], [1, 1, 2, 1], [1, 2, 2, 1], [1, 3, 2, 2], [2, 0, 3, 0], [2, 1, 3, 1], [2, 2, 3, 1], [3, 0, 4, 0], [3, 1, 4, 1], [3, 1, 4, 2], [4, 0, 5, 0], [4, 1, 5, 0], [4, 2, 5, 1]];
     const lp = new Float32Array(pairs.length * 6), lg = new T.BufferGeometry(); lg.setAttribute('position', new T.BufferAttribute(lp, 3));
     const lines = new T.LineSegments(lg, new T.LineBasicMaterial({ color: TEAL, transparent: true, opacity: 0.85 })); root.add(lines);
     const P = 10, pm = pulses(T, P, TEAL, 0.035); root.add(pm);
@@ -1438,16 +1725,16 @@ const SCENES = {
     st.frame = (t) => {
       const p = st.progress, q = reduce ? 1 : clamp((p - 0.12) / 0.45);
       const th = 0.95 - p * 0.45 + st.sx * 0.12, r = 8.6;
-      camera.position.set(Math.sin(th) * r, 5.1 - p * 1.9 - st.sy * 0.4, Math.cos(th) * r); camera.lookAt(0, 1.35, 0);
+      camera.position.set(Math.sin(th) * r, 5.3 - p * 1.9 - st.sy * 0.4, Math.cos(th) * r); camera.lookAt(0, 1.45, 0);
       const appear = layers.map((Lr, i) => {
-        const s = ease((q - i * 0.13) / 0.28);
+        const s = ease((q - i * 0.11) / 0.26);
         Lr.g.position.y = Lr.baseY - (1 - s) * 0.9 + (reduce ? 0 : Math.sin(t * 0.8 + i) * 0.015);
         Lr.mats.forEach(([m, o]) => { m.opacity = o * s; });
         return s;
       });
       root.updateMatrixWorld(true);
       pairs.forEach(([la, ca, lb, cb], k) => {
-        const g = clamp((q - (la * 0.13 + 0.32)) / 0.22) * (appear[lb] > 0.9 ? 1 : 0);
+        const g = clamp((q - (la * 0.11 + 0.3)) / 0.2) * (appear[lb] > 0.9 ? 1 : 0);
         const A = layers[la].cs[ca], B = layers[lb].cs[cb];
         a.set(0, A.userData.top - A.position.y, 0); A.localToWorld(a);
         b.set(0, -B.position.y + 0.035 - 0.07, 0); B.localToWorld(b);
@@ -1595,9 +1882,9 @@ const SCENES = {
     // three disciplines
     const P0 = [new T.Vector3(-3.1, -0.35, 0.5), new T.Vector3(0, 1.05, -1.7), new T.Vector3(3.1, -0.35, 0.5)];
     const objs = [
-      () => { const g = new T.Group(); for (let i = 0; i < 4; i++) { const pg = new RB(1.05, 0.07, 1.05, 2, 0.05); const p = new T.Mesh(pg, darkGlass(0xd6f3ef, 0.22 + i * 0.06)); p.add(edgeLines(T, pg, LUM, 0.85)); p.position.y = i * 0.22 - 0.33; g.add(p); } return g; },
-      () => { const g = new T.Group(); const ig = new T.IcosahedronGeometry(0.62, 1); const s = new T.Mesh(ig, darkGlass(0xd6f3ef, 0.14)); s.add(edgeLines(T, ig, LUM, 0.9, 1)); g.add(s); const vp = ig.attributes.position; const seen = {}; for (let i = 0; i < vp.count; i++) { const k = vp.getX(i).toFixed(2) + vp.getY(i).toFixed(2) + vp.getZ(i).toFixed(2); if (seen[k]) continue; seen[k] = 1; const n = new T.Mesh(new T.SphereGeometry(0.035, 10, 10), new T.MeshBasicMaterial({ color: LUM })); n.position.set(vp.getX(i), vp.getY(i), vp.getZ(i)); s.add(n); } g.add(new T.Mesh(new T.SphereGeometry(0.2, 24, 24), solid(T, LUM, { emissive: LUM, emissiveIntensity: 0.4 }))); g.userData.spin = s; return g; },
-      () => { const g = new T.Group(); const tr = new T.Mesh(new T.TorusGeometry(0.55, 0.09, 18, 80), darkGlass(0xd6f3ef, 0.3)); tr.rotation.x = Math.PI / 2.3; g.add(tr); g.userData.ring = tr; g.userData.sats = [0, 1, 2, 3].map((i) => { const s = new T.Mesh(new RB(0.11, 0.11, 0.11, 2, 0.02), solid(T, i ? LUM : GREEN, { emissive: i ? LUM : GREEN, emissiveIntensity: 0.3 })); g.add(s); return s; }); return g; },
+      () => { const g = new T.Group(); g.userData.plates = []; for (let i = 0; i < 4; i++) { const pg = new RB(1.05, 0.07, 1.05, 2, 0.05); const p = new T.Mesh(pg, darkGlass(0xd6f3ef, 0.22 + i * 0.06)); p.add(edgeLines(T, pg, LUM, 0.85)); p.position.y = i * 0.22 - 0.33; p.userData.y = p.position.y; g.add(p); g.userData.plates.push(p); } return g; },
+      () => { const g = new T.Group(); const ig = new T.IcosahedronGeometry(0.62, 1); const s = new T.Mesh(ig, darkGlass(0xd6f3ef, 0.14)); s.add(edgeLines(T, ig, LUM, 0.9, 1)); g.add(s); const vp = ig.attributes.position; const seen = {}; for (let i = 0; i < vp.count; i++) { const k = vp.getX(i).toFixed(2) + vp.getY(i).toFixed(2) + vp.getZ(i).toFixed(2); if (seen[k]) continue; seen[k] = 1; const n = new T.Mesh(new T.SphereGeometry(0.035, 10, 10), new T.MeshBasicMaterial({ color: LUM })); n.position.set(vp.getX(i), vp.getY(i), vp.getZ(i)); s.add(n); } g.add(new T.Mesh(new T.SphereGeometry(0.2, 24, 24), solid(T, LUM, { emissive: LUM, emissiveIntensity: 0.4 }))); const og = new T.IcosahedronGeometry(0.62, 2); const outer = new T.LineSegments(new T.EdgesGeometry(og, 1), new T.LineBasicMaterial({ color: LUM, transparent: true, opacity: 0 })); outer.scale.setScalar(1.5); g.add(outer); g.userData.outer = outer; g.userData.spin = s; return g; },
+      () => { const g = new T.Group(); const tr = new T.Mesh(new T.TorusGeometry(0.55, 0.09, 18, 80), darkGlass(0xd6f3ef, 0.3)); tr.rotation.x = Math.PI / 2.3; g.add(tr); g.userData.ring = tr; g.userData.speed = 0; g.userData.sats = [0, 1, 2, 3].map((i) => { const s = new T.Mesh(new RB(0.11, 0.11, 0.11, 2, 0.02), solid(T, i ? LUM : GREEN, { emissive: i ? LUM : GREEN, emissiveIntensity: 0.3 })); g.add(s); return s; }); return g; },
     ];
     const items = P0.map((p, i) => {
       const g = new T.Group(); g.position.copy(p); root.add(g);
@@ -1605,6 +1892,8 @@ const SCENES = {
       const hit = new T.Mesh(new T.SphereGeometry(1.15, 12, 12), new T.MeshBasicMaterial({ visible: false })); hit.userData.idx = i; g.add(hit);
       return { g, o, hit, base: p.clone(), h: 0 };
     });
+    const centerHit = new T.Mesh(new T.SphereGeometry(0.95, 12, 12), new T.MeshBasicMaterial({ visible: false })); centerHit.userData.idx = 3; center.add(centerHit);
+    let hc = 0;
     // relationships: EA→AI, AI→Automation, and each → outcomes
     const beamDefs = [[0, 1], [1, 2], [0, 3], [1, 3], [2, 3]];
     const posOf = (i) => (i === 3 ? center.position : items[i].g.position);
@@ -1617,34 +1906,40 @@ const SCENES = {
       { text: 'AUTOMATION', obj: items[2].g, off: new T.Vector3(0, -1.05, 0) },
       { text: 'BUSINESS OUTCOMES', obj: center, off: new T.Vector3(0, -1.05, 0), cls: 'key' },
     ]);
-    const cards = Array.prototype.slice.call(document.querySelectorAll('.pillar[data-pillar]'));
+    const cards = Array.prototype.slice.call(document.querySelectorAll('[data-pillar]'));
     const caption = document.getElementById('pillars-caption');
-    const captions = ['<b>Defines</b> · Enterprise Architecture sets how the ecosystem should work', '<b>Adds intelligence</b> · AI builds on data the architecture makes reliable', '<b>Makes it repeatable</b> · Automation turns capabilities into governed workflows'];
+    const captions = ['<b>Defines</b> · Enterprise Architecture sets how the ecosystem should work', '<b>Adds intelligence</b> · AI builds on data the architecture makes reliable', '<b>Makes it repeatable</b> · Automation turns capabilities into governed workflows', '<b>Business outcomes</b> · all three disciplines connect'];
     let sceneHover = -1, cardHover = -1, active = -1;
-    cards.forEach((c, i) => { const on = () => { cardHover = i; }; const off = () => { cardHover = -1; }; c.addEventListener('mouseenter', on); c.addEventListener('mouseleave', off); c.addEventListener('focusin', on); c.addEventListener('focusout', off); });
+    cards.forEach((c) => { const i = +c.getAttribute('data-pillar'); const on = () => { cardHover = i; }; const off = () => { cardHover = -1; }; c.addEventListener('mouseenter', on); c.addEventListener('mouseleave', off); c.addEventListener('focusin', on); c.addEventListener('focusout', off); });
     const ray = new T.Raycaster(), ndc = new T.Vector2();
     st.onResize = () => { const d = Math.max(9.2, 4.9 / (Math.tan(T.MathUtils.degToRad(15)) * camera.aspect)); camera.position.set(0, 1.9, d); camera.lookAt(look); };
     const v = new T.Vector3(), m4 = new T.Matrix4(), toCam = new T.Vector3();
     st.frame = (t) => {
-      if (st.px != null) { ndc.set(st.px / st.w * 2 - 1, -(st.py / st.h) * 2 + 1); ray.setFromCamera(ndc, camera); const hit = ray.intersectObjects(items.map((it) => it.hit), false)[0]; sceneHover = hit ? hit.object.userData.idx : -1; } else sceneHover = -1;
+      if (st.px != null) { ndc.set(st.px / st.w * 2 - 1, -(st.py / st.h) * 2 + 1); ray.setFromCamera(ndc, camera); const hit = ray.intersectObjects(items.map((it) => it.hit).concat([centerHit]), false)[0]; sceneHover = hit ? hit.object.userData.idx : -1; } else sceneHover = -1;
       const next = cardHover >= 0 ? cardHover : sceneHover;
-      if (next !== active) { active = next; cards.forEach((c, i) => c.classList.toggle('is-on', i === active)); caption.innerHTML = active >= 0 ? captions[active] : 'Hover a discipline to see how it connects'; }
+      if (next !== active) { active = next; cards.forEach((c) => c.classList.toggle('is-on', +c.getAttribute('data-pillar') === active)); caption.innerHTML = active >= 0 ? captions[active] : 'Hover a discipline to see how it connects'; }
       st.el.style.cursor = sceneHover >= 0 ? 'pointer' : '';
       root.rotation.y = st.sx * 0.12 + Math.sin(t * 0.15) * 0.05; root.rotation.x = st.sy * 0.05;
-      center.rotation.y = t * 0.2; shell.rotation.x = t * 0.08; heart.scale.setScalar(1 + Math.sin(t * 2) * 0.04);
+      const allOn = active === 3;
+      hc += ((allOn ? 1 : 0) - hc) * 0.1;
+      center.rotation.y = t * (0.2 + hc * 0.4); shell.rotation.x = t * 0.08; heart.scale.setScalar((1 + Math.sin(t * 2) * 0.04) * (1 + hc * 0.25)); center.scale.setScalar(1 + hc * 0.12);
       items.forEach((it, i) => {
-        it.h += ((i === active ? 1 : 0) - it.h) * 0.1;
+        it.h += ((i === active ? 1 : allOn ? 0.4 : 0) - it.h) * 0.1;
+        const ud = it.o.userData;
+        if (ud.plates) ud.plates.forEach((pl) => { pl.position.y = pl.userData.y * (1 + it.h * 1.1); });
+        if (ud.outer) { ud.outer.material.opacity = 0.55 * it.h; ud.outer.rotation.y = -t * 0.3; ud.outer.scale.setScalar(1.35 + it.h * 0.2 + Math.sin(t * 2) * 0.03 * it.h); }
+        if (ud.ring) { ud.speed += ((1 + it.h * 2.5) - ud.speed) * 0.08; ud.ring.material.opacity = 0.3 + 0.35 * it.h; }
         toCam.copy(camera.position).sub(it.base).normalize();
         it.g.position.copy(it.base).addScaledVector(toCam, it.h * 1.1);
         it.g.position.y += reduce ? 0 : Math.sin(t * 0.8 + i * 2) * 0.06;
         it.g.scale.setScalar(1 + it.h * 0.14);
         it.o.rotation.y = t * 0.18 + i;
         if (it.o.userData.spin) it.o.userData.spin.rotation.x = t * 0.15;
-        if (it.o.userData.sats) it.o.userData.sats.forEach((s, j) => { const a = t * 0.9 + j * Math.PI / 2; v.set(Math.cos(a) * 0.55, 0, Math.sin(a) * 0.55).applyEuler(it.o.userData.ring.rotation); s.position.copy(v); s.rotation.y = a; });
+        if (it.o.userData.sats) it.o.userData.sats.forEach((s, j) => { const a = t * 0.9 * (it.o.userData.speed || 1) + j * Math.PI / 2; v.set(Math.cos(a) * 0.55, 0, Math.sin(a) * 0.55).applyEuler(it.o.userData.ring.rotation); s.position.copy(v); s.rotation.y = a; });
       });
       beams.forEach((bm) => {
         const pa = posOf(bm.a), pb = posOf(bm.b); bm.geo.attributes.position.setXYZ(0, pa.x, pa.y, pa.z); bm.geo.attributes.position.setXYZ(1, pb.x, pb.y, pb.z); bm.geo.attributes.position.needsUpdate = true;
-        const lit = active >= 0 && (bm.a === active || bm.b === active);
+        const lit = allOn || (active >= 0 && (bm.a === active || bm.b === active));
         const target = active < 0 ? 0.35 : lit ? 1 : 0.1;
         bm.line.material.opacity += (target - bm.line.material.opacity) * 0.12;
       });
@@ -1658,7 +1953,7 @@ const SCENES = {
       });
       pm.instanceMatrix.needsUpdate = true;
       place(T, st, L, v);
-      L.forEach((l, i) => { l.el.style.opacity = (active < 0 || i === active || i === 3 ? 1 : 0.35).toString(); });
+      L.forEach((l, i) => { l.el.style.opacity = (active < 0 || allOn || i === active || i === 3 ? 1 : 0.35).toString(); });
     };
     st.start();
   },
